@@ -32,23 +32,11 @@ function validateForm() {
 }
 function showCreditCardFields() {
     var creditCardFields = document.getElementById("creditCardFields");
-    var creditCardRadio = document.getElementById("creditCard");
-    var convenienceStoreRadio = document.getElementById("convenienceStore");
-    var cashOnDeliveryRadio = document.getElementById("cashOnDelivery");
-    var installmentPaymentRadio = document.getElementById("installmentPayment");
-  
-    if (creditCardRadio.checked) {
-      creditCardFields.style.display = "block";
-    } else {
-      creditCardFields.style.display = "none";
+    creditCardFields.style.display = "block";
+  }
 
-      if (
-        !convenienceStoreRadio.checked &&
-        !cashOnDeliveryRadio.checked &&
-        !installmentPaymentRadio.checked
-      ) {
-        alert("支払い方法を選択してください。");
-      }
-    }
+  function hideCreditCardFields() {
+    var creditCardFields = document.getElementById("creditCardFields");
+    creditCardFields.style.display = "none";
   }
   

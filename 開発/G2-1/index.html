@@ -137,24 +137,23 @@
       <div class="tab_content" id="payment_method_content">
         <div class="tab_content_description">
           <div class="form-group">
-            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onchange="showCreditCardFields()"> クレジットカード
-            <input type="radio" id="convenienceStore" name="paymentMethod" value="convenienceStore"> コンビニ支払い
-            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery"> 代金引換
-            <input type="radio" id="installmentPayment" name="paymentMethod" value="installmentPayment"> ツケ払い
+            <input type="radio" id="convenienceStore" name="paymentMethod" value="convenienceStore" checked="checked" onclick="hideCreditCardFields()"> コンビニ支払い
+            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery" onclick="hideCreditCardFields()"> 代金引換
+            <input type="radio" id="installmentPayment" name="paymentMethod" value="installmentPayment" onclick="hideCreditCardFields()"> ツケ払い
+            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onclick="showCreditCardFields()"> クレジットカード
           </div>
-          
-
+      
           <div id="creditCardFields" style="display: none;">
             <div class="form-group">
               <label for="cardNumber"><span class="black-text">カード番号</span><span class="red-text">（必須）</span></label>
               <input type="text" id="cardNumber" name="cardNumber">
             </div>
-          
+      
             <div class="form-group">
               <label for="expiryDate"><span class="black-text">有効期限</span><span class="red-text">（必須）</span></label>
               <input type="text" id="expiryDate" name="expiryDate">
             </div>
-          
+      
             <div class="form-group">
               <label for="securityCode"><span class="black-text">セキュリティコード</span><span class="red-text">（必須）</span></label>
               <input type="text" id="securityCode" name="securityCode">
@@ -163,6 +162,7 @@
         </div>
       </div>
     </div>
+    
     
 		<!-- ここまで書き換えてください -->
 	</body>
