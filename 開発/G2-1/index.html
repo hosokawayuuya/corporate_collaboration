@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="script/script.js">
+    <script src="script/script.js"></script>
     <style>
       .error {
           color: red;
@@ -19,6 +19,7 @@
   </head>
 	<body>
 		<!-- ここから書き換えてください -->
+    
     <div class="tabs">
       <input id="user_info_tab" type="radio" name="tab_group" checked>
       <label class="tab_label" for="user_info_tab">ユーザー情報</label>
@@ -34,73 +35,68 @@
           <div class="form-group">
             <label for="lastName"><span class="black-text">姓</span><span class="red-text">（必須）</span></label>
             <input type="text" id="lastName" name="lastName">
-            <span id="lastNameError" class="error"></span><br><br>
+            <span id="lastNameError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="firstName"><span class="black-text">名</span><span class="red-text">（必須）</span></label>
             <input type="text" id="firstName" name="firstName">
-            <span id="firstNameError" class="error"></span><br><br>
+            <span id="firstNameError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="seiyomi"><span class="black-text">セイ</span><span class="red-text">（必須）</span></label>
             <input type="text" id="seiyomi" name="seiyomi">
-            <span id="seiyomiError" class="error"></span><br><br>
+            <span id="seiyomiError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="meiyomi"><span class="black-text">カナ</span><span class="red-text">（必須）</span></label>
             <input type="text" id="meiyomi" name="meiyomi">
-            <span id="meiyomiError" class="error"></span><br><br>
+            <span id="meiyomiError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="phoneNumber"><span class="black-text">電話番号</span><span class="red-text">（必須）</span></label>
             <input type="text" id="phoneNumber" name="phoneNumber" oninput="restrictToNumeric(this)">
-            <span id="phoneNumberError" class="error"></span><br><br>
+            <span id="phoneNumberError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="email"><span class="black-text">メールアドレス</span><span class="red-text">（必須）</span></label>
             <input type="text" id="email" name="email">
-            <span id="emailError" class="error"></span><br><br>
+            <span id="emailError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="username"><span class="black-text">ユーザー名</span><span class="red-text">（必須）</span></label>
             <input type="text" id="username" name="username">
-            <span id="usernameError" class="error"></span><br><br>
+            <span id="usernameError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="confirmUsername"><span class="black-text">ユーザー名確認</span><span class="red-text">（必須）</span></label>
             <input type="text" id="confirmUsername" name="confirmUsername">
-            <span id="confirmUsernameError" class="error"></span><br><br>
+            <span id="confirmUsernameError" class="error"></span>
           </div>
 
             <div class="form-group">
             <label for="password"><span class="black-text">パスワード</span><span class="red-text">（必須）</span></label>
             <input type="password" id="password" name="password">
-            <span id="passwordError" class="error"></span><br><br>
+            <span id="passwordError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="confirmPassword"><span class="black-text">パスワード確認</span><span class="red-text">（必須）</span></label>
             <input type="password" id="confirmPassword" name="confirmPassword">
-            <span id="confirmPasswordError" class="error"></span><br><br>
+            <span id="confirmPasswordError" class="error"></span>
           </div>
-
-            <input type="submit" value="送信">
         </form>
-    
-        
       
         </div>
       </div>
       <div class="tab_content" id="address_content">
         <div class="tab_content_description">
-          <p class="content_text">住所の内容がここに入ります</p>
           
 <div class="form-group">
   <label for="postalCode"><span class="black-text">郵便番号</span><span class="red-text">（必須）</span></label>
@@ -136,12 +132,34 @@
   <input type="text" id="buildingName" name="buildingName" placeholder="例: ○○マンション-123">
   <span id="buildingNameError" class="error"></span>
 </div>
-<input type="submit" value="送信">
         </div>
       </div>
       <div class="tab_content" id="payment_method_content">
         <div class="tab_content_description">
-          <p class="content_text">支払方法の内容がここに入ります</p>
+          <div class="form-group">
+            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onchange="showCreditCardFields()"> クレジットカード
+            <input type="radio" id="convenienceStore" name="paymentMethod" value="convenienceStore"> コンビニ支払い
+            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery"> 代金引換
+            <input type="radio" id="installmentPayment" name="paymentMethod" value="installmentPayment"> ツケ払い
+          </div>
+          
+
+          <div id="creditCardFields" style="display: none;">
+            <div class="form-group">
+              <label for="cardNumber"><span class="black-text">カード番号</span><span class="red-text">（必須）</span></label>
+              <input type="text" id="cardNumber" name="cardNumber">
+            </div>
+          
+            <div class="form-group">
+              <label for="expiryDate"><span class="black-text">有効期限</span><span class="red-text">（必須）</span></label>
+              <input type="text" id="expiryDate" name="expiryDate">
+            </div>
+          
+            <div class="form-group">
+              <label for="securityCode"><span class="black-text">セキュリティコード</span><span class="red-text">（必須）</span></label>
+              <input type="text" id="securityCode" name="securityCode">
+            </div>
+          </div>
         </div>
       </div>
     </div>

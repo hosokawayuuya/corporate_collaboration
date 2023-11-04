@@ -1,39 +1,54 @@
+function validateForm() {
+    var isValid = true;
+    var requiredFields = ["lastName", "firstName", "seiyomi", "meiyomi", "phoneNumber", "email", "username", "confirmUsername", "password", "confirmPassword"];
+    
+    for (var i = 0; i < requiredFields.length; i++) {
+        var fieldName = requiredFields[i];
+        var fieldValue = document.getElementById(fieldName).value;
+        var errorElement = document.getElementById(fieldName + "Error");
 
-          function restrictToNumeric(inputField) {
-              inputField.value = inputField.value.replace(/[^0-9]/g, '');
-      
-          }
-      
-          function validateForm() {
-              var isValid = true;
-              var requiredFields = ["lastName", "firstName", "seiyomi", "meiyomi", "phoneNumber", "email", "username", "confirmUsername", "password", "confirmPassword"];
-      
-              for (var i = 0; i < requiredFields.length; i++) {
-                  var fieldName = requiredFields[i];
-                  var fieldValue = document.getElementById(fieldName).value;
-                  var errorElement = document.getElementById(fieldName + "Error");
-      
-                  if (fieldValue === "") {
-                      errorElement.textContent = "入力されていません";
-                      isValid = false;
-                  } else {
-                      errorElement.textContent = "";
-                  }
-              }
-      
-              if (document.getElementById("username").value !== document.getElementById("confirmUsername").value) {
-                  document.getElementById("confirmUsernameError").textContent = "ユーザー名が一致しません";
-                  isValid = false;
-              } else {
-                  document.getElementById("confirmUsernameError").textContent = "";
-              }
-      
-              if (document.getElementById("password").value !== document.getElementById("confirmPassword").value) {
-                  document.getElementById("confirmPasswordError").textContent = "パスワードが一致しません";
-                  isValid = false;
-              } else {
-                  document.getElementById("confirmPasswordError").textContent = "";
-              }
-      
-              return isValid;
-          }
+        if (fieldValue === "") {
+            errorElement.textContent = "入力されていません";
+            isValid = false;
+        } else {
+            errorElement.textContent = ""; 
+        }
+    }
+
+    if (document.getElementById("username").value !== document.getElementById("confirmUsername").value) {
+        document.getElementById("confirmUsernameError").textContent = "ユーザー名が一致しません";
+        isValid = false;
+    } else {
+        document.getElementById("confirmUsernameError").textContent = "";
+    }
+    if (document.getElementById("password").value !== document.getElementById("confirmPassword").value) {
+        document.getElementById("confirmPasswordError").textContent = "パスワードが一致しません";
+        isValid = false;
+    } else {
+        document.getElementById("confirmPasswordError").textContent = "";
+    }
+
+    return isValid;
+}
+function showCreditCardFields() {
+    var creditCardFields = document.getElementById("creditCardFields");
+    var creditCardRadio = document.getElementById("creditCard");
+    var convenienceStoreRadio = document.getElementById("convenienceStore");
+    var cashOnDeliveryRadio = document.getElementById("cashOnDelivery");
+    var installmentPaymentRadio = document.getElementById("installmentPayment");
+  
+    if (creditCardRadio.checked) {
+      creditCardFields.style.display = "block";
+    } else {
+      creditCardFields.style.display = "none";
+
+      if (
+        !convenienceStoreRadio.checked &&
+        !cashOnDeliveryRadio.checked &&
+        !installmentPaymentRadio.checked
+      ) {
+        alert("支払い方法を選択してください。");
+      }
+    }
+  }
+  

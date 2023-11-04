@@ -43,8 +43,7 @@
     color: #fff;
   }
   input[type="text"],
-  input[type="password"] {
-    width: 70%;
+input[type="password"] {
     border: 1px solid #000;
 }
   .black-text {
