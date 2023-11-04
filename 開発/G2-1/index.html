@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+      .error {
+          color: red;
+          display: block;
+      }
+  </style>
   </head>
 	<body>
 		<!-- ここから書き換えてください -->
@@ -22,6 +28,91 @@
       <div class="tab_content" id="user_info_content">
         <div class="tab_content_description">
           <p class="content_text">ユーザー情報の内容がここに入ります</p>
+          <form id="myForm" onsubmit="return validateForm()">
+            <label for="lastName"><span class="black-text">姓</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="lastName" name="lastName">
+            <span id="lastNameError" class="error"></span><br><br>
+    
+            <label for="firstName"><span class="black-text">名</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="firstName" name="firstName">
+            <span id="firstNameError" class="error"></span><br><br>
+    
+            <label for="seiyomi"><span class="black-text">セイ</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="seiyomi" name="seiyomi">
+            <span id="seiyomiError" class="error"></span><br><br>
+    
+            <label for="meiyomi"><span class="black-text">カナ</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="meiyomi" name="meiyomi">
+            <span id="meiyomiError" class="error"></span><br><br>
+    
+            <label for="phoneNumber"><span class="black-text">電話番号</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="phoneNumber" name="phoneNumber" oninput="restrictToNumeric(this)">
+            <span id="phoneNumberError" class="error"></span><br><br>
+
+            <label for="email"><span class="black-text">メールアドレス</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="email" name="email">
+            <span id="emailError" class="error"></span><br><br>
+    
+            <label for="username"><span class="black-text">ユーザー名</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="username" name="username">
+            <span id="usernameError" class="error"></span><br><br>
+    
+            <label for="confirmUsername"><span class="black-text">ユーザー名確認</span><span class="red-text">（必須）</span></label>
+            <input type="text" id="confirmUsername" name="confirmUsername">
+            <span id="confirmUsernameError" class="error"></span><br><br>
+    
+            <label for="password"><span class="black-text">パスワード</span><span class="red-text">（必須）</span></label>
+            <input type="password" id="password" name="password">
+            <span id="passwordError" class="error"></span><br><br>
+    
+            <label for="confirmPassword"><span class="black-text">パスワード確認</span><span class="red-text">（必須）</span></label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+            <span id="confirmPasswordError" class="error"></span><br><br>
+    
+            <input type="submit" value="送信">
+        </form>
+    
+        <script>
+          function restrictToNumeric(inputField) {
+              inputField.value = inputField.value.replace(/[^0-9]/g, '');
+      
+          }
+      
+          function validateForm() {
+              var isValid = true;
+              var requiredFields = ["lastName", "firstName", "seiyomi", "meiyomi", "phoneNumber", "email", "username", "confirmUsername", "password", "confirmPassword"];
+      
+              for (var i = 0; i < requiredFields.length; i++) {
+                  var fieldName = requiredFields[i];
+                  var fieldValue = document.getElementById(fieldName).value;
+                  var errorElement = document.getElementById(fieldName + "Error");
+      
+                  if (fieldValue === "") {
+                      errorElement.textContent = "入力されていません";
+                      isValid = false;
+                  } else {
+                      errorElement.textContent = "";
+                  }
+              }
+      
+              if (document.getElementById("username").value !== document.getElementById("confirmUsername").value) {
+                  document.getElementById("confirmUsernameError").textContent = "ユーザー名が一致しません";
+                  isValid = false;
+              } else {
+                  document.getElementById("confirmUsernameError").textContent = "";
+              }
+      
+              if (document.getElementById("password").value !== document.getElementById("confirmPassword").value) {
+                  document.getElementById("confirmPasswordError").textContent = "パスワードが一致しません";
+                  isValid = false;
+              } else {
+                  document.getElementById("confirmPasswordError").textContent = "";
+              }
+      
+              return isValid;
+          }
+      </script>
+      
         </div>
       </div>
       <div class="tab_content" id="address_content">
