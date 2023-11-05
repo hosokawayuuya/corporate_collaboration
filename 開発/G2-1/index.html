@@ -8,162 +8,72 @@
     <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
-    <link rel="stylesheet" href="css/style.css">
-    <script src="script/script.js"></script>
-    <style>
-      .error {
-          color: red;
-          display: block;
-      }
-  </style>
   </head>
 	<body>
 		<!-- ここから書き換えてください -->
-    
-    <div class="tabs">
-      <input id="user_info_tab" type="radio" name="tab_group" checked>
-      <label class="tab_label" for="user_info_tab">ユーザー情報</label>
-      <input id="address_tab" type="radio" name="tab_group">
-      <label class="tab_label" for="address_tab">住所</label>
-      <input id="payment_method_tab" type="radio" name="tab_group">
-      <label class="tab_label" for="payment_method_tab">支払方法</label>
-      <div class="tab_content" id="user_info_content">
-        <div class="tab_content_description">
+    <style>
+      body {
+        background-image: url('sample/backimage.jpg'); 
+      }
+    </style>
+    <div class="container">
+			<h1 class="my-4">あなたへのおすすめ</h1>
+	
+			<div class="row">
+				<div class="col-md-4 mb-4">
+					<div class="card">
+            <h1 class="card-text">キャッチコピー</h1>
+						<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
+						<div class="card-body">
+							<h5 class="card-title">商品1</h5>
+							<p class="card-text">商品1の説明文がここに入ります。</p>
+							<p class="card-text font-weight-bold">評価</p>
+							<p class="card-text font-weight-bold">1,000円</p>
+						</div>
+					</div>
+				</div>
+	
+				<div class="col-md-4 mb-4">
+					<div class="card">
+            <h1 class="card-text">キャッチコピー</h1>
+						<img src="sample/product2.jpg" class="card-img-top" alt="商品2の画像">
+						<div class="card-body">
+							<h5 class="card-title">商品2</h5>
+							<p class="card-text">商品2の説明文がここに入ります。</p>
+							<p class="card-text font-weight-bold">評価</p>
+							<p class="card-text font-weight-bold">1,500円</p>
+						</div>
+					</div>
+				</div>
 
-          <form id="myForm" onsubmit="return validateForm()">
-
-          <div class="form-group">
-            <label for="lastName"><span class="black-text">姓</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="lastName" name="lastName">
-            <span id="lastNameError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="firstName"><span class="black-text">名</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="firstName" name="firstName">
-            <span id="firstNameError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="seiyomi"><span class="black-text">セイ</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="seiyomi" name="seiyomi">
-            <span id="seiyomiError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="meiyomi"><span class="black-text">カナ</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="meiyomi" name="meiyomi">
-            <span id="meiyomiError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="phoneNumber"><span class="black-text">電話番号</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="phoneNumber" name="phoneNumber" oninput="restrictToNumeric(this)">
-            <span id="phoneNumberError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="email"><span class="black-text">メールアドレス</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="email" name="email">
-            <span id="emailError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="username"><span class="black-text">ユーザー名</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="username" name="username">
-            <span id="usernameError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="confirmUsername"><span class="black-text">ユーザー名確認</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="confirmUsername" name="confirmUsername">
-            <span id="confirmUsernameError" class="error"></span>
-          </div>
-
-            <div class="form-group">
-            <label for="password"><span class="black-text">パスワード</span><span class="red-text">（必須）</span></label>
-            <input type="password" id="password" name="password">
-            <span id="passwordError" class="error"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="confirmPassword"><span class="black-text">パスワード確認</span><span class="red-text">（必須）</span></label>
-            <input type="password" id="confirmPassword" name="confirmPassword">
-            <span id="confirmPasswordError" class="error"></span>
-          </div>
-        </form>
-      
-        </div>
+        <div class="col-md-4 mb-4">
+					<div class="card">
+            <h1 class="card-text">キャッチコピー</h1>
+						<img src="sample/product3.jpg" class="card-img-top" alt="商品2の画像">
+						<div class="card-body">
+							<h5 class="card-title">商品3</h5>
+							<p class="card-text">商品3の説明文がここに入ります。</p>
+							<p class="card-text font-weight-bold">評価</p>
+							<p class="card-text font-weight-bold">1,500円</p>
+						</div>
+					</div>
+				</div>
       </div>
-      <div class="tab_content" id="address_content">
-        <div class="tab_content_description">
-          
-<div class="form-group">
-  <label for="postalCode"><span class="black-text">郵便番号</span><span class="red-text">（必須）</span></label>
-  <input type="text" id="postalCode" name="postalCode" placeholder="例: 000-0000">
-  <span id="postalCodeError" class="error"></span>
-</div>
-
-
-<div class="form-group">
-  <label for="prefecture"><span class="black-text">都道府県</span><span class="red-text">（必須）</span></label>
-  <select id="prefecture" name="prefecture">
-      <option value="">都道府県を選択してください</option>
-      <option value="北海道">北海道</option>
-      <option value="青森県">青森県</option>
-  </select>
-  <span id="prefectureError" class="error"></span>
-</div>
-
-<div class="form-group">
-  <label for="city"><span class="black-text">市区町村</span><span class="red-text">（必須）</span></label>
-  <input type="text" id="city" name="city" placeholder="市区町村を入力してください">
-  <span id="cityError" class="error"></span>
-</div>
-
-<div class="form-group">
-  <label for="streetAddress"><span class="black-text">丁目・番地・号</span><span class="red-text">（必須）</span></label>
-  <input type="text" id="streetAddress" name="streetAddress" placeholder="例: 1-2-3">
-  <span id="streetAddressError" class="error"></span>
-</div>
-
-<div class="form-group">
-  <label for="buildingName"><span class="black-text">建物名</span></label>
-  <input type="text" id="buildingName" name="buildingName" placeholder="例: ○○マンション-123">
-  <span id="buildingNameError" class="error"></span>
-</div>
-        </div>
+      <div class="container1">
+        <h1 class="my-4">売上ランキング</h1>
+        <div class="col-md-4 mb-4">
+					<div class="card">
+            <h1 class="card-text">キャッチコピー</h1>
+						<img src="sample/product4.jpg" class="card-img-top" alt="商品2の画像">
+						<div class="card-body">
+							<h5 class="card-title">商品4s</h5>
+							<p class="card-text">商品4の説明文がここに入ります。</p>
+							<p class="card-text font-weight-bold">評価</p>
+							<p class="card-text font-weight-bold">1,500円</p>
+						</div>
+					</div>
+				</div>
       </div>
-      <div class="tab_content" id="payment_method_content">
-        <div class="tab_content_description">
-          <div class="form-group">
-            <input type="radio" id="convenienceStore" name="paymentMethod" value="convenienceStore" checked="checked" onclick="hideCreditCardFields()"> コンビニ支払い
-            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery" onclick="hideCreditCardFields()"> 代金引換
-            <input type="radio" id="installmentPayment" name="paymentMethod" value="installmentPayment" onclick="hideCreditCardFields()"> ツケ払い
-            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onclick="showCreditCardFields()"> クレジットカード
-          </div>
-      
-          <div id="creditCardFields" style="display: none;">
-            <div class="form-group">
-              <label for="cardNumber"><span class="black-text">カード番号</span><span class="red-text">（必須）</span></label>
-              <input type="text" id="cardNumber" name="cardNumber">
-            </div>
-      
-            <div class="form-group">
-              <label for="expiryDate"><span class="black-text">有効期限</span><span class="red-text">（必須）</span></label>
-              <input type="text" id="expiryDate" name="expiryDate">
-            </div>
-      
-            <div class="form-group">
-              <label for="securityCode"><span class="black-text">セキュリティコード</span><span class="red-text">（必須）</span></label>
-              <input type="text" id="securityCode" name="securityCode">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
 		<!-- ここまで書き換えてください -->
 	</body>
 </html>
