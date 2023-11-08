@@ -1,0 +1,53 @@
+.item-left {
+    float: left;
+    width: 50%; /* 左側のコンテンツの幅を調整 */
+  }
+  
+  .item-left img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .item-left .tag {
+    font-size: 24px;
+    color: red; /* タグのテキストの色を調整 */
+    text-align: center;
+  }
+  
+  .item-right {
+    float: left;
+    width: 50%; /* 右側のコンテンツの幅を調整 */
+    padding: 20px; /* コンテンツの周囲に余白を追加 */
+  }
+  
+  .item-right h4 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .item-right p {
+    font-size: 16px;
+    margin-bottom: 10px; /* 段落の下部に余白を追加 */
+  }
+  
+  .item-right p:last-child {
+    margin-bottom: 0; /* 最後の段落に余白を追加しない */
+  }
+  
+  /* タグのスタイルを調整 */
+  .item-right .tag {
+    font-size: 18px;
+    color: #ff69b4; /* 例: ピンク色 */
+  }
+  
+  /* 星評価のスタイルを調整 */
+  .item-right .star-rating {
+    color: gold;
+  }
+  
+  /* ハッシュタグのスタイルを調整 */
+  .item-right .hashtag {
+    color: #3498db; /* 例: 青色 */
+    font-weight: bold;
+  }
