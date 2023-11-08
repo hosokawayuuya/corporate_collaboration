@@ -1,0 +1,14 @@
+h1{
+    text-align:center;
+}
+
+/*buttonはインライン要素　ブロック要素に変更してmarginで中央寄せにする*/
+.btn-primary {
+    color: #fff;
+    background-color: #a6e899;
+    border-color: #dbebbb;
+    width:auto;
+    height: auto;
+    display: block; /* ブロック要素にする */
+    margin: 0 auto; /* 左右のマージンを自動で中央に寄せる */
+}

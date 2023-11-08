@@ -1,0 +1,25 @@
+h2{
+    margin-left:30%;
+}
+
+table{
+    margin: auto;
+}
+table th{
+    padding:7px; /*上下左右7pxセル内の余白*/
+    color:darkcyan;
+}
+table td{
+    padding:3px;
+    text-align: center; /*tdはtext-align: centerで中央寄せ*/
+}
+
+.btn-primary {
+    color: #eae1e1;
+    background-color: darkcyan;
+    border-color: #8fc0f5;
+    width:auto;
+    height: auto;
+    display: block; /* ブロック要素にする */
+    margin: 20px auto; /* 左右のマージンを自動で中央に寄せる */
+}
