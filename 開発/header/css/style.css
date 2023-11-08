@@ -1,0 +1,14 @@
+.form-control {
+    text-align: right;
+}
+
+.input-group{
+    border: solid  #000000;
+    text-align: right;
+    margin-top: 7px; 
+    border-radius: 5px; 
+}
+
+.body{
+    background-image: url(‘../image/大理石グレー.avif’);
+}
