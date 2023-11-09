@@ -11,21 +11,57 @@
   </head>
 	<body>
 		<!-- ここから書き換えてください -->
+		<style>
+			.tarea{
+				display: inline-block;
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #000000;
+				box-sizing: border-box;
+				background: #ffffff;
+				margin: 0.5em 0;
+				line-height: 1.5;
+				height: 6em;
+			}
+			</style>
     <div class="container">
-			<h1 class="my-4">あなたへのおすすめ</h1>
+			<h1 class="my-4">購入履歴一覧</h1>
+			<table>
+				<tr>
 				<div class="row">
 					<div class="col-md-4 mb-4">
 						<div class="card">
-				<h1 class="card-text">キャッチコピー</h1>
 							<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
 							<div class="card-body">
 								<h5 class="card-title">商品1</h5>
 								<p class="card-text">商品1の説明文がここに入ります。</p>
 								<p class="card-text font-weight-bold">評価</p>
-								<p class="card-text font-weight-bold">1,000円</p>
+								<p class="card-text font-weight-bold">カテゴリー</p>
 							</div>
-						</div>
+							<p class="card-text font-weight-bold">1,000円</p>
+						</div>	
 					</div>
+					<textarea id="textbox" name="textbox" rows="10" cols="30"></textarea>
+					<button type="button" class="btn btn-light btn-rounded btn-fw">送信</button>	
+				</table>
+				<table>
+					<tr></tr>
+					<div class="row">
+						<div class="col-md-4 mb-4">
+							<div class="card">
+								<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
+								<div class="card-body">
+									<h5 class="card-title">商品1</h5>
+									<p class="card-text">商品1の説明文がここに入ります。</p>
+									<p class="card-text font-weight-bold">評価</p>
+									<p class="card-text font-weight-bold">カテゴリー</p>
+								</div>
+								<p class="card-text font-weight-bold">1,000円</p>
+							</div>	
+						</div>
+						<textarea id="textbox" name="textbox" rows="10" cols="30"></textarea>
+						<button type="button" class="btn btn-light btn-rounded btn-fw">送信</button>
+					</table>
     </div>
     
 		<!-- ここまで書き換えてください -->
