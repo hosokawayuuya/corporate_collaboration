@@ -1,0 +1,26 @@
+.itemlist {
+    display: flex; /* Flexboxを使用して左右配置にする */
+    justify-content: space-between; /* 左右に配置 */
+    align-items: stretch; /* アイテムの高さを揃える */
+  }
+
+  .item-left,.item-right{
+    flex: 1; /* 左側と右側1つの割合で占める */
+  }
+
+
+.btn-primary1 {
+    color: #fff;
+    background-color: rgb(255, 255, 0);
+    border-color: rgb(231, 251, 141);
+    width:auto;
+    height: auto;
+}
+
+.btn-primary2 {
+    color: #fff;
+    background-color: #e899b6;
+    border-color: #ebbbe5;
+    width:auto;
+    height: auto;
+}
