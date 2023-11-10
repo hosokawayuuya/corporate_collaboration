@@ -2,5 +2,8 @@
     /*コレ*/text-align: center;
     padding: 40px;
     margin-top:10px;
-    
+}
+.custom-btn {
+    width: 400px; /* ボタンの幅を調整する値 */
+    height: 40px; /* ボタンの高さを調整する値 */
 }
