@@ -1,0 +1,48 @@
+ body{
+    text-align: center;
+    padding: 30px;
+    margin-top:20px;
+    letter-spacing: 3px;
+    line-height: 70px;
+ }
+
+ h1{
+   font-size: 60px;
+ }
+
+ body1{
+    text-align: center;
+ }
+
+ h{
+    font-size: 60px;
+    background-color: red;
+ }
+
+ p1{
+    font-size: 20px;
+ }
+ h3{
+    font-size: 40px;
+    background-color: red;
+ }
+
+ h2{
+    font-size: 30px; 
+    color: red;
+ }
+
+ p{
+    font-size: 20px;
+    letter-spacing: 3px;
+ }
+
+ h4{
+    font-size: 40px;
+    background-color: red;
+ }
+
+ p2{
+    font-size: 20px;
+    letter-spacing: 2px;
+ }

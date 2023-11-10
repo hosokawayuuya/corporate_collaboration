@@ -1,92 +1,47 @@
-/* Please ❤ this if you like it! */
+window.onload = function(){
+   
+  //画像を配列に格納
+  var images =['url(https://lastmagazine.jp/wp-content/uploads/2022/05/Gucci-Eyewear_Hollywood-Forever-2022-Adv_DPS_72dpi.jpg)',
+               'url(https://prtimes.jp/i/8372/1482/resize/d8372-1482-723875-0.jpg)',
+               'url(https://predge.jp/wp-content/uploads/2022/02/2e2c2ee33b6a0f7e7c111c1221704ffd.jpeg)']
+
+  //要素をHTMLから取得
+  //画像
+  var target = document.getElementById('slide');
+  //>,<
+  var right = document.getElementById('right');
+  var left = document.getElementById('left');
 
 
+  //クリックしたときに変わるようにカウント変数
+  var count = 0;
 
-(function($) { "use strict";
-  
-  //Page cursors
+  //クリックしたら画像変更
+ function change(){
+     target.style.backgroundImage = images[count];
+  }
 
-    document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
-        t.style.left = n.clientX + "px", 
-    t.style.top = n.clientY + "px", 
-    e.style.left = n.clientX + "px", 
-    e.style.top = n.clientY + "px", 
-    i.style.left = n.clientX + "px", 
-    i.style.top = n.clientY + "px"
-    });
-    var t = document.getElementById("cursor"),
-        e = document.getElementById("cursor2"),
-        i = document.getElementById("cursor3");
-    function n(t) {
-        e.classList.add("hover"), i.classList.add("hover")
-    }
-    function s(t) {
-        e.classList.remove("hover"), i.classList.remove("hover")
-    }
-    s();
-    for (var r = document.querySelectorAll(".hover-target"), a = r.length - 1; a >= 0; a--) {
-        o(r[a])
-    }
-    function o(t) {
-        t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
-    }
+ //>をクリックしたらcountを+1する
+ function goNext(){
+     if(count == 2){
+         count = 0;
+     }else{
+         count++;
+     }
+     change();
+ }
+ 
+ //<をクリックしたらcountを-1する
+ function goBack(){
+     if(count == 0){
+         count = 2;
+     }else{
+         count--;
+     }
+     change();
+ }
 
-
-  //Switch light/dark
-  
-  $(".switch").on('click', function () {
-    if ($("body").hasClass("light")) {
-      $("body").removeClass("light");
-      $(".switch").removeClass("switched");
-    }
-    else {
-      $("body").addClass("light");
-      $(".switch").addClass("switched");
-    }
-  });
-  
-  $(document).ready(function() {  
-    
-    /* Hero Case study images */      
-    
-    $('.slide-buttons li:nth-child(1)').on('mouseenter', function() {
-      $('.slide-buttons li.active').removeClass('active');
-      $('.hero-center-section.show').removeClass("show");
-      $('.hero-center-section:nth-child(1)').addClass("show");
-      $('.slide-buttons li:nth-child(1)').addClass('active');
-    })
-    $('.slide-buttons li:nth-child(2)').on('mouseenter', function() {
-      $('.slide-buttons li.active').removeClass('active');
-      $('.hero-center-section.show').removeClass("show");
-      $('.hero-center-section:nth-child(2)').addClass("show");
-      $('.slide-buttons li:nth-child(2)').addClass('active');
-    })
-    $('.slide-buttons li:nth-child(3)').on('mouseenter', function() {
-      $('.slide-buttons li.active').removeClass('active');
-      $('.hero-center-section.show').removeClass("show");
-      $('.hero-center-section:nth-child(3)').addClass("show");
-      $('.slide-buttons li:nth-child(3)').addClass('active');
-    })
-    $('.slide-buttons li:nth-child(4)').on('mouseenter', function() {
-      $('.slide-buttons li.active').removeClass('active');
-      $('.hero-center-section.show').removeClass("show");
-      $('.hero-center-section:nth-child(4)').addClass("show");
-      $('.slide-buttons li:nth-child(4)').addClass('active');
-    })
-    $('.slide-buttons li:nth-child(5)').on('mouseenter', function() {
-      $('.slide-buttons li.active').removeClass('active');
-      $('.hero-center-section.show').removeClass("show");
-      $('.hero-center-section:nth-child(5)').addClass("show");
-      $('.slide-buttons li:nth-child(5)').addClass('active');
-    })
-    $('.slide-buttons li:nth-child(6)').on('mouseenter', function() {
-      $('.slide-buttons li.active').removeClass('active');
-      $('.hero-center-section.show').removeClass("show");
-      $('.hero-center-section:nth-child(6)').addClass("show");
-      $('.slide-buttons li:nth-child(6)').addClass('active');
-    })
-    $('.slide-buttons li:nth-child(1)').trigger('mouseenter')   
-    
-  });
-  
-})(jQuery);
+ //クリックイベント
+ right.addEventListener('click',goNext,false);
+ left.addEventListener('click',goBack,false);
+};
