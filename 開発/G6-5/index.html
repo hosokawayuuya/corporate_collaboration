@@ -30,8 +30,8 @@
 				<tr>
 				<div class="row">
 					<div class="col-md-4 mb-4">
-						<div class="card">
-							<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
+						<div class="card" style="height: 60%;">
+							<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像" style="width: 50%; height: 50%;">
 							<div class="card-body">
 								<h5 class="card-title">商品1</h5>
 								<p class="card-text">商品1の説明文がここに入ります。</p>
@@ -41,27 +41,41 @@
 							<p class="card-text font-weight-bold">1,000円</p>
 						</div>	
 					</div>
-					<textarea id="textbox" name="textbox" rows="10" cols="30"></textarea>
+					<div class="col-md-4 mb-4">
+						<p>評価：☆☆☆☆☆</p>
+						<div class="card">
+							<textarea class="form-control" rows="5" placeholder="テキストを入力してください" maxlength="300"></textarea>
+						</div>
+					</div>
 					<button type="button" class="btn btn-light btn-rounded btn-fw">送信</button>	
-				</table>
-				<table>
-					<tr></tr>
+				</div>
+				</tr>
+			</table>
+			<table>
+				<tr>
 					<div class="row">
 						<div class="col-md-4 mb-4">
-							<div class="card">
-								<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
-								<div class="card-body">
-									<h5 class="card-title">商品1</h5>
-									<p class="card-text">商品1の説明文がここに入ります。</p>
-									<p class="card-text font-weight-bold">評価</p>
-									<p class="card-text font-weight-bold">カテゴリー</p>
-								</div>
+							<div class="card" style="height: 60%;">
+								<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像" style="width: 50%; height: 50%;">
+									<div class="card-body">
+										<h5 class="card-title">商品1</h5>
+										<p class="card-text">商品1の説明文がここに入ります。</p>
+										<p class="card-text font-weight-bold">評価</p>
+										<p class="card-text font-weight-bold">カテゴリー</p>
+									</div>
 								<p class="card-text font-weight-bold">1,000円</p>
 							</div>	
 						</div>
-						<textarea id="textbox" name="textbox" rows="10" cols="30"></textarea>
-						<button type="button" class="btn btn-light btn-rounded btn-fw">送信</button>
-					</table>
+						<div class="col-md-4 mb-4">
+							<p>評価：☆☆☆☆☆</p>
+								<div class="card">
+									<textarea class="form-control" rows="5" placeholder="テキストを入力してください" maxlength="300"></textarea>
+								</div>
+							</div>
+						</div>
+							<button type="button" class="btn btn-light btn-rounded btn-fw">送信</button>	
+				</tr>
+			</table>
     </div>
     
 		<!-- ここまで書き換えてください -->

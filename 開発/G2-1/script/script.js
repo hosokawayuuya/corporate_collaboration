@@ -1,21 +1,47 @@
-var slideIndex = 0;
-			showSlides();
-		
-			function showSlides() {
-				var i;
-				var slides = document.getElementsByClassName("mySlides");
-				var dots = document.getElementsByClassName("dot");
-				for (i = 0; i < slides.length; i++) {
-					slides[i].style.display = "none";
-				}
-				slideIndex++;
-				if (slideIndex > slides.length) {
-					slideIndex = 1;
-				}
-				for (i = 0; i < dots.length; i++) {
-					dots[i].className = dots[i].className.replace(" active", "");
-				}
-				slides[slideIndex - 1].style.display = "block";
-				dots[slideIndex - 1].className += " active";
-				setTimeout(showSlides, 2000); 
-			}
+window.onload = function(){
+   
+  //画像を配列に格納
+  var images =['url(https://lastmagazine.jp/wp-content/uploads/2022/05/Gucci-Eyewear_Hollywood-Forever-2022-Adv_DPS_72dpi.jpg)',
+               'url(https://prtimes.jp/i/8372/1482/resize/d8372-1482-723875-0.jpg)',
+               'url(https://predge.jp/wp-content/uploads/2022/02/2e2c2ee33b6a0f7e7c111c1221704ffd.jpeg)']
+
+  //要素をHTMLから取得
+  //画像
+  var target = document.getElementById('slide');
+  //>,<
+  var right = document.getElementById('right');
+  var left = document.getElementById('left');
+
+
+  //クリックしたときに変わるようにカウント変数
+  var count = 0;
+
+  //クリックしたら画像変更
+ function change(){
+     target.style.backgroundImage = images[count];
+  }
+
+ //>をクリックしたらcountを+1する
+ function goNext(){
+     if(count == 2){
+         count = 0;
+     }else{
+         count++;
+     }
+     change();
+ }
+ 
+ //<をクリックしたらcountを-1する
+ function goBack(){
+     if(count == 0){
+         count = 2;
+     }else{
+         count--;
+     }
+     change();
+ }
+
+ //クリックイベント
+ right.addEventListener('click',goNext,false);
+ left.addEventListener('click',goBack,false);
+};
