@@ -1,3 +1,4 @@
+
 .slide-pic{
   max-width: 100%;
   height: 400px;
@@ -94,4 +95,21 @@
   .back{
       top: 30px;
   }
+}
+
+
+
+.hart {
+  border-radius: 50%; /* 半径50%で円形にする */
+  font-size: 25px;
+  padding: 7px 15px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #000000;
+  transition: color 0.3s, background-color 0.3s,transform 0.3s;
+}
+.hart-hover {
+  color: white;
+  background-color: red;
+  transform: scale(1.2);
 }
