@@ -45,3 +45,6 @@ window.onload = function(){
  right.addEventListener('click',goNext,false);
  left.addEventListener('click',goBack,false);
 };
+document.getElementById("hart").addEventListener("click", function() {
+    this.classList.toggle("hover");
+  });
