@@ -1,14 +1,18 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const passwordInput = document.getElementById("exampleInputPassword1");
-    const viewIcon = document.getElementById("view");
 
-    viewIcon.addEventListener("click", function () {
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            viewIcon.innerHTML = '<i class="far fa-eye"></i>';
-        } else {
-            passwordInput.type = "password";
-            viewIcon.innerHTML = '<i class="far fa-eye-slash"></i>';
-        }
-    });
-});
+    function login() {
+      var username = document.getElementById("exampleInputEmail1").value;
+      var password = document.getElementById("exampleInputPassword1").value;
+      var isValid = authenticate(username, password);
+      if (!isValid) {
+        document.getElementById("error-message").innerText = "ログイン名orパスワードが間違っています";
+      } else {
+        window.location.href = "C:/Users/shouy/OneDrive/ドキュメント/GitHub/corporate_collaboration/開発/G2-1/index.html";
+      }
+    }
+
+    function authenticate(username, password) {
+//ここデータベースで値取得してから認証してください
+        const demoUsername = "山田";
+  const demoPassword = "1111";
+  return username === demoUsername && password === demoPassword;
+    }
