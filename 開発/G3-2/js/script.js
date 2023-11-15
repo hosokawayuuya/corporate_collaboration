@@ -1,3 +1,3 @@
 document.getElementById("hart").addEventListener("click", function() {
-    this.classList.toggle("hover");
+    this.classList.toggle("hart-hover");
   });

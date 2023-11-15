@@ -2,10 +2,10 @@
 display: flex;
 align-items: center; /* 縦方向の中央揃え */
 }
-#hart, .catchpharase {
+.hart, .catchpharase {
 margin: 0 50px; 
 }
-#hart {
+.hart {
   border-radius: 50%; /* 半径50%で円形にする */
   font-size: 25px;
   padding: 7px 15px;
@@ -14,8 +14,7 @@ margin: 0 50px;
   border: 1px solid #000000;
   transition: color 0.3s, background-color 0.3s,transform 0.3s;
 }
-#hart:hover,
-#hart:hover {
+.hart-hover {
   color: white;
   background-color: red;
   transform: scale(1.2);
@@ -39,16 +38,16 @@ margin: 0 50px;
     align-items: center; /* 縦方向（上下）の中央揃え */
   }
 
-.btn-primary1 {
-    color: rgb(255, 255, 255);
-    background-color: rgb(255, 255, 0);
-    border-color: rgb(231, 251, 141);
+.btn1 {
+    color: rgb(243, 243, 243);
+    background-color: rgb(119, 255, 0);
+    border-color: rgb(201, 251, 141);
     width:150px;
     height: 30px;
     display: inline-block;
     margin: 5px;
 }
-.btn-primary2 {
+.btn2 {
     color: #fff;
     background-color: #e899b6;
     border-color: #ebbbe5;
@@ -57,7 +56,15 @@ margin: 0 50px;
     display: inline-block;
     margin: 5px;
 }
-
+.btn3 {
+  color: #fff;
+  background-color: #99e8e8;
+  border-color: #bbe4eb;
+  width:150px;
+  height: 30px;
+  display: inline-block;
+  margin: 5px;
+}
 .review{
   text-align: center;
 }
