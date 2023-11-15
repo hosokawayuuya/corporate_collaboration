@@ -51,4 +51,44 @@ function showCreditCardFields() {
   });
   }
 
-  
+
+
+  function navigateTabs(direction) {
+    var userInfoTab = document.getElementById('user_info_tab');
+    var addressTab = document.getElementById('address_tab');
+    var paymentMethodTab = document.getElementById('payment_method_tab');
+
+    var userInfoContent = document.getElementById('user_info_content');
+    var addressContent = document.getElementById('address_content');
+    var paymentMethodContent = document.getElementById('payment_method_content');
+
+    if (direction === 'next') {
+      if (userInfoTab.checked) {
+        userInfoTab.checked = false;
+        addressTab.checked = true;
+        userInfoContent.style.display = 'none';
+        addressContent.style.display = 'block';
+      } else if (addressTab.checked) {
+        addressTab.checked = false;
+        paymentMethodTab.checked = true;
+        addressContent.style.display = 'none';
+        paymentMethodContent.style.display = 'block';
+      } else {
+        // Handle any specific logic for the last tab if needed
+      }
+    } else if (direction === 'back') {
+      if (paymentMethodTab.checked) {
+        paymentMethodTab.checked = false;
+        addressTab.checked = true;
+        paymentMethodContent.style.display = 'none';
+        addressContent.style.display = 'block';
+      } else if (addressTab.checked) {
+        addressTab.checked = false;
+        userInfoTab.checked = true;
+        addressContent.style.display = 'none';
+        userInfoContent.style.display = 'block';
+      } else {
+        // Handle any specific logic for the first tab if needed
+      }
+    }
+  }
