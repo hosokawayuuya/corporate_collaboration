@@ -38,6 +38,10 @@ margin: 0 50px;
     align-items: center; /* 縦方向（上下）の中央揃え */
   }
 
+  .category{
+    color:#1ea4a4;
+  }
+
 .btn1 {
     color: rgb(243, 243, 243);
     background-color: rgb(119, 255, 0);

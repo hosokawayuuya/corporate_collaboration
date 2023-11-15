@@ -1,48 +1,46 @@
- body{
-    text-align: center;
-    padding: 30px;
-    margin-top:20px;
-    letter-spacing: 3px;
-    line-height: 70px;
- }
+body{
+   text-align: center;
+   padding: 30px;
+   margin-top:20px;
+   letter-spacing: 3px;
+   line-height: 60px;
+}
 
- h1{
+h1{
+  font-size: 60px;
+}
+
+h{
    font-size: 60px;
- }
+   background-color: red;
+}
 
- body1{
-    text-align: center;
- }
+p1{
+   font-size: 20px;
+}
+h3{
+   font-size: 40px;
+   background-color: red;
+}
 
- h{
-    font-size: 60px;
-    background-color: red;
- }
+h2{
+   font-size: 30px; 
+   color: red;
+}
 
- p1{
-    font-size: 20px;
- }
- h3{
-    font-size: 40px;
-    background-color: red;
- }
+p{
+   font-size: 20px;
+   letter-spacing: 3px;
+}
 
- h2{
-    font-size: 30px; 
-    color: red;
- }
+h4{
+   font-size: 40px;
+   background-color: red;
+}
 
- p{
-    font-size: 20px;
-    letter-spacing: 3px;
- }
+p2{
+   font-size: 20px;
+   letter-spacing: 2px;
+}
 
- h4{
-    font-size: 40px;
-    background-color: red;
- }
 
- p2{
-    font-size: 20px;
-    letter-spacing: 2px;
- }

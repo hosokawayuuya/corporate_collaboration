@@ -4,14 +4,19 @@ h2{
 
 table{
     margin: auto;
+    border:3px black solid;
+    border-collapse: collapse;
 }
-table th{
+th,td{
+    border: 1px dashed #333;
+}   
+th{
     padding:7px; /*上下左右7pxセル内の余白*/
     color:darkcyan;
 }
-table td{
+td{
     padding:3px;
-    text-align: center; /*tdはtext-align: centerで中央寄せ*/
+    text-align: center; /*tdはtext-align: centerで中央寄せ*/    
 }
 
 .btn-primary {
