@@ -1,3 +1,4 @@
+
 function validateForm() {
     var isValid = true;
     var requiredFields = ["lastName", "firstName", "seiyomi", "meiyomi", "phoneNumber", "email", "username", "confirmUsername", "password", "confirmPassword"];
@@ -49,6 +50,5 @@ function showCreditCardFields() {
       document.getElementById('displayAddress').textContent = "選択された住所: " + selectedAddress;
   });
   }
-
 
   
