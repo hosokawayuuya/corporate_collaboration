@@ -39,6 +39,6 @@ justify-content: center;
 align-items: center;
 height: 100vh;
 margin: 0;
-background-image: url('C:/Users/shouy/OneDrive/ドキュメント/GitHub/corporate_collaboration/開発/G5-2/css/img/ASOCITY.png');
+background-image: url('img/ASOCITY.png');
 background-size: cover; /* You can adjust this to control how the image is displayed */
 }

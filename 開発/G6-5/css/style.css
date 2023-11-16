@@ -1,0 +1,18 @@
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+  }
+  
+  .rating span {
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .rating span:hover,
+  .rating span:hover ~ span {
+    color: orange;
+  }
+  
+  .rating .checked {
+    color: orange;
+  }
