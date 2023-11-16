@@ -5,7 +5,7 @@ function login() {
     if (!isValid) {
       document.getElementById("error-message").innerText = "ログイン名orパスワードが間違っています";
     } else {
-      window.location.href = "C:/Users/shouy/OneDrive/ドキュメント/GitHub/corporate_collaboration/開発/G2-1/index.html";
+      window.location.href = "../G2-1/index.html";
     }
   }
 
