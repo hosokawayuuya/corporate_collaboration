@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
+    <link rel="stylesheet" href="css/style.css">
   </head>
 	<body>
 		<!-- ここから書き換えてください -->
     <p>カート件数:○○件</p>
     <div class="row">
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 offset-md-4 mb-4">
       <div class="card">
       <table>
           <tr>
@@ -25,7 +26,7 @@
                   <button class="btn bg-white btn-sm dropdown-toggle btn-icon-text border mr-2" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                       <i class="typcn typcn-calendar-outline mr-2"></i> XS
                   </button> 
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3" data-x-placement="top-start">
+                  <div class="dropdown-menu dropdown-menu-bottom" aria-labelledby="dropdownMenuSizeButton3" data-x-placement="top-start">
                     <a class="dropdown-item" href="#">XS</a>
                     <a class="dropdown-item" href="#">S</a>
                     <a class="dropdown-item" href="#">M</a>
@@ -41,7 +42,7 @@
                   <button class="btn bg-white btn-sm dropdown-toggle btn-icon-text border mr-2" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                       <i class="typcn typcn-calendar-outline mr-2"></i>　1 
                   </button> 
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3" data-x-placement="top-start">
+                  <div class="dropdown-menu dropdown-menu-bottom" aria-labelledby="dropdownMenuSizeButton3" data-x-placement="top-start">
                     <a class="dropdown-item" href="#">1</a>
                     <a class="dropdown-item" href="#">2</a>
                     <a class="dropdown-item" href="#">3</a>
@@ -83,7 +84,7 @@
                     </div> 
                   </div> 
                   <p class="card-text font-weight-bold">個数</p>
-                  <div class="dropdown"> 
+                  <div class="dropdown dropup"> 
                     <button class="btn bg-white btn-sm dropdown-toggle btn-icon-text border mr-2" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                         <i class="typcn typcn-calendar-outline mr-2"></i>　1 
                     </button> 
@@ -105,11 +106,12 @@
             </tr>
         </table>
       </div>
+      <p class="card-text font-weight-bold">合計:￥0,000円</p>
       </div>
     </div>
-    <p class="card-text font-weight-bold">合計:￥0,000円</p>
     <p class="card-text font-weight-bold">合計:￥0,000</p>
   </div>
+  <button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82"onclick="history.back()">戻る</button>
   <button type="button" class="btn btn-light btn-rounded btn-fw">購入へ</button>
     
 
