@@ -39,8 +39,42 @@ h4{
 }
 
 p2{
-   font-size: 20px;
+   font-size: 15px;
    letter-spacing: 2px;
+}
+.confirmation {
+   text-align: center;
+   padding: 70px;
+   background-color: #fff;
+   border-radius: 75px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   width: 550px;
+}
+.confirmation1 {
+   text-align: center;
+   padding: 70px;
+   background-color: #fff;
+   border-radius: 75px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   width: -500px;
+}
+
+.confirmation2 {
+   text-align: center;
+   padding: 70px;
+   background-color: #fff;
+   border-radius: 75px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   width: 550px;
+}
+
+.confirmation3 {
+   text-align: center;
+   padding: 70px;
+   background-color: #fff;
+   border-radius: 75px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   width: 550px;
 }
 
 

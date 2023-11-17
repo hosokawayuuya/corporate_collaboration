@@ -46,7 +46,7 @@
             <input type="text" id="email" name="email">
             <span id="emailError" class="error"></span>
           </div>
-
+<p><span class="red-text">こちらはログイン時に必要なのでメモしてください▼</span></p>
           <div class="form-group">
             <label for="username"><span class="black-text">ユーザー名</span></label>
             <input type="text" id="username" name="username">
@@ -229,7 +229,7 @@
           </div>
           <div style="text-align: center">
             <label>
-                <input type="radio" name="address" value="address1" onclick="showAddress('address1')" > 住所１
+                <input type="radio" name="address" value="address1" checked="checked" onclick="showAddress('address1')" > 住所１
             </label>
             <label>
                 <input type="radio" name="address" value="address2" onclick="showAddress('address2')"> 住所２
@@ -266,15 +266,16 @@
           </div>
         </div>
       </div>
+      
       <div style="text-align: center">
-        <button type="submit"><h2>登録内容を保存する</h2></button>
+        <button type="submit"  class="btn btn-light btn-rounded btn-fw" ><h2>登録内容を保存する</h2></button>
         </div>
     </div>
     
     <br><br>
     <div style="text-align: center">
-      <button type="button" onclick="history.back()">　　　　　戻る　　　　　</button>
-      </div>
+      <button type="button" class="btn btn-light btn-rounded btn-fw" onclick="history.back()">　　　　　戻る　　　　　</button>
+      </div><br><br>
     
 		<!-- ここまで書き換えてください -->
 	</body>
