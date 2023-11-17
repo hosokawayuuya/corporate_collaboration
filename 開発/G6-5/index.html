@@ -13,30 +13,18 @@
   </head>
 	<body>
 		<!-- ここから書き換えてください -->
-		<!--<style>
-			.tarea{
-				display: inline-block;
-				width: 100%;
-				padding: 10px;
-				border: 1px solid #000000;
-				box-sizing: border-box;
-				background: #ffffff;
-				margin: 0.5em 0;
-				line-height: 1.5;
-				height: 6em;
-			}
-			</style>-->
     <div class="container">
 			<h1 class="my-4">購入履歴一覧</h1>
 			<table>
 				<tr>
 				<div class="row">
 					<div class="col-md-4 mb-4">
-						<input type="checkbox">
-						<div class="card text-center">
-							<a href="../G3-2/index.html"> <!-- 画像をクリックしたらG3-2のindex.htmlに移動 -->
+						<div class="card text-center position-relative">
+							<a href="../G3-2/index.html"> 
 								<img src="sample/product1.jpg" class="card-img-top mx-auto mt-3" alt="商品1の画像" style="width: 50%; height: 50%;">
 							</a>
+							<button id="hart" class="hart position-absolute bottom-0 end-0">&#10084;</button>
+						
 							<div class="card-body">
 								<h5 class="card-title">商品1</h5>
 								<p class="card-text">商品1の説明文がここに入ります。</p>
@@ -66,11 +54,13 @@
 				<tr>
 				<div class="row">
 					<div class="col-md-4 mb-4">
-						<input type="checkbox">
 						<div class="card text-center">
-							<a href="../G3-2/index.html"> <!-- 画像をクリックしたらG3-2のindex.htmlに移動 -->
+							<a href="../G3-2/index.html"> 
 								<img src="sample/product1.jpg" class="card-img-top mx-auto mt-3" alt="商品2の画像" style="width: 50%; height: 50%;">
 							</a>
+							<div class="item-head">
+								<button id="hart" class="hart">&#10084;</button>
+							</div>
 							<div class="card-body">
 								<h5 class="card-title">商品2</h5>
 								<p class="card-text">商品2の説明文がここに入ります。</p>
