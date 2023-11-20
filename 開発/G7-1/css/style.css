@@ -16,3 +16,10 @@ h1{
     display: block; /* ブロック要素にする */
     margin: 70px auto; /* 左右のマージンを自動で中央に寄せる */
 }
+
+.rogo{
+    display:block;
+    width:30%;
+    height:30%;
+    margin: 100px auto;
+}
