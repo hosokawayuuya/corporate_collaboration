@@ -1,3 +1,8 @@
 p {
     text-align:center;
   }
+
+
+.card-text{
+  text-align:right;
+}
