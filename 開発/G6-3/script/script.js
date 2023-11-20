@@ -39,6 +39,9 @@ function showCreditCardFields() {
     var creditCardFields = document.getElementById("creditCardFields");
     creditCardFields.style.display = "none";
   }
+
+
+  
   
 
   function showAddress(address) {
