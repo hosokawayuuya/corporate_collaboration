@@ -1,26 +1,7 @@
-.item-head{
-display: flex;
-align-items: center; /* 縦方向の中央揃え */
-}
-.hart, .catchpharase {
-margin: 0 50px; 
-}
-.hart {
-  border-radius: 50%; /* 半径50%で円形にする */
-  font-size: 25px;
-  padding: 7px 15px;
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid #000000;
-  transition: color 0.3s, background-color 0.3s,transform 0.3s;
-}
-.hart-hover {
-  color: white;
-  background-color: red;
-  transform: scale(1.2);
-}
-.catchpharase{
+.catchpharase {
+  margin: 10px 50px; 
   font-family: "Nico Moji";
+  text-align: left;
 }
 
 
@@ -36,41 +17,56 @@ margin: 0 50px;
     display: flex;
     justify-content: center; /* 横方向（左右）の中央揃え */
     align-items: center; /* 縦方向（上下）の中央揃え */
-  }
-
+    position: relative; /* positionをrelativeに設定 */
+    }
+    .hart {
+      border-radius: 50%; /* 半径50%で円形にする */
+      font-size: 25px;
+      padding: 7px 15px;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid #000000;
+      transition: color 0.3s, background-color 0.3s,transform 0.3s;
+      position: absolute; /* positionをabsoluteに設定 */
+      bottom: 0; /* 下端に対して配置 */
+      right: 20px; /* 右端に対して配置 */
+    }
+    .hart-hover {
+      color: white;
+      background-color: red;
+      transform: scale(1.2);
+    }
   .category{
-    color:#1ea4a4;
+    color:#99e8e8;
   }
 
-.btn1 {
-    color: rgb(243, 243, 243);
-    background-color: rgb(119, 255, 0);
-    border-color: rgb(201, 251, 141);
+.btn.btn-success {
     width:150px;
     height: 30px;
     display: inline-block;
     margin: 5px;
+    text-align:center;
+    line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
-.btn2 {
-    color: #fff;
-    background-color: #e899b6;
-    border-color: #ebbbe5;
+.btn.btn-primary {
     width:150px;
     height: 30px;
     display: inline-block;
     margin: 5px;
+    text-align:center;
+    line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
-.btn3 {
-  color: #fff;
-  background-color: #99e8e8;
-  border-color: #bbe4eb;
+.btn.btn-info {
   width:150px;
   height: 30px;
   display: inline-block;
   margin: 5px;
+  text-align:center;
+  line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
 .review{
   text-align: center;
+  margin:10px;
 }
 
 .sum-review{
