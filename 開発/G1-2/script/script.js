@@ -32,37 +32,22 @@ function validateForm() {
 }
 
 
-
-  function addressForm() {
-    var isValid = true;
-    var requiredFields = ["postalCode", "prefecture", "city", "streetAddress", "buildingName"];
-    
-    for (var i = 0; i < requiredFields.length; i++) {
-        var fieldName = requiredFields[i];
-        var fieldValue = document.getElementById(fieldName).value;
-        var errorElement = document.getElementById(fieldName + "Error");
-
-        if (fieldValue === "") {
-            errorElement.textContent = "入力されていません";
-            isValid = false;
-        } else {
-            errorElement.textContent = ""; 
-        }
+ // JavaScript関数を追加
+ function pushHideButton() {
+    var txtPass = document.getElementById("exampleInputPassword");
+    var btnEye = document.getElementById("buttonEye");
+  
+    // 入力タイプを確認し、表示/非表示を切り替える
+    if (txtPass.type === "password") {
+      txtPass.type = "text";
+      btnEye.className = "fa fa-eye";
+  
+    } else {
+      txtPass.type = "password";
+      btnEye.className = "fa fa-eye-slash";
     }
-}
+  }
 
-let eye = document.getElementById("eye");
-eye.addEventListener('click', function () {
-     if (this.previousElementSibling.getAttribute('type') == 'password') {
-          this.previousElementSibling.setAttribute('type', 'text');
-          this.classList.toggle('fa-eye');
-          this.classList.toggle('fa-eye-slash');
-     } else {
-          this.previousElementSibling.setAttribute('type', 'password');
-          this.classList.toggle('fa-eye');
-          this.classList.toggle('fa-eye-slash');
-     }
-})
 
 
 
