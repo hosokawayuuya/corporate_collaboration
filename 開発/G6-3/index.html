@@ -40,6 +40,11 @@
             <div style="text-align: center">
               <h2>ユーザー情報変更</h2>
             </div><br>
+            <div class="form-group">
+              <label for="username"><span class="black-text">ユーザー名</span></label>
+              <input type="text" id="username" name="username">
+              <span id="usernameError" class="error"></span>
+            </div>
           <div class="form-group">
             <label for="phoneNumber"><span class="black-text">電話番号</span></label>
             <input type="text" id="phoneNumber" name="phoneNumber" oninput="restrictToNumeric(this)">
@@ -51,9 +56,10 @@
             <input type="text" id="email" name="email">
             <span id="emailError" class="error"></span>
           </div>
+         
 <p><span class="red-text">こちらはログイン時に必要なのでメモしてください▼</span></p>
           <div class="form-group">
-            <label for="username"><span class="black-text">ユーザー名</span></label>
+            <label for="username"><span class="black-text">ユーザーID</span></label>
             <input type="text" id="username" name="username">
             <span id="usernameError" class="error"></span>
           </div>
@@ -64,18 +70,13 @@
             <label for="password"><span class="black-text"　placeholder="Password">パスワード</span></label>
             <input type="password" id="exampleInputPassword1" name="password">
               <div style="position: relative;">
-                <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span>
+                <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()">
               </div>
             
             <span id="passwordError" class="error"></span>
           </div>
 
-          <div class="form-group">
-            <label for="confirmPassword"><span class="black-text"　placeholder="Password">パスワード確認</span></label>
-            <input type="password" id="exampleInputPassword1" name="confirmPassword">
-            <span id="confirmPasswordError" class="error"></span>
-          </div>
-        </form>
+          
       
         </div>
       </div>
