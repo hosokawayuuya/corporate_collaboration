@@ -98,10 +98,26 @@ return username === demoUsername && password === demoPassword;
     btnEye.className = "fa fa-eye-slash";
   }
 }
-
-
-
-
+// JavaScript関数を追加２２２２２２２２２２２
+function pushHideButton() {
+    var txtPass1 = document.getElementById("exampleInputPassword2");
+    var btnEye2 = document.getElementById("buttonEye2");
+  
+    // 入力タイプを確認し、表示/非表示を切り替える
+    if (txtPass1.type === "password") {
+      txtPass1.type = "text";
+      btnEye2.className = "fa fa-eye";
+  
+    } else {
+      txtPass1.type = "password";
+      btnEye2.className = "fa fa-eye-slash";
+    }
+  }
+  
+  
+  
+  
+  
 
 
 

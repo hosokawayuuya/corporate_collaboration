@@ -1,9 +1,16 @@
+.item-head{
+display: flex;
+align-items: center; /* 縦方向の中央揃え */
+}
 .catchpharase {
   margin: 10px 50px; 
   font-family: "Nico Moji";
   text-align: left;
 }
-
+.rest{
+  display:block;
+  margin-left: 40%;
+}
 
 
 .itemlist {

@@ -66,3 +66,16 @@ input[type="password"] {
 .form-group input {
   flex: 2; 
 }
+
+
+.henko{
+  border: none; /* ボーダーの削除 */
+  border-radius: 90px; /* ボーダーの角を丸める */
+  background-color:rgb(219, 17, 91); /* ボタンの背景色 */
+  color:rgb(209, 244, 242); /* ボタンのテキスト色 */
+  cursor: pointer; /* ホバー時のカーソルスタイル */
+  padding: 10px 20px; /* パディングを追加してボタンのサイズを調整 */
+}
+button:hover {
+      background-color:rgb(132, 0, 255); 
+    }
