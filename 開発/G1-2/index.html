@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
     <script src="script/script.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <style>
       .error {
           color: red;
@@ -34,49 +35,49 @@
 
           <div class="form-group">
             <label for="lastName"><span class="black-text">姓</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="lastName" name="lastName">
+            <input type="text" id="lastName" name="lastName" placeholder="10文字以内で入力して下さい">
             <div class="spacer"></div>
             <span id="lastNameError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="firstName"><span class="black-text">名</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="firstName" name="firstName">
+            <input type="text" id="firstName" name="firstName" placeholder="10文字以内で入力して下さい">
             <div class="spacer"></div>
             <span id="firstNameError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="seiyomi"><span class="black-text">セイ</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="seiyomi" name="seiyomi">
+            <input type="text" id="seiyomi" name="seiyomi" placeholder="カナ10文字以内で入力して下さい">
             <div class="spacer"></div>
             <span id="seiyomiError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="meiyomi"><span class="black-text">カナ</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="meiyomi" name="meiyomi">
+            <input type="text" id="meiyomi" name="meiyomi" placeholder="カナ10文字以内で入力して下さい">
             <div class="spacer"></div>
             <span id="meiyomiError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="phoneNumber"><span class="black-text">電話番号</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="phoneNumber" name="phoneNumber" oninput="restrictToNumeric(this)">
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="数字13文字以内で入力してください" oninput="restrictToNumeric(this)">
             <div class="spacer"></div>
             <span id="phoneNumberError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="email"><span class="black-text">メールアドレス</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="email"placeholder="100文字以内で入力してください">
             <div class="spacer"></div>
             <span id="emailError" class="error"></span>
           </div>
 
           <div class="form-group">
             <label for="username"><span class="black-text">ユーザー名</span><span class="red-text">（必須）</span></label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" placeholder="20文字以内で入力して下さい">
             <div class="spacer"></div>
             <span id="usernameError" class="error"></span>
           </div>
@@ -88,10 +89,13 @@
             <span id="confirmUsernameError" class="error"></span>
           </div>
 
-            <div class="form-group">
-            <label for="password"><span class="black-text">パスワード</span><span class="red-text">（必須）</span></label>
-            <input type="password" id="password" name="password">
-            <div class="spacer"></div>
+          <div class="form-group">
+            <label for="password"><span class="black-text" placeholder="Password">パスワード</span></label>
+            <input type="password" id="exampleInputPassword" name="password" placeholder="英数16文字以内で入力してください">
+              <div style="position: relative;">
+                <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span>
+              </div>
+            
             <span id="passwordError" class="error"></span>
           </div>
 
@@ -101,9 +105,8 @@
             <div class="spacer"></div>
             <span id="confirmPasswordError" class="error"></span>
           </div>
-          <input type="submit" value="確定">
-        </form>
-      
+
+         
         </div>
       </div>
       <div class="tab_content" id="address_content">
@@ -111,7 +114,7 @@
           
 <div class="form-group">
   <label for="postalCode"><span class="black-text">郵便番号</span><span class="red-text">（必須）</span></label>
-  <input type="text" id="postalCode" name="postalCode" placeholder="例: 000-0000">
+  <input type="text" id="postalCode" name="postalCode" placeholder="ハイフン無しで入力してください">
   <div class="spacer"></div>
   <span id="postalCodeError" class="error"></span>
 </div>
@@ -178,7 +181,13 @@
         </div>
       </div>
     </div>
-    
-    
+    <div style="text-align: center">
+      <button type="submit" class="btn btn-light btn-rounded btn-fw" >　　　　　登録　　　　　</button>
+      </div><br><br>
+    <div style="text-align: center">
+      <button type="button" class="btn btn-light btn-rounded btn-fw" onclick="history.back()">　戻る　</button>
+      </div><br><br>
+  </form>
+  
 	</body>
 </html>
