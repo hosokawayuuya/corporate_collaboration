@@ -68,9 +68,18 @@
 					<a class="dropdown-item" href="#">なし</a>
 					</div>
 				</div>
-				</div>
-			 </div>
+				</div>		
 			</div>
+			</div>
+			<div class="input1">
+				<input type="email" class="search" placeholder="name検索">		
+				<button>検索</button>
+			  </div>
+				<div class="input2">
+				<input type="email" class="search" placeholder="id検索">		
+				<button>検索</button>
+			  </div>
+
 		</div>
 		<div class="table-responsive">
 			<table class="table table-striped">
