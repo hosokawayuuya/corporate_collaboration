@@ -27,14 +27,11 @@ function validateForm() {
     } else {
         document.getElementById("confirmPasswordError").textContent = "";
     }
-
     return isValid;
 }
 
-
- // JavaScript関数を追加
- function pushHideButton() {
-    var txtPass = document.getElementById("exampleInputPassword");
+function pushHideButton1() {
+    var txtPass = document.getElementById("password");
     var btnEye = document.getElementById("buttonEye");
   
     // 入力タイプを確認し、表示/非表示を切り替える
@@ -47,9 +44,21 @@ function validateForm() {
       btnEye.className = "fa fa-eye-slash";
     }
   }
-
-
-
+  function pushHideButton2() {
+    var txtPass = document.getElementById("confirmPassword");
+    var btnEye = document.getElementById("buttonEye2");
+  
+    // 入力タイプを確認し、表示/非表示を切り替える
+    if (txtPass.type === "password") {
+      txtPass.type = "text";
+      btnEye.className = "fa fa-eye";
+  
+    } else {
+      txtPass.type = "password";
+      btnEye.className = "fa fa-eye-slash";
+    }
+  }
+  
 
 function showCreditCardFields() {
     var creditCardFields = document.getElementById("creditCardFields");
@@ -60,4 +69,10 @@ function showCreditCardFields() {
     var creditCardFields = document.getElementById("creditCardFields");
     creditCardFields.style.display = "none";
   }
+
+
+
+  document.getElementById("registrationButton").addEventListener("click", function() {
+    window.location.href = "../G1-2/index.html";
+});
   
