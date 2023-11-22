@@ -27,6 +27,7 @@
               <div class="brand-logo" style="text-align: center">
                 <img src="..\image\AsoCityロゴ2.png" alt="ここに画像アイコン入る">
               </div>
+              <form action="login-output.php" method="post">
               <form class="pt-3">
                 <p>ユーザーID</p>
                 <div class="form-group">
@@ -53,9 +54,9 @@
                 </div>
               </form>
               <div class="text-center mt-4 font-weight-light">
-                <a href="..\G1-2\index.html" class="text-primary">ーーーー新規登録ーーーー</a>
+                <a href="..\G1-2\index.php" class="text-primary">ーーーー新規登録ーーーー</a>
                 <div class="text-center mt-4 font-weight-light">
-                  <a href="..\G2-1\index.html" class="text-primary">ーーログインせずに進むーー</a>
+                  <a href="..\G2-1\index.php" class="text-primary">ーーログインせずに進むーー</a>
                 </div><br>
 				
               </div>
