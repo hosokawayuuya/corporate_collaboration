@@ -1,4 +1,4 @@
-function login() {
+/*function login() {
     var username = document.getElementById("exampleInputEmail1").value;
     var password = document.getElementById("exampleInputPassword1").value;
     var isValid = authenticate(username, password);
@@ -20,6 +20,7 @@ return username === demoUsername && password === demoPassword;
  function pushHideButton() {
   var txtPass = document.getElementById("exampleInputPassword1");
   var btnEye = document.getElementById("buttonEye");
+  */
 
   // 入力タイプを確認し、表示/非表示を切り替える
   if (txtPass.type === "password") {
@@ -30,4 +31,5 @@ return username === demoUsername && password === demoPassword;
     txtPass.type = "password";
     btnEye.className = "fa fa-eye-slash";
   }
-}
+
+//}

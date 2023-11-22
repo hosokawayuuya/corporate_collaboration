@@ -31,12 +31,12 @@
               <form class="pt-3">
                 <p>ユーザーID</p>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" name="login">
                 </div>
                 <p>パスワード</p>
                 <div class="form-group">
                   <div style="position: relative;">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" name="password">
                     <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span>
                   </div>
                 </div>
