@@ -13,6 +13,10 @@
 	<body>
 		<!-- ここから書き換えてください -->
     <a href="../G6-3/index.php">
+    <a href="../G6-2/index.html">
+		<p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">設定変更</button></div></p>
+    </a>
+    <a href="../G6-3/index.html">
 		<p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">個人情報変更</button></div></p>
     </a>
     <a href="../G6-4/index.php">

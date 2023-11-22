@@ -20,11 +20,12 @@
 				<div class="row">
 					<div class="col-md-4 mb-4">
 						<div class="card text-center position-relative">
-							<a href="../G3-2/index.html"> 
+							<a href="../G3-2/index.php"> 
 								<img src="sample/product1.jpg" class="card-img-top mx-auto mt-3" alt="商品1の画像" style="width: 50%; height: 50%;">
 							</a>
 							<button id="hart" class="hart position-absolute bottom-0 end-0">&#10084;</button>
 							<div class="card-body">
+								<h5 class="category"><i>#面白い  #トップス</i></h5>
 								<h5 class="card-title">商品1</h5>
 								<p class="card-text">商品1の説明文がここに入ります。</p>
 								<p class="card-text font-weight-bold">評価</p>
@@ -54,7 +55,7 @@
 				<div class="row">
 					<div class="col-md-4 mb-4">
 						<div class="card text-center">
-							<a href="../G3-2/index.html"> 
+							<a href="../G3-2/index.php"> 
 								<img src="sample/product1.jpg" class="card-img-top mx-auto mt-3" alt="商品2の画像" style="width: 50%; height: 50%;">
 							</a>
 							<div class="item-head">

@@ -19,9 +19,12 @@
 				<div class="col-md-4 mb-4">
 					<div class="card">
             <h1 class="card-text">キャッチコピー</h1>
+					<a href="../G3-2/index.php">
 						<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
+					</a>
 						<a><button id="hart" class="hart">&#10084;</button></a>
 						<div class="card-body">
+							<h5 class="category"><i>#面白い  #トップス</i></h5>
 							<h5 class="card-title">商品1</h5>
 							<p class="card-text">商品1の説明文がここに入ります。</p>
 							<p class="card-text font-weight-bold">評価</p>
@@ -33,7 +36,9 @@
 				<div class="col-md-4 mb-4">
 					<div class="card">
             <h1 class="card-text">キャッチコピー</h1>
+					<a href="../G3-2/index.php">
 						<img src="sample/product2.jpg" class="card-img-top" alt="商品2の画像">
+					</a>
 						<a><button id="hart" class="hart">&#10084;</button></a>
 						<div class="card-body">
 							<h5 class="card-title">商品2</h5>
@@ -47,7 +52,9 @@
         <div class="col-md-4 mb-4">
 					<div class="card">
             <h1 class="card-text">キャッチコピー</h1>
+					<a href="../G3-2/index.php">
 						<img src="sample/product3.jpg" class="card-img-top" alt="商品３の画像">
+					</a>
 						<a><button id="hart" class="hart">&#10084;</button></a>
 						<div class="card-body">
 							<h5 class="card-title">商品3</h5>
@@ -58,5 +65,8 @@
 					</div>
 				</div>
       </div>
+	  <div class="define">
+		<button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82"onclick="history.back()">戻る</button>
+	  </div>
 	</body>
 </html>

@@ -28,7 +28,7 @@
         <div class="card">
           <table>
             <tr>
-              <td><a href="../G3-2/index.html"><img src="sample/product1.jpg" width="250"></a></td>
+              <td><a href="../G3-2/index.php"><img src="sample/product1.jpg" width="250"></a></td>
               <td>&nbsp;</td>
               <td> 
                 <p class="card-text font-weight-bold">個数</p>
@@ -80,7 +80,7 @@
     <p class="card-text1 font-weight-bold">合計:￥0,000</p><br>
     <div class="define">
       <button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82"onclick="history.back()">戻る</button>
-      <a href="../G5-1/index.html">
+      <a href="../G5-1/index.php">
         <button type="button" class="btn btn-light btn-rounded btn-fw">購入へ</button>
       </a>
     </div>
