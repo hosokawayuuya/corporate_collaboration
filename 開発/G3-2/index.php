@@ -88,8 +88,8 @@
 						</div>
 					</div>
 				<!--Cart (G4-1)へ情報を送る　このページでcart[]を作って送る　多分-->
-				<button type="button" onclick="location.href='../G4-1/index.html'" class="btn btn-success" >カートへ</button></br>
-				<button type="button" onclick="location.href='../G5-1/index.html'"  class="btn btn-primary">購入に進む</button>
+				<button type="button" onclick="location.href='../G4-1/index.php'" class="btn btn-success" >カートへ</button></br>
+				<button type="button" onclick="location.href='../G5-1/index.php'"  class="btn btn-primary">購入に進む</button>
 				<button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         	</div>
 		</div>
