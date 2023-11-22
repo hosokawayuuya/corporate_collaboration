@@ -20,7 +20,7 @@
 				<div class="row">
 					<div class="col-md-4 mb-4">
 						<div class="card text-center position-relative">
-							<a href="../G3-2/index.html"> 
+							<a href="../G3-2/index.php"> 
 								<img src="sample/product1.jpg" class="card-img-top mx-auto mt-3" alt="商品1の画像" style="width: 50%; height: 50%;">
 							</a>
 							<button id="hart" class="hart position-absolute bottom-0 end-0">&#10084;</button>
@@ -55,7 +55,7 @@
 				<div class="row">
 					<div class="col-md-4 mb-4">
 						<div class="card text-center">
-							<a href="../G3-2/index.html"> 
+							<a href="../G3-2/index.php"> 
 								<img src="sample/product1.jpg" class="card-img-top mx-auto mt-3" alt="商品2の画像" style="width: 50%; height: 50%;">
 							</a>
 							<div class="item-head">
