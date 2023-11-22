@@ -19,7 +19,7 @@
 				<div class="col-md-4 mb-4">
 					<div class="card">
             <h1 class="card-text">キャッチコピー</h1>
-					<a href="../G3-2/index.html">
+					<a href="../G3-2/index.php">
 						<img src="sample/product1.jpg" class="card-img-top" alt="商品1の画像">
 					</a>
 						<a><button id="hart" class="hart">&#10084;</button></a>
@@ -36,7 +36,7 @@
 				<div class="col-md-4 mb-4">
 					<div class="card">
             <h1 class="card-text">キャッチコピー</h1>
-					<a href="../G3-2/index.html">
+					<a href="../G3-2/index.php">
 						<img src="sample/product2.jpg" class="card-img-top" alt="商品2の画像">
 					</a>
 						<a><button id="hart" class="hart">&#10084;</button></a>
@@ -52,7 +52,7 @@
         <div class="col-md-4 mb-4">
 					<div class="card">
             <h1 class="card-text">キャッチコピー</h1>
-					<a href="../G3-2/index.html">
+					<a href="../G3-2/index.php">
 						<img src="sample/product3.jpg" class="card-img-top" alt="商品３の画像">
 					</a>
 						<a><button id="hart" class="hart">&#10084;</button></a>
