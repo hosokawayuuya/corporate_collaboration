@@ -12,13 +12,13 @@
   </head>
 	<body>
 		<h1>設定</h1>
-    <a href="henpin.html" class="btn btn-link btn-rounded btn-fw">返品ポリシーについて</a>
+    <a href="henpin.php" class="btn btn-link btn-rounded btn-fw">返品ポリシーについて</a>
     <br>
-    <a href="point.html" class="btn btn-link btn-rounded btn-fw">ポイントについて</a>
+    <a href="point.php" class="btn btn-link btn-rounded btn-fw">ポイントについて</a>
     <br>
-    <a href="privacy.html" class="btn btn-link btn-rounded btn-fw">利用規約とプライバシーポリシー</a>
+    <a href="privacy.php" class="btn btn-link btn-rounded btn-fw">利用規約とプライバシーポリシー</a>
     <br>
-    <a href="campain.html" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
+    <a href="campain.php" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
     <br>
     <button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82">ログアウト</button>
 	</body>
