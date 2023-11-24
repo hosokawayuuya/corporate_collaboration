@@ -20,6 +20,6 @@
     <br>
     <a href="campain.php" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
     <br>
-    <button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82">ログアウト</button>
+    <a href="..\G1-1\index.php" class="btn btn-light btn-rounded btn-fw">ログアウト</a>
 	</body>
 </html>
