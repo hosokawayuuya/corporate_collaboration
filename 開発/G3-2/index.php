@@ -13,7 +13,9 @@
 	<script src="js/script.js" defer></script>
   </head>
 	<body>
-		<h1 class="catchpharase">新の漢になろうぜ！</h1>
+		<div class="item-head">
+			<h1 class="catchpharase">新の漢になろうぜ！</h1><h2 class="rest">残り〇個</h2>
+		</div>
 
 		<div class="itemlist">
 			<div class="item-left">
@@ -32,7 +34,6 @@
 								<li>どの季節にもぴったり！これで人気者だ。</li>
 							</ul>
 						</p>
-					<!--在庫10個以下になったらここに　残り：〇件　と表示する　赤文字-->
 					<p>個数</p>
 					<div class="mb-3 mb-xl-0 pr-1">
 						<div class="dropdown">
@@ -87,8 +88,8 @@
 						</div>
 					</div>
 				<!--Cart (G4-1)へ情報を送る　このページでcart[]を作って送る　多分-->
-				<button type="button" onclick="location.href='../G4-1/index.html'" class="btn btn-success" >カートへ</button></br>
-				<button type="button" onclick="location.href='../G5-1/index.html'"  class="btn btn-primary">購入に進む</button>
+				<button type="button" onclick="location.href='../G4-1/index.php'" class="btn btn-success" >カートへ</button></br>
+				<button type="button" onclick="location.href='../G5-1/index.php'"  class="btn btn-primary">購入に進む</button>
 				<button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         	</div>
 		</div>
