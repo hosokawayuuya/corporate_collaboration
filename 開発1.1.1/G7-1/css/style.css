@@ -1,0 +1,25 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align:center;
+    margin:30px 0px;
+}
+
+/*buttonはインライン要素　ブロック要素に変更してmarginで中央寄せにする*/
+.btn.btn-social-icon-text.btn-linkedin {
+    width:15%;
+    height:10%;
+    display: block; /* ブロック要素にする */
+    margin: 70px auto; /* 左右のマージンを自動で中央に寄せる */
+}
+
+.rogo{
+    display:block;
+    width:30%;
+    height:30%;
+    margin: 100px auto;
+}

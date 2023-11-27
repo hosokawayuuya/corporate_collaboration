@@ -1,0 +1,81 @@
+.tabs {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 700px;
+    margin: 0 auto;
+  }
+  .tab_label {
+    width: calc(100%/3);
+    height: 50px;
+    border-bottom: 3px solid #5ab4bd;
+    background-color: #d9d9d9;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  .tab_label:hover {
+    opacity: 0.75;
+  }
+  input[name="tab_group"] {
+    display: none;
+  }
+  .tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+  }
+  #user_info_tab:checked ~ #user_info_content,
+  #address_tab:checked ~ #address_content,
+  #payment_method_tab:checked ~ #payment_method_content {
+    display: block;
+  }
+  .tabs input:checked + .tab_label {
+    background-color: #5ab4bd;
+    color: #fff;
+  }
+  input[type="text"],
+input[type="password"] {
+    border: 1px solid #000;
+}
+  .black-text {
+    color: black;
+}
+.red-text {
+    color: red;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  flex: 1;
+  margin-right: 10px; 
+}
+
+.form-group input {
+  flex: 2; 
+}
+
+
+.henko{
+  border: none; /* ボーダーの削除 */
+  border-radius: 90px; /* ボーダーの角を丸める */
+  background-color:rgb(219, 17, 91); /* ボタンの背景色 */
+  color:rgb(209, 244, 242); /* ボタンのテキスト色 */
+  cursor: pointer; /* ホバー時のカーソルスタイル */
+  padding: 10px 20px; /* パディングを追加してボタンのサイズを調整 */
+}
+button:hover {
+      background-color:rgb(132, 0, 255); 
+    }
