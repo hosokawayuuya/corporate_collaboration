@@ -8,8 +8,9 @@
 <script src="../Sample/template/vendors/progressbar.js/progressbar.min.js"></script>
 <script src="../Sample/template/vendors/chart.js/Chart.min.js"></script>
 <script src="../Sample/template/js/dashboard.js"></script>
+<script src="./script/script.js"></script>
 </body>
 </html>
 <?php
  $pdo = null;   //DB切断
- ?>
+?>
