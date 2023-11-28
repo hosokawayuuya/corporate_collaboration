@@ -1,7 +1,7 @@
 <?php session_start(); ?>
-<?php require 'header.php'; ?>
-<?php require 'menu.php'; ?>
-<?php require 'db-connect.php'; ?>
+<?php require '../others/head.php';?>
+<?php require '../others/header.php';?>
+<?php require '../others/db-connect.php'; ?>
 <?php
 $id = $_POST['id']; 
 if (!isset($_SESSION['product'])) {

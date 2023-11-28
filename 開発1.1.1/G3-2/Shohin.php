@@ -1,12 +1,13 @@
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
+こんにちは
 <?php
     $pdo = new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('select * from Shohin where shohin_id=?');
-    $sql->execute([$_GET['shohin_id']]);
+    $sql->execute(['shohin_id']);
 foreach($sql as $row){
-    echo '<p><img alt="image" height="400" src="image/',$row['shohin_id'],'.jpg"></p>';
+    echo '<p><img alt="image" height="400" src="../image/',$row['gazou_id'],'"></p>';
     echo '<form action="cart-insert.php" method="post">';
     echo '<p>商品番号：',$row['shohin_id'],'</p>';
     echo '<p>商品名：',$row['shohin_name'],'</p>';
