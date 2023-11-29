@@ -24,7 +24,7 @@ foreach($sql as $row){
     echo '<tr>'; 
     echo '<td>',$id,'</td>';
     echo '<td>';
-    echo '<a href="detail.php?id=',$id,'">',$row['shohin_name'],'</a>';
+    echo '<a href="../G3-2/Shohin.php?id=',$id,'">',$row['shohin_name'],'</a>';
     echo '</td>';
     echo '<td>',$row['price'],'</td>';
     echo '</tr>';
