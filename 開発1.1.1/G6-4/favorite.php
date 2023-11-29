@@ -1,5 +1,5 @@
 <script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
-<script src="../js/user_page.js"></script>
+<script src="./js/user_page.js"></script>
 <?php
 session_start();
 session_regenerate_id(true);
@@ -12,10 +12,10 @@ function check_favolite_duplicate($user_id,$post_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM favorite
-            WHERE user_id = :user_id AND post_id = :post_id";
+            WHERE user_id = :user_id AND shohin_id = :shohin_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id ,
-                         ':post_id' => $post_id));
+                         ':shohin_id' => $shohin_id));
     $favorite = $stmt->fetch();
     return $favorite;
 }
@@ -23,13 +23,13 @@ function check_favolite_duplicate($user_id,$post_id){
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['user_id']);
-  $page_id = $_POST['page_id'];
+  $user_id = $_POST['user_id'];
   $post_id = $_POST['post_id'];
 
   $profile_user_id = $_POST['page_id'] ?: $current_user['user_id'];
 
   //既に登録されているか確認
-  if(check_favolite_duplicate($current_user['id'],$post_id)){
+  if(check_favolite_duplicate($current_user['id'],$shohin_id)){
     $action = '解除';
     $sql = "DELETE
             FROM favorite
