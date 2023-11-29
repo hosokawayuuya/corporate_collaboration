@@ -1,42 +1,38 @@
 <?php
-session_start();
+require 'db-connect.php';
 
-// 必要なファイルをインクルード
-require '../others/head.php';
-require '../others/header.php';
-require '../others/db-connect.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // POSTリクエストからユーザー名とパスワードを取得
+    $userid = $_POST['user_id'];
+    $password = $_POST['password'];
 
-// フォームが送信されたかどうかを確認
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // ユーザー入力をサニタイズ
-    $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
-    $password_input = mysqli_real_escape_string($conn, $_POST['password']);
+    try {
+        // データベースからユーザー情報を取得するクエリ
+        $stmt = $connect->prepare("SELECT * FROM User WHERE user_id = :userid");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // データベースからユーザー情報を取得
-    $sql = "SELECT user_id, password FROM User WHERE user_id = '$user_id'";
-    $result = $conn->query($sql);
+        if ($user) {
+            // ユーザーが存在する場合
+            if ($password == $user['password']) {
+                // パスワードが一致する場合
 
-    // ユーザーが存在するか確認
-    if ($result->num_rows > 0) {
-        // ユーザーが存在する場合はパスワードを検証
-        $row = $result->fetch_assoc();
-        $hashed_password = $row['password'];
-
-        if (password_verify($password_input, $hashed_password)) {
-            // ログイン成功
-            $_SESSION['user_id'] = $user_id;  // ユーザーIDをセッションに保存
-            header("Location:./G2-1/index.php");
-            exit();
+                // ログイン成功後のページにリダイレクト
+                header('Location:../G2-1/index.php');
+                exit;
+            } else {
+                // パスワードが一致しない場合
+                echo "Invalid password";
+            }
         } else {
-            // パスワードが誤っている場合のエラーメッセージ
-            $error_message = "パスワードが間違っています";
+            // ユーザーが存在しない場合
+            echo "Invalid username";
         }
-    } else {
-        // ユーザーが存在しない場合のエラーメッセージ
-        $error_message = "ユーザーが存在しません";
+    } catch (PDOException $e) {
+        echo 'エラー: ' . $e->getMessage();
     }
 }
-
-// フッターをインクルード
-require '../others/footer.php';
 ?>
+
+

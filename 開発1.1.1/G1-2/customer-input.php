@@ -1,6 +1,5 @@
 <?php session_start();?>
-<?php require 'header.php';?>
-<?php require 'menu.php';?>
+
 <form action="customer-output.php" method="post">
     <?php
     $name = $address = $login = $password = '';
