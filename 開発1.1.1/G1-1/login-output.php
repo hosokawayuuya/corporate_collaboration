@@ -1,7 +1,7 @@
 <?php session_start(); ?>
-<?php require 'header.php'; ?>
-<?php require 'menu.php'; ?>
-<?php require 'db-connect.php'; ?>
+<?php require '../head.php'; ?>
+<?php require '../header.php'; ?>
+<?php require '../db-connect.php'; ?>
 <?php
 $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 unset($_SESSION['customer']);
