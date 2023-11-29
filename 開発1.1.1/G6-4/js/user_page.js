@@ -13,14 +13,14 @@ function get_param(name, url) {
 $(document).on('click','.favorite_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-        page_id = get_param('page_id'),
+        page_id = get_param('user_id'),
         post_id = get_param('procode');
     $.ajax({
         type: 'POST',
         url: 'ajax_post_favorite_process.php',
         dataType: 'json',
-        data: { page_id: page_id,
-                post_id: post_id}
+        data: { user_id: user_id,
+                shohin_id: shohin_id}
     }).done(function(data){
         location.reload();
     }).fail(function() {

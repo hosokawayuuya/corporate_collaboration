@@ -1,3 +1,4 @@
+<?php require '../others/advertise.php'; ?>
 <?php require '../others/head.php'; ?>
 <form action="../G3-2/Shohin.php" method="post">
 商品検索
@@ -5,7 +6,6 @@
 <input type="submit" value="検索">
 <?php require '../others/header.php'; ?>
 </form>
-<?php require '../others/advertise.php'; ?>
 <?php require '../others/db-connect.php'; ?>
 <hr>
 <?php
