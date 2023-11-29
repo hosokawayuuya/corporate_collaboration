@@ -100,8 +100,9 @@
           </div>
         </div>
         <!--ヘッダーの色変更終わり-->
+    
+
         <!--サイドバー始まり-->
-        <!--
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
@@ -320,11 +321,11 @@
           </nav>
         </ul>
         </nav>
-      -->
+      
         <!--サイドバー終わり-->
 
         <!--条件指定検索欄始まり-->
-        <!--
+        
         <div class="main-panel">
           <div class="yuuya">
             <div class="row">
@@ -401,7 +402,7 @@
             </div>
           </div>
         </div>
-      -->
+     
         <!--条件指定検索終わり-->
       </div>
     </div>
