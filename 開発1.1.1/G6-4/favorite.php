@@ -23,17 +23,16 @@ function check_favolite_duplicate($user_id,$post_id){
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['user_id']);
-  $user_id = $_POST['user_id'];
-  $post_id = $_POST['post_id'];
+  $shohin_id = $_POST['shohin_id'];
 
-  $profile_user_id = $_POST['page_id'] ?: $current_user['user_id'];
+  $profile_user_id = $_POST['shohin_id'] ?: $current_user['user_id'];
 
   //既に登録されているか確認
-  if(check_favolite_duplicate($current_user['id'],$shohin_id)){
+  if(check_favolite_duplicate($current_user['user_id'],$shohin_id)){
     $action = '解除';
     $sql = "DELETE
             FROM favorite
-            WHERE :user_id = user_id AND :post_id = post_id";
+            WHERE :user_id = user_id AND :shohn_id = shohin_id";
   }else{
     $action = '登録';
     $sql = "INSERT INTO favorite(user_id,post_id)
@@ -46,7 +45,7 @@ if(isset($_POST)){
     $password='';
     $dbh=new PDO($dsn,$user,$password);
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $current_user['code'] , ':post_id' => $post_id));
+    $stmt->execute(array(':user_id' => $current_user['code'] , ':shohin_id' => $shohin_id));
 
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
