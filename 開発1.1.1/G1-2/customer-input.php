@@ -1,14 +1,13 @@
 <?php session_start();?>
-<?php require 'header.php';?>
-<?php require 'menu.php';?>
+
 <form action="customer-output.php" method="post">
     <?php
     $name = $address = $login = $password = '';
-    if (isset($_SESSION['customer'])) {
-        $name = $_SESSION['customer']['name'];
-        $address = $_SESSION['customer']['address'];
-        $login = $_SESSION['customer']['login'];
-        $password = $_SESSION['customer']['password'];
+    if (isset($_SESSION['User'])) {
+        $name = $_SESSION['User']['name'];
+        $address = $_SESSION['User']['address'];
+        $login = $_SESSION['User']['login'];
+        $password = $_SESSION['User']['password'];
     }
     echo '<form action="customer-output.php" method="post">';
     echo '<table>';

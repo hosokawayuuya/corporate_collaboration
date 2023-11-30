@@ -1,25 +1,38 @@
-<?php session_start(); ?>
-<?php require '../head.php'; ?>
-<?php require '../header.php'; ?>
-<?php require '../db-connect.php'; ?>
 <?php
-$hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-unset($_SESSION['customer']);
-$pdo = new PDO($connect, USER, PASS);
-$sql=$pdo->prepare('select * from customer where login=?');
-$sql->execute([$_REQUEST['login']]);
-    foreach ($sql as $row ) {
-        if(password_verify($_POST['password'],$row['password']) == true){
-        $_SESSION['customer']=[
-            'id'=>$row['id'], 'name'=>$row['name'],
-            'address'=>$row['address'], 'login'=>$row['login'],
-            'password'=>$row['password']];
+require 'db-connect.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // POSTリクエストからユーザー名とパスワードを取得
+    $userid = $_POST['user_id'];
+    $password = $_POST['password'];
+
+    try {
+        // データベースからユーザー情報を取得するクエリ
+        $stmt = $connect->prepare("SELECT * FROM User WHERE user_id = :userid");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            // ユーザーが存在する場合
+            if ($password == $user['password']) {
+                // パスワードが一致する場合
+
+                // ログイン成功後のページにリダイレクト
+                header('Location:../G2-1/index.php');
+                exit;
+            } else {
+                // パスワードが一致しない場合
+                echo "Invalid password";
+            }
+        } else {
+            // ユーザーが存在しない場合
+            echo "Invalid username";
         }
+    } catch (PDOException $e) {
+        echo 'エラー: ' . $e->getMessage();
     }
-if(isset($_SESSION['customer'])){
-    echo 'いらっしゃいませ、', $_SESSION['customer']['name'],'さん。';
-}else{
-    echo 'ログイン名またはパスワードが違います。';
 }
 ?>
-<?php require 'footer.php'; ?>  
+
+
