@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
+  <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
+  <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
     <title>Login</title>
 </head>
 <body>
