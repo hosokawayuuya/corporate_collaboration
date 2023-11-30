@@ -5,15 +5,20 @@
           <a class="navbar-brand brand-logo-mini" href="../G2-1/index.php"><img src="../image/AsoCityロゴ2.png" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-          <ul class="navbar-nav mr-lg-2">
-            <form action="../G3-2/Shohin.php" method="post">
-            <input type="text" name="keyword" class="form-control" size="50" placeholder="AsoCityで探す">
-            <input type="submit" value="検索" class="btn btn-primary" id="search">
+                <form action="../G3-2/Shohin.php" method="post">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control" size="30" placeholder="AsoCityで探す">
+                        <div class="input-group-append">
+                            <input type="submit" value="検索" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="../G2-1/index.php">
-                ホーム
+              <a class="nav-link" href="../G6-4/favorite.php">
+                お気に入り
               </a>
             </li>
             <li class="nav-item d-none d-lg-flex  mr-2">
@@ -27,14 +32,11 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="../G6-2/cart-show.php">
+              <a class="nav-link" href="../G6-2/setting.php">
                 設定
               </a>
             </li>
           </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="typcn typcn-th-menu"></span>
-          </button>
         </div>
     </nav>
 </div>

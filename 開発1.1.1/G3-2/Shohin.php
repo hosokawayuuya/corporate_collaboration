@@ -1,10 +1,5 @@
 <?php require '../others/head.php'; ?>
-<form action="../G3-2/Shohin.php" method="post">
-商品検索
-<input type="text" name="keyword">
-<input type="submit" value="検索">
 <?php require '../others/header.php'; ?>
-</form>
 <?php require '../others/db-connect.php'; ?>
 <?php
     $pdo = new PDO($connect, USER, PASS);
