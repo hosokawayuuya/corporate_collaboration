@@ -1,24 +1,24 @@
 <?php session_start();?>
+<?php require '../others/db-connect.php'; ?>
 
 <form action="customer-output.php" method="post">
     <?php
-    $name = $address = $login = $password = '';
+    $user_name = $address1 = $user_id = $password = '';
     if (isset($_SESSION['User'])) {
-        $name = $_SESSION['User']['name'];
-        $address = $_SESSION['User']['address'];
-        $login = $_SESSION['User']['login'];
+        $uer_name = $_SESSION['User']['user_name'];
+        $address1 = $_SESSION['User']['address1'];
+        $user_id = $_SESSION['User']['user_id'];
         $password = $_SESSION['User']['password'];
     }
-    echo '<form action="customer-output.php" method="post">';
     echo '<table>';
-    echo '<tr><td>お名前</td><td>';
-    echo '<input type="text" name="name" value="', $name, '">';
+    echo '<tr><td>ユーザーID</td><td>';
+    echo '<input type="text" name="user_name" value="', $user_name, '">';
     echo '</td></tr>'; 
     echo '<tr><td>ご住所</td><td>';
-    echo '<input type="text" name="address" value="', $address, '">';
+    echo '<input type="text" name="address1" value="', $address1, '">';
     echo '</td></tr>'; 
     echo '<tr><td>ログイン</td><td>';
-    echo '<input type="text" name="login" value="', $login, '">';
+    echo '<input type="text" name="user_id" value="', $user_id, '">';
     echo '</td></tr>'; 
     echo '<tr><td>パスワード</td><td>';
     echo '<input type="password" name="password" value="', $password, '">';
@@ -28,3 +28,4 @@
     echo '</form>';
 ?>
 
+<?php require '../others/footer.php'; ?>
