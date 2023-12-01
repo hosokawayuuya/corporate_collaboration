@@ -12,7 +12,7 @@ if (isset($_SESSION['Shohin'][$id])) {
     $count = $_SESSION['Shohin'][$id]['count']; 
 }
 $_SESSION['Shohin'][$id] = [
-    'name' => $_POST['shohin_name'], 
+    'shohin_name' => $_POST['shohin_name'], 
     'price' => $_POST['price'], 
     'count' => $count + $_POST['count']
 ];

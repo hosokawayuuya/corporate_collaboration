@@ -2,8 +2,8 @@ window.onload = function(){
    
   //画像を配列に格納
   var images =['url(https://lastmagazine.jp/wp-content/uploads/2022/05/Gucci-Eyewear_Hollywood-Forever-2022-Adv_DPS_72dpi.jpg)',
-               'url(https://prtimes.jp/i/8372/1482/resize/d8372-1482-723875-0.jpg)',
-               'url(https://predge.jp/wp-content/uploads/2022/02/2e2c2ee33b6a0f7e7c111c1221704ffd.jpeg)']
+               'url(https://prtimes.jp/i/8795/36/resize/d8795-36-905118-1.jpg)',
+               'url(https://hips.hearstapps.com/jp.h-cdn.co/esqjp/esquire-mig/images/media/images/_1_article_type_3.jpg-middle1481/1144927-1-jpn-JP/_1_article_type_3.jpg-middle.jpg)']
 
   //要素をHTMLから取得
   //画像

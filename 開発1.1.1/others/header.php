@@ -1,42 +1,51 @@
 <div class="container-scroller">
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="../G2-1/index.php"><img src="../image/AsoCityロゴ2.png" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="../G2-1/index.php"><img src="../image/AsoCityロゴ2.png" alt="logo"/></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <form action="../G3-2/Shohin.php" method="post">
-                    <div class="input-group">
-                        <input type="text" name="keyword" class="form-control" size="30" placeholder="AsoCityで探す">
-                        <div class="input-group-append">
-                            <input type="submit" value="検索" class="btn btn-primary">
-                        </div>
-                    </div>
-                </form>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="../G6-4/favorite.php">
-                お気に入り
-              </a>
-            </li>
-            <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="../G6-1/mypage.php">
-                マイページ
-              </a>
-            </li>
-            <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="../G4-1/cart-show.php">
-                カート
-              </a>
-            </li>
-            <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="../G6-2/setting.php">
-                設定
-              </a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      <a class="navbar-brand brand-logo" href="../G2-1/index.php"><img src="../image/AsoCityロゴ2.png" alt="logo"/></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+      <ul class="navbar-nav navbar-nav-right">
+        <li class="nav-item dropdown  d-flex">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="../G2-1/index.php">
+            <i class="typcn typcn-home mr-0"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown  d-flex">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="../G6-1/mypage.php">
+            <i class="typcn typcn-user mr-0"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown  d-flex">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="../G4-1/cart-show.php">
+            <i class="typcn typcn-shopping-cart"></i>
+          </a>
+        </li>
+        <li class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle  pl-0 pr-0" href="../G6-2/setting.php" data-toggle="dropdown" id="profileDropdown">
+            <i class="typcn typcn-cog text-primary"></i>
+            <span class="nav-profile-name">変更</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" href="../G6-2/setting.php">
+            <i class="typcn typcn-cog text-primary"></i>
+            設定
+            </a>
+            <a class="dropdown-item" href="../G6-1/logout-input.php">
+            <i class="typcn typcn-power text-primary"></i>
+            ログアウト
+            </a>
+          </div>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="typcn typcn-th-menu"></span>
+      </button>
+    </div>
+  </nav>
+<style>
+    .container-scroller {
+      margin-bottom: 70px;
+}
+</style>
+<hr>
 </div>
