@@ -2,10 +2,14 @@
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
 <form action="index.php" method="post">
-商品検索
-<input type="text" name="keyword">
-<input type="submit" value="検索">
+<input type="text" name="keyword" class="form-control" placeholder="AsoCityで検索">
+<input type="submit" value="検索" class="btn btn-sm btn-primary">
 </form>
+<style>
+form{
+  text-align: left;
+}
+</style>
 <?php require '../others/advertise.php'; ?>
 <?php
     echo '<table>'; 
