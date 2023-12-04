@@ -20,14 +20,14 @@ if(isset($_POST['keyword'])){
 }else{
     $sql=$pdo->query('select * from Shohin');
 }
-$products = $sql->fetchAll(PDO::FETCH_ASSOC);
+$products = $sql->fetchAll(PDO::FETCH_ASSOC);               
 ?>
 
 <div class="container">
     <h1 class="my-4">商品一覧</h1>
     <div class="row">
     <?php foreach($products as $row){
-    $id=$row['shohin_id'];} ?>
+    $id=$row['shohin_id']; ?>
         <div class="col-md-4 mb-4">
             <div class="card">
                 <h1 class="card-text"><?php echo $row['shohin_catch'] ?></h1>
@@ -46,6 +46,7 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
+    }
     </div>
 </div>
 <?php require '../others/footer.php'; ?>
