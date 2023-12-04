@@ -1,15 +1,14 @@
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
-<form action="index.php" method="post">
-<input type="text" name="keyword" class="form-control" placeholder="AsoCityで検索">
-<input type="submit" value="検索" class="btn btn-sm btn-primary">
-</form>
-<style>
-form{
-  text-align: left;
-}
-</style>
+<div class="col-md-6">
+    <form action="index.php" method="post" class="form-inline">
+        <div class="form-group">
+            <input type="text" name="keyword" class="form-control mr-2" placeholder="AsoCityで検索">
+            <input type="submit" value="検索" class="btn btn-sm btn-primary">
+        </div>
+    </form>
+</div>
 <?php require '../others/advertise.php'; ?>
 <?php
 $pdo = new PDO($connect, USER, PASS);
@@ -25,8 +24,10 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="container">
     <h1 class="my-4">商品一覧</h1>
+    <?php if (empty($products)) : ?>
+        <p><h2>該当する商品がありません。</h2></p>
+    <?php else : ?>
     <div class="row">
-
         <?php foreach($products as $row){
         $id=$row['shohin_id']; ?>
             <div class="col-md-4 mb-4">
@@ -49,5 +50,6 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
             </div>
         <?php }?>
     </div>
+    <?php endif; ?>
 </div>
 <?php require '../others/footer.php'; ?>
