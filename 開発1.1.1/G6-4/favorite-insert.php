@@ -10,7 +10,26 @@ echo 'お気に入りに商品を追加しました。';
 echo '<hr>';
 require 'favorite.php';
 }else{
-echo 'お気に入りに商品を追加するには、ログインしてください。';
+    $id = $_POST['shohin_id'];
+
+    if (!isset($_SESSION['Shohin'])) {
+        $_SESSION['Shohin'] = [];
+    }
+    
+    $count = 0;
+    
+    if (isset($_SESSION['Shohin'][$id])) {
+        $count = $_SESSION['Shohin'][$id];
+    }
+    
+    $_SESSION['Shohin'][$id] = [
+        'shohin_name' => $_POST['shohin_name'],
+        'price' => $_POST['price'],
+    ];
+    
+    echo '<p>お気に入りに商品を追加しました。</p>';
+    echo '<hr>';
+    require 'favorite.php';
 }
 ?>
 <?php require 'footer.php'; ?>
