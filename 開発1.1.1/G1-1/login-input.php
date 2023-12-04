@@ -37,6 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // パスワードが一致するか確認
             if (password_verify($password, $user['password'])) {
                 // ログイン成功
+                session_start();
+
+                // ユーザー情報をセッションに保存
+                $_SESSION['user_id'] = $user['user_id'];
                 header("Location: ../G2-1/index.php");
                 exit();
             } else {
@@ -117,7 +121,7 @@ function togglePasswordVisibility() {
 </form>
 <div class="text-center mt-4 font-weight-light">
   <br>
-                <a href="../G1-2/customer.php" class="text-primary">ーーーー新規登録ーーーー</a>
+                <a href="../G1-2/customer-input.php" class="text-primary">ーーーー新規登録ーーーー</a>
                 <div class="text-center mt-4 font-weight-light">
                   <a href="../G2-1/index.php" class="text-primary">ーーログインせずに進むーー</a>
                 </div><br>
