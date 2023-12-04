@@ -36,6 +36,7 @@ foreach($sql as $row){
     echo '<td>',$row['price'],'</td>';
     echo '</tr>';
 }
+
 echo '</table>';
 ?>
 <div class="theme-setting-wrapper">

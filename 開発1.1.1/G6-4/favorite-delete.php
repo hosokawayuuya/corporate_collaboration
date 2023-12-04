@@ -10,7 +10,9 @@ $sql=$pdo->prepare('delete from favorite where user_id=? and shohin_id=?');
 echo 'お気に入りから商品を削除しました。';
 echo '<hr>';
 } else{
-echo 'お気に入りから商品を削除するには、ログインしてください。';
+    unset($_SESSION['Shohin'][$_GET['shohin_id']]);
+echo '気に入りから商品を削除しました。';
+echo '<hr>';
 }
 require 'favorite.php';
 ?>
