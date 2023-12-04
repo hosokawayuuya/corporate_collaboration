@@ -12,9 +12,7 @@ form{
 </style>
 <?php require '../others/advertise.php'; ?>
 <?php
-    echo '<table>'; 
-    echo '<tr><th>商品番号</th><th>商品名</th><th>キャッチコピー</th><th>商品説明</th><th>商品画像</th><th>カテゴリー</th><th>価格</th>'; 
-    $pdo = new PDO($connect, USER, PASS);
+$pdo = new PDO($connect, USER, PASS);
 
 if(isset($_POST['keyword'])){
     $sql=$pdo->prepare('select * from Shohin where shohin_name like ?');
@@ -22,37 +20,31 @@ if(isset($_POST['keyword'])){
 }else{
     $sql=$pdo->query('select * from Shohin');
 }
-foreach($sql as $row){
-    $id=$row['shohin_id'];
-    echo '<tr>'; 
-    echo '<td>',$id,'</td>';
-    echo '<td>';
-    echo '<a href="../G3-2/Shohin.php?shohin_id=',$id,'">',$row['shohin_name'],'</a>';
-    echo '</td>';
-    echo '<td>',$row['shohin_catch'],'</td>';
-    echo '<td>',$row['shohin_setu'],'</td>';
-    echo '<td>','<img alt="image" height="400" src="../image/',$row['gazou_id'],'">','</td>';
-    echo '<td>',$row['cate1'],'</td>';
-    echo '<td>',$row['price'],'</td>';
-    echo '</tr>';
-}
-echo '</table>';
+$products = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="theme-setting-wrapper">
-    <div id="settings-trigger">
-        <i class="typcn typcn-cog-outline"></i>
-    </div>
-    <div id="theme-settings" class="settings-panel">
-    <i class="settings-close typcn typcn-delete-outline"></i>
-    <p class="settings-heading mt-2">HEADER SKINS</p>
-        <div class="color-tiles mx-0 px-4">
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles primary"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default border"></div>
+
+<div class="container">
+    <h1 class="my-4">商品一覧</h1>
+    <div class="row">
+    <?php foreach($products as $row){
+    $id=$row['shohin_id'];} ?>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <h1 class="card-text"><?php echo $row['shohin_catch'] ?></h1>
+                <div class="example">
+                    <a href="../G3-2/Shohin.php?shohin_id= <?php echo $row['shohin_id'] ?>">
+                        <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像">
+                    </a>
+                    <button id="hart" class="hart">&#10084;</button>
+                </div>
+                <div class="card-body">
+                    <h5 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
+                    <h5 class="card-title"><?php echo $row['shohin_name'] ?></h5>
+                    <p class="card-text"><?php echo $row['shohin_setu'] ?></p>
+                    <p class="card-text font-weight-bold">評価</p>
+                    <p class="card-text font-weight-bold"><?php echo $row['price'] ?>円</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
