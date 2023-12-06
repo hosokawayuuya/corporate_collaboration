@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title></title>
+    <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
     <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
-
-  </head>
-	<body>
     <style>
     body{
    text-align: center;
@@ -111,29 +108,27 @@ p2{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-</style>
-		<h1>設定</h1>
-    <a href="henpin.php" class="btn btn-link btn-rounded btn-fw">返品ポリシーについて</a>
-    <br>
-    <a href="point.php" class="btn btn-link btn-rounded btn-fw">ポイントについて</a>
-    <br>
-    <a href="privacy.php" class="btn btn-link btn-rounded btn-fw">利用規約とプライバシーポリシー</a>
-    <br>
-    <a href="campain.php" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
-    <br>
-<form action="login-input.php" method="post"> class="btn btn-light btn-rounded btn-fw">ログアウト</a>
-	</body>
+</script>
+  </head>
+<style>
+    .right-align {
+      text-align: right;
+      margin-top: 470px;
+    }
+  </style>
+  <body>
+<h>ポイント</h>
+<br>
+<div class="confirmation4"> 
+<p1>商品をご購入いただく際には、100円ごとに1ポイントのポイントを差し上げております。</p1>
+<br>
+<p1>支払いに関しましては、1ポイントにつき1円の換算となっております。</p1>
+<br>
+<p1>入力して、使いたいポイントの数だけ使えます</p1>
+    </div>
+<div class="right-align">
+    <button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82" onclick="history.back()">戻る</button>
+</div>
+  </body>
 </html>
 
-<?php session_start () ; ?>
-<?php require 'header.php'; ?> 
-<?php require 'menu.php'; ?> 
-<?php
-if(isset ($_SESSION['customer'])){
-unset($_SESSION['customer']);
-echo 'ログアウトしました。';
-}else{
-echo 'すでにログアウトしています。';
-}
-?>
-<?php require 'footer.php'; ?>

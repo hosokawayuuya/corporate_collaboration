@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
-
-  </head>
-	<body>
     <style>
     body{
    text-align: center;
@@ -112,28 +109,26 @@ p2{
   transform: translate(-50%, -50%);
 }
 </style>
-		<h1>設定</h1>
-    <a href="henpin.php" class="btn btn-link btn-rounded btn-fw">返品ポリシーについて</a>
-    <br>
-    <a href="point.php" class="btn btn-link btn-rounded btn-fw">ポイントについて</a>
-    <br>
-    <a href="privacy.php" class="btn btn-link btn-rounded btn-fw">利用規約とプライバシーポリシー</a>
-    <br>
-    <a href="campain.php" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
-    <br>
-<form action="login-input.php" method="post"> class="btn btn-light btn-rounded btn-fw">ログアウト</a>
-	</body>
-</html>
-
-<?php session_start () ; ?>
-<?php require 'header.php'; ?> 
-<?php require 'menu.php'; ?> 
-<?php
-if(isset ($_SESSION['customer'])){
-unset($_SESSION['customer']);
-echo 'ログアウトしました。';
-}else{
-echo 'すでにログアウトしています。';
+  </head>
+<style>
+    .right-align {
+      margin-top: 470px;
+      text-align: right;
 }
-?>
-<?php require 'footer.php'; ?>
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+  }
+
+</style>
+<body>
+  <div>
+<img src="https://cdn.amebaowndme.com/madrid-prd/madrid-web/images/sites/468464/1b7aa9939af1bb2592deceb52479b491_9acf2f5bef872ed2db1c77afb0971cf7.jpg">
+</div>
+<div class="right-align">
+<button type="button" class="btn btn-light btn-rounded btn-fw" _msttexthash="1893619" _msthash="82" onclick="history.back()">戻る</button>
+</div>
+</body>
+</html>
