@@ -12,7 +12,7 @@
     text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
     -webkit-background-clip : text;
 }
-</script>
+</style>
 <div class="col-md-6">
     <form action="index.php" method="post" class="form-inline">
         <div class="form-group">
