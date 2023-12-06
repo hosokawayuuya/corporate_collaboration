@@ -69,8 +69,7 @@
                     </button> 
                     <div class="dropdown-menu" aria-labelledby="sizeDropdown" data-x-placement="top-start"> 
                         <?php
-                        // データベースからサイズの選択肢を取得するクエリ
-                        $sizes = $pdo->query('SELECT * FROM sizes');
+                        $sizes = $pdo->query('SELECT * FROM Shohin');
                         foreach ($sizes as $size) {
                             echo '<a class="dropdown-item" href="#">' . $size['size_name'] . '</a>';
                         }
@@ -78,12 +77,9 @@
                     </div> 
                 </div>
             </div>
-            <!--Cart (G4-1)へ情報を送る　このページでcart[]を作って送る　多分-->
-            <button type="button" onclick="location.href='../G4-1/index.php'" class="btn btn-success" >カートへ</button></br>
-            <button type="button" onclick="location.href='../G5-1/index.php'"  class="btn btn-primary">購入に進む</button>
-            <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
+<?php }?>
     <h1 class="review">レビュー</h1>
     <div class="sum-review">
         <h3>総合:</h3><h3 class="sum-star">4.0★★★★☆</h3>
@@ -103,6 +99,8 @@
         <span class="icon">😊</span>
         <span class="comment">冬ロケで使ったけど寒すぎて次の日熱出たわ</br>まじでこれはやばい</span>
     </div>
-<?php }?>
-
+<!--Cart (G4-1)へ情報を送る　このページでcart[]を作って送る　多分-->
+<button type="button" onclick="location.href='../G4-1/index.php'" class="btn btn-success" >カートへ</button></br>
+<button type="button" onclick="location.href='../G5-1/index.php'"  class="btn btn-primary">購入に進む</button>
+<button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
 <?php require '../others/footer.php'; ?>
