@@ -9,25 +9,50 @@
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+      .example {
+        text-align: center;
+        padding: 40px;
+        margin-top: 10px;
+      }
+
+      .custom-btn {
+        width: 400px; /* ボタンの幅を調整する値 */
+        height: 40px; /* ボタンの高さを調整する値 */
+      }
+    </style>
   </head>
-	<body>
-		<!-- ここから書き換えてください -->
-    <a href="../G6-3/index.php">
-    <a href="../G6-2/index.php">
-		<p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">設定変更</button></div></p>
-    </a>
-    <a href="../G6-3/index.php">
-		<p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">個人情報変更</button></div></p>
-    </a>
-    <a href="../G6-4/index.php">
-    <p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">お気に入り</button></div></p>
-    </a>
-    <a href="../G6-5/index.php">
-		<p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品購入履歴</button></div></p>
-    </a>
-    <a href="../G6-6/index.php">
-    <p><div class="example"><button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品閲覧履歴</button></div></p>
-    </a>
-		<!-- ここまで書き換えてください -->
-	</body>
+  <body>
+    <!-- ここから書き換えてください -->
+    <div class="example">
+      <a href="../G6-3/index.php">
+        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">設定変更</button>
+      </a>
+    </div>
+
+    <div class="example">
+      <a href="../G6-2/index.php">
+        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">個人情報変更</button>
+      </a>
+    </div>
+
+    <div class="example">
+      <a href="../G6-4/index.php">
+        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">お気に入り</button>
+      </a>
+    </div>
+
+    <div class="example">
+      <a href="../G6-5/index.php">
+        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品購入履歴</button>
+      </a>
+    </div>
+
+    <div class="example">
+      <a href="../G6-6/index.php">
+        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品閲覧履歴</button>
+      </a>
+    </div>
+    <!-- ここまで書き換えてください -->
+  </body>
 </html>
