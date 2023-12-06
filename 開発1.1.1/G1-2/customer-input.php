@@ -130,8 +130,6 @@ $pdo = null;
                 <img src="..\image\AsoCityロゴ2.png" alt="ここに画像アイコン入る">
               </div>
 
-<h2>新規登録フォーム</h2>
-
 <form action="customer-input.php" method="post">
     <!-- ...（フォームの入力部分はそのまま） -->
     <label for="last_name">姓:</label>

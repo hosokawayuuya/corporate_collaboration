@@ -25,7 +25,7 @@
   <body>
     <!-- ここから書き換えてください -->
     <div class="example">
-      <a href="../G6-3/index.php">
+      <a href="../G6-3/mypage.php">
         <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">設定変更</button>
       </a>
     </div>
