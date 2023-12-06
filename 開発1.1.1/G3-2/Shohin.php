@@ -27,7 +27,7 @@
                 </ul>
             </p>
             
-            <form action="../G4-1/cart-insert.php" method="post">;
+            <form action="../G4-1/cart-insert.php" method="post">
             <?php
                 echo '<p>個数：<select name="count">';
                 for($i=1;$i<=10;$i++){
@@ -37,8 +37,22 @@
                 echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
                 echo '<input type="hidden" name="shohin_name" value="',$row['shohin_name'],'">';
                 echo '<input type="hidden" name="price" value="',$row['price'],'">';
-                echo '<input type="submit" class="btn btn-success value="カートに追加"></p>';
+                echo '<input type="submit" class="btn btn-success value="カートへ"></p>';
                 echo '</form>';
+            ?>
+            <p>色</p>
+            <div class="mb-3 mb-xl-0 pr-1">
+                <select name="color" class="form-select">
+                    <option value="黒">黒</option>
+                    <option value="白">白</option>
+                    <option value="赤">赤</option>
+                    <option value="青">青</option>
+                    <option value="ベージュ">ベージュ</option>
+                    <option value="茶色">茶色</option>
+                    <option value="グレー">グレー</option>
+                </select>
+            </div>
+            <?php
                 echo '<p><a href="favorite-insert.php?shohin_id=',$row['shohin_id'],
                     '">お気に入りに追加</a></p>';
             ?>
