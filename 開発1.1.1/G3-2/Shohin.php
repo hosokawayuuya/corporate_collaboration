@@ -77,6 +77,13 @@
                     </div> 
                 </div>
             </div>
+            <?php
+            echo '<form action="../G4-1/cart-insert.php" method="post">';
+            echo '<p><input type="submit" value="カートに追加"></p>';
+            echo '</form>';
+            echo '<p><a href="favorite-insert.php?shohin_id=',$row['shohin_id'],
+                '">お気に入りに追加</a></p>';
+            ?>
         </div>
     </div>
 <?php }?>
