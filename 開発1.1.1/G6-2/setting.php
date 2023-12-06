@@ -1,3 +1,6 @@
+<?php require '../others/head.php'; ?>
+<?php require '../others/header.php'; ?>
+<?php require '../others/db-connect.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -121,19 +124,24 @@ p2{
     <br>
     <a href="campain.php" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
     <br>
-<form action="login-input.php" method="post"> class="btn btn-light btn-rounded btn-fw">ログアウト</a>
-	</body>
-</html>
+    <form action="setting.php" method="post" id="logoutForm">
+    <button type="submit" name="logout" class="btn btn-light btn-rounded btn-fw">ログアウト</button>
+</form>
 
-<?php session_start () ; ?>
-<?php require 'header.php'; ?> 
-<?php require 'menu.php'; ?> 
-<?php
-if(isset ($_SESSION['customer'])){
-unset($_SESSION['customer']);
-echo 'ログアウトしました。';
-}else{
-echo 'すでにログアウトしています。';
-}
-?>
-<?php require 'footer.php'; ?>
+<div id="error-container">
+    <?php
+    if (isset($_POST['logout'])) {
+        if (isset($_SESSION['User'])) {
+            // セッション破棄
+            unset($_SESSION['User']);
+            header("Location: ../G1-1/login-input.php");
+            exit();
+        } else {
+            echo '<p class="error-message">アカウントが存在しないか、すでにログアウトしています。</p>';
+        }
+    }
+    ?>
+</div>
+</body>
+</html>
+<?php require '../others/footer.php'; ?>
