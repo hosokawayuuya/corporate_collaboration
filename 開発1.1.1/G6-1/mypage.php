@@ -12,13 +12,13 @@
     <style>
       .example {
         text-align: center;
-        padding: 40px;
+        padding: 10px;
         margin-top: 10px;
       }
 
       .custom-btn {
         width: 400px; /* ボタンの幅を調整する値 */
-        height: 40px; /* ボタンの高さを調整する値 */
+        height: 70px; /* ボタンの高さを調整する値 */
       }
     </style>
   </head>
@@ -53,6 +53,9 @@
         <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品閲覧履歴</button>
       </a>
     </div>
+    <div class="example">
+    <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn"  onclick="history.back()">戻る</button>
+</div>
     <!-- ここまで書き換えてください -->
   </body>
 </html>
