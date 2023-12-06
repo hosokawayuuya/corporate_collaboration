@@ -14,7 +14,7 @@ $(function() {
             console.log("クリック後の処理");
             $.ajax({
                 type: "POST",
-                url: "favorite-incert.php",
+                url: ".../G3-1/favorite-incert.php",
                 data: {id: productId},
                 success: function(response) {
                     // レスポンスを処理する（必要に応じて）
