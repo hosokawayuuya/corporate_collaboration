@@ -33,19 +33,17 @@
                 for($i=1;$i<=10;$i++){
                     echo '<option value="',$i,'">',$i,'</option>';
                 }
-                echo '</select>';
-            ?>
-            <?php
-                echo '<p><input type="submit" class="btn btn-success value="カートに追加"></p>';
+                echo '</select></p>';
+                echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
+                echo '<input type="hidden" name="shohin_name" value="',$row['shohin_name'],'">';
+                echo '<input type="hidden" name="price" value="',$row['price'],'">';
+                echo '<input type="submit" class="btn btn-success value="カートに追加"></p>';
                 echo '</form>';
                 echo '<p><a href="favorite-insert.php?shohin_id=',$row['shohin_id'],
                     '">お気に入りに追加</a></p>';
             ?>
+            <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
 <?php }?>
-<!--Cart (G4-1)へ情報を送る　このページでcart[]を作って送る　多分-->
-<button type="button" onclick="location.href='../G4-1/index.php'" class="btn btn-success" >カートへ</button></br>
-<button type="button" onclick="location.href='../G5-1/index.php'"  class="btn btn-primary">購入に進む</button>
-<button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
 <?php require '../others/footer.php'; ?>
