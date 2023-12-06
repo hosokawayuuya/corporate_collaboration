@@ -1,0 +1,105 @@
+.item-head{
+    display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+}
+.catchpharase {
+  margin: 10px 50px; 
+  font-family: "Nico Moji";
+  text-align: left;
+}
+.rest{
+  display:block;
+  margin-left: 40%;
+}
+
+
+.itemlist {
+    display: flex; /* Flexboxを使用して左右配置にする */
+    justify-content: space-between; /* 左右に配置 */
+  }
+  .item-left,.item-right{
+    flex: 1; /* 左側と右側1つの割合で占める */
+  }
+  .item-left{
+    display: flex;
+    justify-content: center; /* 横方向（左右）の中央揃え */
+    align-items: center; /* 縦方向（上下）の中央揃え */
+    position: relative; /* positionをrelativeに設定 */
+    }
+    .hart {
+      border-radius: 50%; /* 半径50%で円形にする */
+      font-size: 25px;
+      padding: 7px 15px;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid #000000;
+      transition: color 0.3s, background-color 0.3s,transform 0.3s;
+      position: absolute; /* positionをabsoluteに設定 */
+      bottom: 0; /* 下端に対して配置 */
+      right: 20px; /* 右端に対して配置 */
+    }
+    .hart-hover {
+      color: white;
+      background-color: red;
+      transform: scale(1.2);
+    }
+  .category{
+    color:#99e8e8;
+  }
+
+.btn.btn-success {
+    width:150px;
+    height: 30px;
+    display: inline-block;
+    margin: 5px;
+    text-align:center;
+    line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+}
+.btn.btn-primary {
+    width:150px;
+    height: 30px;
+    display: inline-block;
+    margin: 5px;
+    text-align:center;
+    line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+}
+.btn.btn-info {
+  width:150px;
+  height: 30px;
+  display: inline-block;
+  margin: 5px;
+  text-align:center;
+  line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+}
+.review{
+  text-align: center;
+  margin:10px;
+}
+
+.sum-review{
+  display: flex;
+  align-items: center; /* 縦方向の中央揃え */
+  } 
+.sum-star{
+  color:yellow;
+}
+
+.user{
+  display: flex;
+  align-items: center; /* 縦方向の中央揃え */
+  margin-top:15px;
+}
+.evaluation{
+  margin-left:55%;
+}
+
+.com{
+    display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+}
+.icon{
+  border-radius: 50%; /* 半径50%で円形にする */
+  border: 1px solid black; /* 枠線のスタイルを指定 */
+  padding: 10px 15px; /* 内側の余白を指定 */
+  margin-right:20px
+}
