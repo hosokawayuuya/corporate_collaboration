@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 session_start();
                 // ユーザー情報をセッションに保存
                 $_SESSION['user_id'] = $user['user_id'];
-                header("Location: ../G2-1/index.php");
+                header("Location: ../G6-3/changemyInfo.php");
                 exit();
             } else {
                 // パスワードが一致しない場合の処理
