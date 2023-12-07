@@ -2,7 +2,7 @@
 <?php require '../others/header.php'; ?>
     <div class="example">
       <a href="../G6-3/mypage.php">
-        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">設定変更</button>
+        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">設定変更</button>
       </a>
     </div>
 
