@@ -1,0 +1,23 @@
+h1 {
+    color: #333333;
+}
+
+h1:first-letter {
+    color: #2589d0;
+    font-size: 2em;
+}
+table {
+	width: 100%;
+}
+
+td {
+	padding: 5px;
+}
+
+tr:nth-child(3n+1) {
+	background: #87cefa;
+}
+
+tr:nth-child(3n+2) {
+	background: #add8e6;
+}
