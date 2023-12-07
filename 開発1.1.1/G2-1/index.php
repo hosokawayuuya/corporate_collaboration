@@ -12,7 +12,51 @@
     text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
     -webkit-background-clip : text;
 }
+
+.checkbox.is-checked {
+  font-size: 20px;
+  color: red;
+}
 </style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(function() {
+        var $favorite = $('.checkbox'), //お気に入りボタンセレクタ
+        alert("aaa");
+        productId;
+        $favorite.on('click',function(e){
+            userID = $(this).parents('.choice-list').data('user'); 
+            console.log("userID=" + userID);
+            if( userID == 0 ){
+                alert("ログインしてください");
+                exit();
+            }
+            //カスタム属性（postid）に格納された投稿ID取得
+            productId = $(this).parents('.choice-list').data('postid'); 
+            console.log("ID=" + productId);
+            if (!$(this).hasClass("is-checked")) {
+                console.log("クリック前の処理");
+                }
+            $(this).toggleClass("is-checked");
+            if ($(this).hasClass("is-checked")) {
+                console.log("クリック後の処理");
+            }
+            $.ajax({
+                    type: "POST",
+                    url: "../G6-4/favorite-insert.php",
+                    data: {product_id: productId, user_id: userID},
+                    success: function(response) {
+                        // レスポンスを処理する（必要に応じて）
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+        });
+    });
+</script>
+
 <div class="col-md-6">
     <form action="index.php" method="post" class="form-inline">
         <div class="form-group">
