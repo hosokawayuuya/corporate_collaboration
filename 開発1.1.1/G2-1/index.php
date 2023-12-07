@@ -12,7 +12,51 @@
     text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
     -webkit-background-clip : text;
 }
+
+.checkbox.is-checked {
+  font-size: 20px;
+  color: red;
+}
 </style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(function() {
+        var $favorite = $('.checkbox'), //お気に入りボタンセレクタ
+        alert("aaa");
+        productId;
+        $favorite.on('click',function(e){
+            userID = $(this).parents('.choice-list').data('user'); 
+            console.log("userID=" + userID);
+            if( userID == 0 ){
+                alert("ログインしてください");
+                exit();
+            }
+            //カスタム属性（postid）に格納された投稿ID取得
+            productId = $(this).parents('.choice-list').data('postid'); 
+            console.log("ID=" + productId);
+            if (!$(this).hasClass("is-checked")) {
+                console.log("クリック前の処理");
+                }
+            $(this).toggleClass("is-checked");
+            if ($(this).hasClass("is-checked")) {
+                console.log("クリック後の処理");
+            }
+            $.ajax({
+                    type: "POST",
+                    url: "../G6-4/favorite-insert.php",
+                    data: {product_id: productId, user_id: userID},
+                    success: function(response) {
+                        // レスポンスを処理する（必要に応じて）
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+        });
+    });
+</script>
+
 <div class="col-md-6">
     <form action="index.php" method="post" class="form-inline">
         <div class="form-group">
@@ -49,7 +93,17 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="../G3-2/Shohin.php?shohin_id= <?php echo $row['shohin_id'] ?>">
                             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像">
                         </a>
-                        <button id="hart" class="hart">&#10084;</button>
+<!--<button id="hart" class="hart">&#10084;</button>-->
+<?php $user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:0 ?>
+                        <span class="choice-list" data-postid="<?= $id ?>" data-user="<?= $user_id ?>">                
+                        <?php  echo '<span class="checkbox heart ';
+                        if( isset($_SESSION['user_id']) && check_favolite_duplicate($user_id,$id) ){
+                            echo 'is-checked';
+                        }
+                        echo '">♥</span>';
+                        ?>
+                        </span>
+                    </div>
                     </div>
                     <div class="card-body">
                         <h5 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
@@ -65,3 +119,18 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 </div>
 <?php require '../others/footer.php'; ?>
+
+<?php
+//ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
+function check_favolite_duplicate($user_id,$shohin_id){
+    global $pdo;
+    $sql = "SELECT *
+            FROM Hart
+            WHERE user_id = :user_id AND shohin_id = :shohin_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id ,
+                         ':shohin_id' => $shohin_id));
+    $favorite = $stmt->fetch();
+    return $favorite;
+}
+?>
