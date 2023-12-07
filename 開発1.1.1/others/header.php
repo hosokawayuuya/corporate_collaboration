@@ -16,6 +16,11 @@
           </a>
         </li>
         <li class="nav-item dropdown  d-flex">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="../G6-4/favorite-show.php">
+            <i class="typcn typcn-heart"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown  d-flex">
           <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="../G4-1/cart-show.php">
             <i class="typcn typcn-shopping-cart"></i>
           </a>
