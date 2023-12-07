@@ -60,9 +60,7 @@ if (isset($_SESSION['user_id'])) {
         <label for="user_name">ユーザー名:</label>
         <input type="text" id="user_name" name="user_name" value="<?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?>" required><br>
 
-        <!-- emailの入力欄が存在していたが、それを表示させる場合はデータベースから取得する必要がある -->
-        <!-- ここに取得したemailを表示させるコードを追加 -->
-
+        
         <label for="password">新しいパスワード:</label>
         <input type="password" id="password" name="password" required><br>
 
