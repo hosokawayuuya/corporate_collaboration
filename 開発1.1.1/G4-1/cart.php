@@ -3,10 +3,10 @@
         <?php
         if (!empty($_SESSION['Shohin'])) {
             $total = 0;
-            echo '<table>';
+            echo '<table width="600">';
             foreach ($_SESSION['Shohin'] as $shohin_id => $Shohin) {
                 echo '<tr>';
-                echo '<td><a href="../G3-2/Shohin.php?shohin_id=' . $shohin_id . '"><img src="../image/' . $Shohin['gazou_id'] . '" width="250"></a></td>';
+                echo '<td><a href="../G3-2/Shohin.php?shohin_id=' . $shohin_id . '"><img src="../image/' . $Shohin['gazou_id'] . '" width="350"></a></td>';
                 echo '<td>&nbsp;</td>';
                 echo '<td>';
                 ?>
@@ -26,6 +26,8 @@
                 echo '</td>';
                 echo '<td>&nbsp;</td>';
                 $subtotal = $Shohin['price'] * $Shohin['count'];
+                echo '<td>','色: ' . $color . '</td>','<br>';
+                echo '<td>','サイズ: ' . $size . '</td>';
                 echo '<td><a href="cart-delete.php?shohin_id=' . $shohin_id . '" class="btn btn-light btn-rounded btn-fw">削除</a></td>';
                 echo '</tr>';
                 $total += $subtotal;
@@ -34,14 +36,13 @@
             echo '</table>';
             ?>
             <p class="card-text1 font-weight-bold">合計:￥<?php echo $total ?></p><br>
+            <div class="define">
+            <button type="button" onclick="location.href='../G5-1/purchace.php'"  class="btn btn-primary">購入に進む</button>
+            </div>
         <?php
         } else {
-            echo '<p class="card-text">カートに商品がありません。</p>';
+            echo '<p>カートに商品がありません。</p>';
         }
         ?>
-        <div class="define">
-            <button type="button" class="btn btn-light btn-rounded btn-fw" onclick="history.back()">戻る</button>
-            <a href="../G5-1/index.php"><button type="button" class="btn btn-light btn-rounded btn-fw">購入へ</button></a>
-        </div>
     </div>
 </div>
