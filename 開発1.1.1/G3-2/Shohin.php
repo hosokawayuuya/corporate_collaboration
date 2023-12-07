@@ -28,34 +28,45 @@
             </p>
             
             <form action="../G4-1/cart-insert.php" method="post">
-            <?php
-                echo '<p>個数：<select name="count">';
-                for($i=1;$i<=10;$i++){
-                    echo '<option value="',$i,'">',$i,'</option>';
-                }
-                echo '</select></p>';
-                echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
-                echo '<input type="hidden" name="shohin_name" value="',$row['shohin_name'],'">';
-                echo '<input type="hidden" name="price" value="',$row['price'],'">';
-                echo '<input type="submit" class="btn btn-success value="カートへ"></p>';
-                echo '</form>';
-            ?>
-            <p>色</p>
-            <div class="mb-3 mb-xl-0 pr-1">
-                <select name="color" class="form-select">
-                    <option value="黒">黒</option>
-                    <option value="白">白</option>
-                    <option value="赤">赤</option>
-                    <option value="青">青</option>
-                    <option value="ベージュ">ベージュ</option>
-                    <option value="茶色">茶色</option>
-                    <option value="グレー">グレー</option>
-                </select>
-            </div>
-            <?php
-                echo '<p><a href="favorite-insert.php?shohin_id=',$row['shohin_id'],
-                    '">お気に入りに追加</a></p>';
-            ?>
+                <div class="d-flex align-items-center mb-3">
+                    <?php
+                        echo '個数：<select name="count">';
+                        for($i=1;$i<=10;$i++){
+                            echo '<option value="',$i,'">',$i,'</option>';
+                        }
+                        echo '</select>';
+                    ?>
+                    <p class="mb-0">色:
+                        <select name="color" class="form-select mb-3 mb-xl-0 pr-1">
+                            <option value="黒">黒</option>
+                            <option value="白">白</option>
+                            <option value="赤">赤</option>
+                            <option value="青">青</option>
+                            <option value="ベージュ">ベージュ</option>
+                            <option value="茶色">茶色</option>
+                            <option value="グレー">グレー</option>
+                        </select>
+                    </p>
+                    <p class="mb-0">サイズ:
+                        <select name="size" class="form-select mb-3 mb-xl-0 pr-1">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </p>
+                    <?php
+                        echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
+                        echo '<input type="hidden" name="shohin_name" value="',$row['shohin_name'],'">';
+                        echo '<input type="hidden" name="gazou_id" value="',$row['gazou_id'],'">';
+                        echo '<input type="hidden" name="price" value="',$row['price'],'">';
+                    ?>
+                    <button type="submit" class="btn btn-success me-2">カートへ</button>
+                </div>
+            </form>
+			<button type="button" onclick="location.href='../G5-1/purchace.php'"  class="btn btn-primary">購入に進む</button>
             <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
