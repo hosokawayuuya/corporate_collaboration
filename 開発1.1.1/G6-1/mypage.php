@@ -8,29 +8,29 @@
 
     <div class="example">
       <a href="../G6-2/index.php">
-        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">個人情報変更</button>
+        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">個人情報変更</button>
       </a>
     </div>
 
     <div class="example">
       <a href="../G6-4/index.php">
-        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">お気に入り</button>
+        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">お気に入り</button>
       </a>
     </div>
 
     <div class="example">
       <a href="../G6-5/index.php">
-        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品購入履歴</button>
+        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">商品購入履歴</button>
       </a>
     </div>
 
     <div class="example">
       <a href="../G6-6/index.php">
-        <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn">商品閲覧履歴</button>
+        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">商品閲覧履歴</button>
       </a>
     </div>
     <div class="example">
-    <button type="button" class="btn btn-light btn-rounded btn-fw custom-btn"  onclick="history.back()">戻る</button>
+    <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
 </div>
 <style>
       .example {
