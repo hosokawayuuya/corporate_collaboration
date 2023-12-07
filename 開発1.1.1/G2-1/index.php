@@ -1,18 +1,6 @@
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
-<style>
-    .my-4{
-    font-family:  cursive; 
-}
-
-.card-text{
-    color: transparent;
-    background-color : black;
-    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
-    -webkit-background-clip : text;
-}
-</style>
 <div class="col-md-6">
     <form action="index.php" method="post" class="form-inline">
         <div class="form-group">
@@ -55,7 +43,6 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <h5 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
                         <h5 class="card-title"><?php echo $row['shohin_name'] ?></h5>
                         <p class="card-text"><?php echo $row['shohin_setu'] ?></p>
-                        <p class="card-text font-weight-bold">評価</p>
                         <p class="card-text font-weight-bold"><?php echo $row['price'] ?>円</p>
                     </div>
                 </div>

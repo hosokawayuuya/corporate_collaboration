@@ -14,7 +14,6 @@
     <div class="itemlist">
         <div class="item-left">
             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像" style="width: 400px;">
-            <button id="hart" class="hart">&#10084;</button>
         </div>
 
         <div class="item-right">
@@ -63,10 +62,10 @@
                         echo '<input type="hidden" name="gazou_id" value="',$row['gazou_id'],'">';
                         echo '<input type="hidden" name="price" value="',$row['price'],'">';
                     ?>
-                    <button type="submit" class="btn btn-success me-2">カートへ</button>
+                    <button type="submit" class="btn btn-success me-2">カートに入れる</button>
                 </div>
             </form>
-			<button type="button" onclick="location.href='../G5-1/purchace.php'"  class="btn btn-primary">購入に進む</button>
+            <button type="button" onclick="location.href='../G5-1/purchace.php'"  class="btn btn-primary">購入に進む</button>
             <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
