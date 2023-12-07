@@ -131,9 +131,9 @@ p2{
 <div id="error-container">
     <?php
     if (isset($_POST['logout'])) {
-        if (isset($_SESSION['User'])) {
+        if (isset($_SESSION['user_id'])) {
             // セッション破棄
-            unset($_SESSION['User']);
+            unset($_SESSION['user_id']);
             header("Location: ../G1-1/login-input.php");
             exit();
         } else {
