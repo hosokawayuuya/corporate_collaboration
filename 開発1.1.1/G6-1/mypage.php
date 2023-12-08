@@ -1,32 +1,20 @@
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
     <div class="example">
-      <a href="../G6-3/mypage.php">
+      <a href="../G6-2/setting.php">
         <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">設定変更</button>
       </a>
     </div>
 
     <div class="example">
-      <a href="../G6-2/index.php">
+      <a href="../G6-3/changemyInfo.php">
         <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">個人情報変更</button>
       </a>
     </div>
 
     <div class="example">
-      <a href="../G6-4/index.php">
+      <a href="../G6-4/favorite-show.php">
         <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">お気に入り</button>
-      </a>
-    </div>
-
-    <div class="example">
-      <a href="../G6-5/index.php">
-        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">商品購入履歴</button>
-      </a>
-    </div>
-
-    <div class="example">
-      <a href="../G6-6/index.php">
-        <button type="button" class="btn btn-secondary btn-rounded btn-fw custom-btn">商品閲覧履歴</button>
       </a>
     </div>
     <div class="example">
