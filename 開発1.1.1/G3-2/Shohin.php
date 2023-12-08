@@ -44,7 +44,7 @@
                     <button type="submit" class="btn btn-success me-2">カートに入れる</button>
                 </div>
             </form>
-            <button type="submit" onclick="location.href='../G5-1/purchace-input.php'"  class="btn btn-primary">購入に進む</button>
+            <button type="submit" onclick="location.href='../G5-1/purchace-single.php'"  class="btn btn-primary">購入に進む</button>
             <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
