@@ -13,6 +13,7 @@ foreach ($sql as $row){
             'password'=>$row['password'],
             'private_name'=>$row['private_name'],
             'katakana_name'=>$row['katakana_name'],
+            'mail_address'=>$row['mail_address'],
             'post_code'=>$row['post_code'],
             'address1'=>$row['address1'],
             'settlement'=>$row['settlement'],
@@ -23,7 +24,7 @@ foreach ($sql as $row){
     }
 }
     if (isset($_SESSION['User'])){
-        header("Location: ../G6-1/index.php");
+        header("Location: ../G6-3/changemyInfo.php");
         exit();
     }else{
         $error = "パスワードが一致しません";
