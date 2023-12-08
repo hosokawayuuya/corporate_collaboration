@@ -35,9 +35,11 @@
             }
             echo '</table>';
             ?>
-            <p class="card-text1 font-weight-bold">合計:￥<?php echo $total ?></p><br>
-            <div class="define">
-            <button type="button" onclick="location.href='../G5-1/purchace.php'"  class="btn btn-primary">購入に進む</button>
+            <div class="text-center">
+                <p class="card-text1 font-weight-bold">合計:￥<?php echo $total ?></p><br>
+                <div class="define">
+                <button type="button" onclick="location.href='../G5-1/purchace.php'"  class="btn btn-primary">購入に進む</button>
+                </div>
             </div>
         <?php
         } else {
