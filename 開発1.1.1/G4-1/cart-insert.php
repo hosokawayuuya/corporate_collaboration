@@ -11,15 +11,11 @@ $count = 0;
 if (isset($_SESSION['Shohin'][$id])) {
     $count = $_SESSION['Shohin'][$id]['count']; 
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $color = $_POST['color'];
-    $size = $_POST['size'];
-}
 $_SESSION['Shohin'][$id] = [
     'shohin_name' => $_POST['shohin_name'], 
     'price' => $_POST['price'], 
     'count' => $count + $_POST['count'],
-    'gazou_id' => $_POST['gazou_id']
+    'gazou_id' => $_POST['gazou_id'],
 ];
 echo '<p>カートに商品を追加しました。</p>';
 echo '<hr>';
