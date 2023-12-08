@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 <?php require '../others/db-connect.php';
 unset($_SESSION['User']);//セッションのデータを消す
-if(isset($_POST['user_id'])){
+if(isset($_POST['user_name'])){
 $pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->prepare('select * from User where user_id=?');
-$sql->execute([$_POST['user_id']]);
+$sql=$pdo->prepare('select * from User where user_name=?');
+$sql->execute([$_POST['user_name']]);
 foreach ($sql as $row){
     if(password_verify($_POST['password'],$row['password'])){
         $_SESSION['User']=[
@@ -23,7 +23,7 @@ foreach ($sql as $row){
     }
 }
     if (isset($_SESSION['User'])){
-        header("Location: ../G2-1/index.php");
+        header("Location: ../G6-1/index.php");
         exit();
     }else{
         $error = "パスワードが一致しません";
@@ -68,7 +68,7 @@ foreach ($sql as $row){
              
     <form action="login-input.php" method="post">
     <p>ログインID</p>
-    <input type="text" name="user_id" class="form-control form-control-lg"><br>
+    <input type="text" name="user_name" class="form-control form-control-lg"><br>
  
     <p>パスワード</p>
 <input type="password" name="password" id="txtPass" class="form-control form-control-lg"><br>
