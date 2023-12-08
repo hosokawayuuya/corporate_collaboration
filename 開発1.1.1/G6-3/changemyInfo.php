@@ -12,6 +12,7 @@ if (isset($_POST['user_id'])){
     $sql->execute([$_POST['user_name'],$_POST['tell'],$_POST['mail_address'],$_POST['settlement'],$_POST['post_code'],$_POST['address1'],$_POST['user_id']]);
     // ユーザー更新後セッション詰めなおし
     $_SESSION['User']=[
+        'user_id'=>$_POST['user_id'],
         'user_name'=>$_POST['user_name'],
         'tell'=>$_POST['tell'],
         'mail_address'=>$_POST['mail_address'],
@@ -42,7 +43,6 @@ if (isset($_POST['user_id'])){
     }
     ?>
 
-
         <label for="user_name">ユーザー名:</label>
         <?php
         echo '<input type="text" id="user_name" name="user_name" value="',$_SESSION['User']['user_name'],'" requid>';
@@ -68,12 +68,11 @@ if (isset($_POST['user_id'])){
         <?php
         echo '<input type="text" id="post_code" name="post_code" value="',$_SESSION['User']['post_code'],'" required><br>';
         ?>
-
     <label for="address1">都道府県:</label>
     <?php
         echo '<input type="text" id="address1" name="address1" value="',$_SESSION['User']['address1'],'" required><br>';
-        echo '<input type="hidden" name="user_id" value="',$_SESSION['User']['user_id'],'">';
         ?>
+        <input type="hidden" name="user_id" value="<?php echo $_SESSION['User']['user_id']?>">
         <input type="submit" value="情報を変更">
     </form>
 </body>
