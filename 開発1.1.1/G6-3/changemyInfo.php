@@ -43,9 +43,10 @@ if (isset($_POST['user_id'])){
     }
     ?>
 
+<?isset()?>
         <label for="user_name">ユーザー名:</label>
         <?php
-        echo '<input type="text" id="user_name" name="user_name" value="',$_SESSION['User']['user_name'],'" requid>';
+        echo '<input type="text" id="user_name" name="user_name" value="',$_SESSION['User']['user_name'],'" required>';
         ?>
         <label for="tell">電話番号</label>
         <?php
