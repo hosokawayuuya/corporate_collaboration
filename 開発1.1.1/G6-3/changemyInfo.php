@@ -1,50 +1,29 @@
+<?php session_start(); ?>
+<?php require '../others/db-connect.php'; ?>
 <?php
-session_start();
-
-if (isset($_SESSION['user_id'])) {
-    $host = 'mysql217.phy.lolipop.lan';
-    $dbname = 'LAA1517470-inful';
-    $user = 'LAA1517470';
-    $pass = 'Influenza';
-
-    try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // セッションからuser_idを取得
-        $user_id = $_SESSION['user_id'];
-
-        // ユーザーの現在の情報をデータベースから取得
-        $query = "SELECT user_name, email FROM User WHERE user_id = :user_id";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // フォームが送信されたときの処理
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 新しいユーザー名とパスワードを取得
-            $user_name = $_POST['user_name'];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-            // データベースのユーザー情報を更新
-            $query = "UPDATE User SET user_name = :user_name, password = :password WHERE user_id = :user_id";
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
-            $stmt->bindParam(':user_name', $user_name, PDO::PARAM_STR);
-            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-            $stmt->execute();
-
-            // 更新後のユーザー情報を再取得
-            $query = "SELECT user_name, FROM User WHERE user_id = :user_id";
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
-            $stmt->execute();
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        }
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+unset($_SESSION['User']);//セッションのデータを消す
+if(isset($_POST['User'])){
+$pdo=new PDO($connect,USER,PASS);
+$sql=$pdo->prepare('select * from User where user_name=?');
+$sql->execute([$_POST['User']]);
+foreach ($sql as $row){
+    if (password_verify($_POST['password'],$row['password'])){
+        $_SESSION['User']=[
+            'user_id'=>$row['user_id'],
+            'user_name'=>$row['user_name'],
+            'password'=>$row['password'],
+            'private_name'=>$row['private_name'],
+            'katakana_name'=>$row['katakana_name'],
+            'post_code'=>$row['post_code'],
+            'address1'=>$row['address1'],
+            'settlement'=>$row['settlement'],
+            'credit_id'=>$row['credit_id'],
+            'credit_date'=>$row['credit_date'],
+            'security_code'=>$row['security_code'],
+            'tell'=>$row['tell']
+        ];
     }
+}
 }
 ?>
 
@@ -57,17 +36,49 @@ if (isset($_SESSION['user_id'])) {
 <body>
     <h2>情報変更</h2>
     <form action="changemyInfo.php" method="post">
+        <?php
+    if(isset($_POST['User']['user_name'])){
+        echo $_POST['User']['User_name'];
+    }else{
+        echo 'データなし';
+    }
+    ?>
+
+
         <label for="user_name">ユーザー名:</label>
-        <input type="text" id="user_name" name="user_name" value="<?php echo htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?>" required><br>
+        <?php
+        echo '<input type="text" id="user_name" name="user_name" value="',$_SESSION['User']['user_name'],'" requid>';
+        ?>
+        <label for="tell">電話番号</label>
+        <?php
+        echo '<input type="text" id="tell" name="tell" value="',$user['tell'],'" required><br>';
+        ?>
+        <label for="mail_address">メールアドレス</label>
+        <?php
+        echo '<input type="text" id="mail_address" name="mail_address" value="',$user['mail_address'],'" required><br>';
+        ?>
+        <p>お支払い方法</p>
+        <label for="settlement">支払い情報:</label>
+        <?php
+        echo '<input type="text" id="settlement" name="settlement" value="',$user['settlement'],'" required><br>';
+        ?>
+        <option value="1">コンビニ支払い</option>
+        <option value="2">代金引換</option>
+        <option value="3">ツケ払い</option>
+        <option value="4">クレジットカード</option>
+    </select><br>
+        <p>お届け先住所</p>
+        <label for="post_code">郵便番号:</label>
+        <?php
+        echo '<input type="text" id="post_code" name="post_code" value="',$user['post_code'],'" required><br>';
+        ?>
 
-        
-        <label for="password">新しいパスワード:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <!-- 他の情報も必要に応じて追加 -->
+    <label for="address1">都道府県:</label>
+    <?php
+        echo '<input type="text" id="address1" name="address1" value="',$user['address1'],'" required><br>';
+        ?>
 
         <input type="submit" value="情報を変更">
     </form>
 </body>
 </html>
-
