@@ -35,9 +35,9 @@
             <i class="typcn typcn-cog text-primary"></i>
             設定
             </a>
-            <a class="dropdown-item" href="../G6-1/logout-input.php">
+            <a class="dropdown-item" href="../G1-1/login-input.php">
             <i class="typcn typcn-power text-primary"></i>
-            ログアウト
+            ログイン
             </a>
           </div>
         </li>
