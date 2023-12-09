@@ -24,7 +24,7 @@ foreach ($sql as $row){
     }
 }
     if (isset($_SESSION['User'])){
-        header("Location: ../G6-3/changemyInfo.php");
+        header("Location: ../G2-1/index.php");
         exit();
     }else{
         $error = "パスワードが一致しません";
@@ -68,7 +68,7 @@ foreach ($sql as $row){
               </div>
              
     <form action="login-input.php" method="post">
-    <p>ログインID</p>
+    <p>ログインネーム</p>
     <input type="text" name="user_name" class="form-control form-control-lg"><br>
  
     <p>パスワード</p>

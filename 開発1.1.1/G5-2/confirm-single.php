@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
   <html lang="ja">
     <head>
@@ -21,11 +22,10 @@
             border-radius: 40px; 
       cursor: pointer; 
         }
+        </style>
+    </head>
+    <body>
+        <button onclick="location.href='../G2-1/index.php'">ホームに戻る</button>
 
-    </style>
-</head>
-<body>
-<button onclick="location.href='../G2-1/index.php'">ホームに戻る</button>
-</body>
+    </body>
 </html>
-
