@@ -213,6 +213,7 @@ $pdo = null;
 
     <input type="submit" value="登録する"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
 </form>
+<button type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="history.back()" class="btn btn-info">ログイン画面へ</button>
 
 
 
