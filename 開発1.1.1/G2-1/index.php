@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
@@ -7,12 +8,19 @@
             <input type="text" name="keyword" class="form-control mr-2" placeholder="AsoCityで検索">
             <input type="submit" value="検索" class="btn btn-sm btn-primary">
         </div>
+        <?php
+        $pdo = new PDO($connect, USER, PASS);
+
+        if(isset($_SESSION['User']['user_name'])){
+            echo '<div style="margin-left: 50px;">' . $_SESSION['User']['user_name'] . 'さん、ようこそ！</div>';
+        } else {
+            echo '<div style="margin-left: 50px;">ゲストさん、ようこそ！</div>';
+        }
+        ?>
     </form>
 </div>
-<?php require '../others/advertise.php'; ?>
 <?php
-$pdo = new PDO($connect, USER, PASS);
-
+require '../others/advertise.php';
 if(isset($_POST['keyword'])){
     $sql=$pdo->prepare('select * from Shohin where shohin_name like ?');
     $sql->execute(['%'.$_POST['keyword'].'%']);
