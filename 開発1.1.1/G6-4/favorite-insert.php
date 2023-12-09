@@ -18,7 +18,7 @@ function check_favolite_duplicate($user_id,$shohin_id){
 if(isset($_POST)){
 
   $user_id = $_POST['user_id'];
-  $shohin_id = $_POST['product_id'];
+  $shohin_id = $_POST['shohin_id'];
 
   var_dump($_POST);
 
