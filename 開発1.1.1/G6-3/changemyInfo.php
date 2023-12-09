@@ -35,24 +35,16 @@ if (isset($_POST['user_id'])){
 <body>
     <h2>情報変更</h2>
     <form action="changemyInfo.php" method="post">
-        <?php
-    if(isset($_POST['User']['user_name'])){
-        echo $_POST['User']['User_name'];
-    }else{
-        echo 'データなし';
-    }
-    ?>
-
 <?isset()?>
-        <label for="user_name">ユーザー名:</label>
+        <label for="user_name">ユーザー名:</label><br>
         <?php
         echo '<input type="text" id="user_name" name="user_name" value="',$_SESSION['User']['user_name'],'" required>';
         ?>
-        <label for="tell">電話番号</label>
+        <label for="tell">電話番号</label><br>
         <?php
         echo '<input type="text" id="tell" name="tell" value="',$_SESSION['User']['tell'],'" required><br>';
         ?>
-        <label for="mail_address">メールアドレス</label>
+        <label for="mail_address">メールアドレス</label><br>
         <?php
         echo '<input type="text" id="mail_address" name="mail_address" value="',$_SESSION['User']['mail_address'],'" required><br>';
         ?>

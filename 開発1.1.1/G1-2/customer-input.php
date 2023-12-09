@@ -33,11 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $building_name = isset($_POST["building_name"]) ? $_POST["building_name"] : '';
     $address1 = $add1 . $add2 . $add3 . $building_name;
     $settlement = isset($_POST["settlement"]) ? $_POST["settlement"] : '';
-    $user_id = isset($_POST["user_id"]) ? $_POST["user_id"] : '';
     $password = isset($_POST["password"]) ? $_POST["password"] : '';
 
     // 必須フィールドの検証
-    $requiredFields = array($last_name, $first_name, $katakana_sei, $katakana_mei, $tell, $mail_address, $post_code, $add1, $add2, $add3, $user_id, $password);
+    $requiredFields = array($last_name, $first_name, $katakana_sei, $katakana_mei, $tell, $mail_address, $post_code, $add1, $add2, $add3,$password);
 
     if (in_array("", $requiredFields)) {
         $error = "エラー: 入力していないところがあります！";
@@ -46,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // エラーがない場合にのみデータベースに挿入
     if (empty($error)) {
         // パスワードとユーザーIDの組み合わせが重複していないか確認
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM User WHERE user_id = :user_id AND password = :password");
-        $stmt->bindParam(':user_id', $user_id);
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM User WHERE user_name = :user_name AND password = :password");
+        $stmt->bindParam(':user_name', $user_name);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
 
@@ -56,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // データベースへの挿入処理
-            $stmt = $pdo->prepare("INSERT INTO User (private_name, user_name, katakana_name, tell, mail_address, post_code, address1, settlement, user_id, password) VALUES (:private_name, :user_name, :katakana_name, :tell, :mail_address, :post_code, :address1, :settlement, :user_id, :hashed_password)");
+            $stmt = $pdo->prepare("INSERT INTO User (private_name, user_name, katakana_name, tell, mail_address, post_code, address1, settlement,  password) VALUES (:private_name, :user_name, :katakana_name, :tell, :mail_address, :post_code, :address1, :settlement,:hashed_password)");
             $stmt->bindParam(':private_name', $private_name);
             $stmt->bindParam(':user_name', $user_name);
             $stmt->bindParam(':katakana_name', $katakana_name);
@@ -65,16 +64,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':post_code', $post_code);
             $stmt->bindParam(':address1', $address1);
             $stmt->bindParam(':settlement', $settlement);
-            $stmt->bindParam(':user_id', $user_id);
             $stmt->bindParam(':hashed_password', $hashed_password);
 
             // クレジットカード情報の取得
             $credit_id = $_POST["credit_id"] ?? '';
-            $credit_date = $_POST["credit_date"] ?? '';
+            $credit_data = $_POST["credit_data"] ?? '';
             $security_code = $_POST["security_code"] ?? '';
 
             // クレジットカードの詳細を検証
-            if ($settlement == 4 && (empty($credit_id) || empty($credit_date) || empty($security_code))) {
+            if ($settlement == 4 && (empty($credit_id) || empty($credit_data) || empty($security_code))) {
                 $error = "エラー: クレジットカード情報を正しく入力してください！";
             }
 
@@ -139,6 +137,14 @@ $pdo = null;
               </div>
 
 <form action="customer-input.php" method="post">
+<p>ログインの時に必要</p>
+<label for="user_name">ユーザーネーム</label>
+    <input type="text" id="user_name" name="user_name" class="form-control form-control-lg"><br>
+    
+    <label for="password">パスワード:</label>
+    <input type="password" id="password" name="password" class="form-control form-control-lg"><br>
+
+<p>本人情報登録</p>
     <!-- ...（フォームの入力部分はそのまま） -->
     <label for="last_name">苗字</label>
     <input type="text" id="last_name" name="last_name" class="form-control form-control-lg" ><br>
@@ -152,8 +158,6 @@ $pdo = null;
     <label for="katakana_mei">カタカナ名前</label>
     <input type="text" id="katakana_mei" name="katakana_mei"class="form-control form-control-lg" ><br>
 
-    <label for="user_name">ユーザー名</label>
-    <input type="text" id="user_name" name="user_name" class="form-control form-control-lg"><br>
 
     <label for="tell">電話番号</label>
     <input type="tel" id="tell" name="tell" class="form-control form-control-lg"><br>
@@ -196,14 +200,7 @@ $pdo = null;
 
     <label for="security_code">セキュリティコード:</label>
     <input type="text" id="security_code" name="security_code" class="form-control form-control-lg"><br>
-    </divsecurity_code>
     </div>
-    <security_code for="user_id">ユーザーID:</label>
-    <input type="text" id="user_id" name="user_id" class="form-control form-control-lg"><br>
-    
-    <!-- パスワードの入力 -->
-    <label for="password">パスワード:</label>
-    <input type="password" id="password" name="password" class="form-control form-control-lg"><br>
     <!-- エラーメッセージ表示 -->
     <?php
         if (!empty($error)) {
@@ -211,7 +208,7 @@ $pdo = null;
         }
     ?>
 
-    <input type="submit" value="登録する"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
+    <input type="submit" value="登録する"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" ><br>
 </form>
 <button type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="history.back()" class="btn btn-info">ログイン画面へ</button>
 
