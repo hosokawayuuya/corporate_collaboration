@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
@@ -44,7 +45,7 @@
                     <button type="submit" class="btn btn-success me-2">カートに入れる</button>
                 </div>
             </form>
-            <button type="submit" onclick="location.href='../G5-1/purchace-single.php'"  class="btn btn-primary">購入に進む</button>
+            <button type="submit" onclick="location.href='../G5-1/purchace-single.php?shohin_id=<?php echo $row['shohin_id']; ?>'" class="btn btn-primary">購入に進む</button>
             <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
