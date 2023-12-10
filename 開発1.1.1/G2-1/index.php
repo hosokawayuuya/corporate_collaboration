@@ -2,22 +2,6 @@
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
-<style>
-    .my-4{
-    font-family:  cursive; 
-}
-
-.card-text{
-    color: transparent;
-    background-color : black;
-    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
-    -webkit-background-clip : text;
-}
-.hart.is-checked {
-  font-size: 30px;
-  color: red;
-}
-</style>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(function() {
