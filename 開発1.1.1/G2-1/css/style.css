@@ -40,3 +40,7 @@
     .card:hover {
         border: 2px solid #007bff; /* ホバー時に枠線の色を変更 */
     }
+
+    .category{
+        margin:10px 10px;
+    }

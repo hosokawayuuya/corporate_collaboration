@@ -94,8 +94,8 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                         
                     </div>
                     <div class="card-body">
-                        <h5 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
-                        <h5 class="card-title"><?php echo $row['shohin_name'] ?></h5>
+                        <h4 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
+                        <h3 class="card-title"><?php echo $row['shohin_name'] ?></h5>
                         <p class="card-text"><?php echo $row['shohin_setu'] ?></p>
                         <p class="card-text font-weight-bold">評価</p>
                         <p class="card-text font-weight-bold"><?php echo $row['price'] ?>円</p>
