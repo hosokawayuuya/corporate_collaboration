@@ -23,6 +23,9 @@
     $(function() {
         var $favorite = $('.hart'), //お気に入りボタンセレクタ
         productId;
+
+        var userID = <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0; ?>;
+        
         $favorite.on('click',function(e){
             userID = $favorite.data('user'); 
             console.log("userID=" + userID);
