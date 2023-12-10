@@ -2,6 +2,22 @@
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
+<style>
+    .my-4{
+    font-family:  cursive; 
+}
+
+.card-text{
+    color: transparent;
+    background-color : black;
+    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
+    -webkit-background-clip : text;
+}
+.hart.is-checked {
+  font-size: 30px;
+  color: red;
+}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(function() {
@@ -51,9 +67,9 @@
         $pdo = new PDO($connect, USER, PASS);
 
         if(isset($_SESSION['User']['user_name'])){
-            echo '<div class="guest">' . $_SESSION['User']['user_name'] . 'さん、ようこそ！</div>';
+            echo '<div style="margin-left: 50px;">' . $_SESSION['User']['user_name'] . 'さん、ようこそ！</div>';
         } else {
-            echo '<div class="guest">ゲストさん、ようこそ！</div>';
+            echo '<div style="margin-left: 50px;">ゲストさん、ようこそ！</div>';
         }
         ?>
     </form>
@@ -91,14 +107,13 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                         }
                         echo '">&#10084;</button>';
                         ?>
-                        
+
                     </div>
                     <div class="card-body">
-                        <h4 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h4>
-                        <h3 class="card-title"><?php echo $row['shohin_name'] ?></h3>
+                        <h5 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
+                        <h5 class="card-title"><?php echo $row['shohin_name'] ?></h5>
                         <p class="card-text"><?php echo $row['shohin_setu'] ?></p>
-                        <p class="card-text font-weight-bold">評価</p>
-                        <h3 class="card-text font-weight-bold"><?php echo $row['price'] ?>円</h3>
+                        <p class="card-text font-weight-bold"><?php echo $row['price'] ?>円</p>
                     </div>
                 </div>
             </div>
