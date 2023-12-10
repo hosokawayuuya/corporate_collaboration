@@ -14,7 +14,7 @@
     -webkit-background-clip : text;
 }
 .hart.is-checked {
-  font-size: 30px;
+  font-size: 20px;
   color: red;
 }
 </style>
@@ -25,9 +25,9 @@
         productId;
 
         var userID = <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0; ?>;
-        
+
         $favorite.on('click',function(e){
-            userID = $favorite.data('user'); 
+            userID = $favorite.data('user_id'); 
             console.log("userID=" + userID);
             if( userID == 0 ){
                 alert("ログインしてください");

@@ -1,46 +1,88 @@
-<div class="row">
-    <div class="col-md-4 offset-md-4 mb-4">
-        <?php
-        if (!empty($_SESSION['Shohin'])) {
-            $total = 0;
-            echo '<table width="600">';
-            $isFirstItem = true;
-            foreach ($_SESSION['Shohin'] as $shohin_id => $Shohin) {
-                if (!$isFirstItem) {
-                    echo '<tr><td colspan="5">&nbsp;</td></tr>'; // 商品の間に余白を入れる
-                } else {
-                    $isFirstItem = false; // 最初の商品フラグをfalseに設定する
-                }
-                echo '<tr>';
-                echo '<td><a href="../G3-2/Shohin.php?shohin_id=' . $shohin_id . '"><img src="../image/' . $Shohin['gazou_id'] . '" width="300"></a></td>';
-                echo '<td>&nbsp;</td>';
-                echo '<td>';
-                echo '<p class="card-text font-weight-bold">商品名:' . $Shohin['shohin_name'] . '</p><br><br>';
-                echo '<p class="card-text font-weight-bold">個数:' . $Shohin['count'] . '</p><br><br>';
-        ?>
-            <?php
-                $subtotal = $Shohin['price'] * $Shohin['count'];
-                echo '<p class="card-text font-weight-bold">金額:￥' . $Shohin['price'] . '円</p><br><br>';
-                echo '</td>';
-                echo '<td>&nbsp;&nbsp;</td>';
-                echo '<td><a href="cart-delete.php?shohin_id=' . $shohin_id . '" class="btn btn-light btn-rounded btn-fw">削除</a></td>';
-                echo '<td>&nbsp;&nbsp;</td>';
-                echo '</tr>';
-                $total += $subtotal;
+<?php session_start();?>
+<?php require '../others/head.php'; ?>
+<?php require '../others/header.php'; ?>
+<?php require '../others/db-connect.php'; ?>
+<style>
+    .my-4{
+    font-family:  cursive; 
+}
+
+.card-text{
+    color: transparent;
+    background-color : black;
+    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
+    -webkit-background-clip : text;
+}
+.hart.is-checked {
+  font-size: 20px;
+  color: red;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(function() {
+        var $favorite = $('.hart'), //お気に入りボタンセレクタ
+        productId;
+
+        var userID = <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0; ?>;
+
+        $favorite.on('click',function(e){
+            userID = $favorite.data('user_id'); 
+            console.log("userID=" + userID);
+            if( userID == 0 ){
+                alert("ログインしてください");
+                exit();
             }
-            echo '</table>';
-            ?>
-            <div class="text-center">
-                <br>
-                <p class="card-text1 font-weight-bold">合計:￥<?php echo $total ?>円</p><br>
-                <div class="define">
-                <button type="submit" onclick="location.href='../G5-1/purchace-cart.php'"  class="btn btn-primary">購入に進む</button>
-                </div>
-            </div>
-        <?php
-        } else {
-            echo '<p>カートに商品がありません。</p>';
-        }
-        ?>
-    </div>
+            //カスタム属性（postid）に格納された投稿ID取得
+            productId =  $favorite.data('postid'); 
+            console.log("ID=" + productId);
+            if (!$(this).hasClass("is-checked")) {
+                console.log("クリック前の処理");
+                }
+            $(this).toggleClass("is-checked");
+            if ($(this).hasClass("is-checked")) {
+                console.log("クリック後の処理");
+            }
+            $.ajax({
+                    type: "POST",
+                    url: "../G6-4/favorite-insert.php",
+                    data: {product_id: productId, user_id: userID},
+                    success: function(response) {
+                        // レスポンスを処理する（必要に応じて）
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+                
+                
+        });
+    });
+</script>
+<div class="container">
+    <h1 class="my-4">お気に入り</h1>
+
+
+
+
+
+
+    
 </div>
+<?php require '../others/footer.php'; ?>
+
+<?php
+//ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
+function check_favolite_duplicate($user_id,$shohin_id){
+    global $pdo;
+    $sql = "SELECT *
+            FROM favorite
+            WHERE user_id = :user_id AND shohin_id = :shohin_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id ,
+                         ':shohin_id' => $shohin_id));
+    $favorite = $stmt->fetch();
+    return $favorite;
+}
+?>
