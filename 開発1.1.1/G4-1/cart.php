@@ -39,7 +39,7 @@
             </div>
         <?php
         } else {
-            echo '<p>カートに商品がありません。</p>';
+            echo '<p class="lead">カートに商品がありません。</p>';
         }
         ?>
     </div>
