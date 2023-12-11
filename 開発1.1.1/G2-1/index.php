@@ -101,7 +101,7 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
         $id=$row['shohin_id']; ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <h1 class="card-text"><?php echo $row['shohin_catch'] ?></h1>
+                    <h1 class="card-txt"><?php echo $row['shohin_catch'] ?></h1>
                     <div class="example">
                         <a href="../G3-2/Shohin.php?shohin_id= <?php echo $row['shohin_id'] ?>">
                             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像">
