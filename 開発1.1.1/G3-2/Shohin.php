@@ -21,14 +21,14 @@
             <h1 class="name"><?php echo $row['shohin_name'] ?></h1>
             <h3 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h3>
             <h1><b><?php echo $row['price'] ?>円</b></h1>
-            <ul><h2>
-                    <?php echo $row['shohin_setu'] ?></h2>
+            <ul><h4>
+                    <?php echo $row['shohin_setu'] ?></h4>
                 </ul>
             
             <form action="../G4-1/cart-insert.php" method="post">
                 <div class="d-flex align-items-center mb-3">
                     <?php
-                        echo '個数：<select class="btn-warning dropdown-toggle" name="count">';
+                        echo '<h3>個数：</h3><select class="btn-warning dropdown-toggle" name="count">';
                         for($i=1;$i<=10;$i++){
                             echo '<option value="',$i,'">',$i,'</option>';
                         }
