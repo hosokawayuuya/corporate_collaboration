@@ -21,8 +21,8 @@
             <h1 class="name"><?php echo $row['shohin_name'] ?></h1>
             <h3 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h3>
             <h1><b><?php echo $row['price'] ?>円</b></h1>
-            <ul><h4>
-                    <?php echo $row['shohin_setu'] ?></h4>
+            <ul><h3>
+                    <?php echo $row['shohin_setu'] ?></h3>
                 </ul>
             
             <form action="../G4-1/cart-insert.php" method="post">
