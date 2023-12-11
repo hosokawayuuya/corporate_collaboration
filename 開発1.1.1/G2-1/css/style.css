@@ -1,12 +1,8 @@
+
 .guest{
-	font-size:3em;
-	text-align:center;
-	line-height:0.75em;
-	font-weight:bold;
-	color: #03A9F4;
-	text-shadow: 
-		0.04em 0.02em 0 #B0BEC5, 
-		0.07em 0.05em 0 rgba(0, 0, 0, 0.6);
+  font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+  font-size: 25px;
+  font-weight: bold;
 }
 .my-4{
     position: relative;
