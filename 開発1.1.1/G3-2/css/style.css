@@ -2,10 +2,9 @@
     display: flex;
     align-items: center; /* 縦方向の中央揃え */
 }
-.catchpharase {
-  margin: 10px 50px; 
-  font-family: "Nico Moji";
-  text-align: left;
+.card-text{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 .rest{
   display:block;
@@ -71,6 +70,7 @@
   text-align:center;
   line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
+/*
 .review{
   text-align: center;
   margin:10px;
@@ -79,6 +79,7 @@
 .sum-review{
   display: flex;
   align-items: center; /* 縦方向の中央揃え */
+  /*
   } 
 .sum-star{
   color:yellow;
@@ -87,6 +88,7 @@
 .user{
   display: flex;
   align-items: center; /* 縦方向の中央揃え */
+  /*
   margin-top:15px;
 }
 .evaluation{
@@ -95,12 +97,12 @@
 
 .com{
     display: flex;
-    align-items: center; /* 縦方向の中央揃え */
+    align-items: center; /* 縦方向の中央揃え *//*
 }
 .icon{
-  border-radius: 50%; /* 半径50%で円形にする */
-  border: 1px solid black; /* 枠線のスタイルを指定 */
-  padding: 10px 15px; /* 内側の余白を指定 */
-  margin-right:20px
-}
+  border-radius: 50%; /* 半径50%で円形にする *//*
+  border: 1px solid black; /* 枠線のスタイルを指定 *//*
+  padding: 10px 15px; /* 内側の余白を指定 *//*
+  margin-right:20px;
+}*/
 

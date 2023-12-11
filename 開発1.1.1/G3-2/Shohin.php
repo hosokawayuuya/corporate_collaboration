@@ -9,7 +9,7 @@
 ?>
 <?php foreach($sql as $row){ ?>
     <div class="item-head">
-        <h1 class="catchpharase"><?php echo $row['shohin_catch'] ?></h1>
+        <h1 class="card-text"><?php echo $row['shohin_catch'] ?></h1>
     </div>
 
     <div class="itemlist">

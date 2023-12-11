@@ -49,8 +49,8 @@ if(isset($_SESSION['User'])){
 
     
 }else{
-    echo '商品を購入するには、ログインしてください。';
-    echo '<a href="../G1-1/login-input.php">ログインする</a>';
+    echo '<span class="lead">商品を購入するには、ログインしてください。</p>';
+    echo '<a href="../G1-1/login-input.php" class="lead">ログインする</a>';
 }
 
 ?>
