@@ -128,13 +128,13 @@ p2{
 }
 </style>
 		<h1>設定</h1>
-    <a href="henpin.php" class="btn btn-link btn-rounded btn-fw">返品ポリシーについて</a>
+    <a href="henpin.php" class="display-4">返品ポリシーについて</a>
     <br>
-    <a href="point.php" class="btn btn-link btn-rounded btn-fw">ポイントについて</a>
+    <a href="point.php" class="display-4">ポイントについて</a>
     <br>
-    <a href="privacy.php" class="btn btn-link btn-rounded btn-fw">利用規約とプライバシーポリシー</a>
+    <a href="privacy.php" class="display-4">利用規約とプライバシーポリシー</a>
     <br>
-    <a href="campain.php" class="btn btn-link btn-rounded btn-fw">今だけの闇特別キャンペーン実施中！！</a>
+    <a href="campain.php" class="display-4">今だけの闇特別キャンペーン実施中！！</a>
     <br>
     <?php
     if(isset($error)) {
@@ -142,7 +142,7 @@ p2{
     }
     ?>
     <form action="setting.php" method="post" id="logoutForm">
-    <button type="submit" name="logout" class="btn btn-light btn-rounded btn-fw">ログアウト</button>
+    <button type="submit" name="logout" class="btn btn-secondary btn-rounded btn-fw">ログアウト</button>
 </form>
 
 <div id="error-container">
