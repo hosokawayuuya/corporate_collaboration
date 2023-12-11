@@ -9,7 +9,7 @@
 ?>
 <?php foreach($sql as $row){ ?>
     <div class="item-head">
-        <h1 class="catchpharase"><?php echo $row['shohin_catch'] ?></h1>
+        <h1 class="card-text"><?php echo $row['shohin_catch'] ?></h1>
     </div>
 
     <div class="itemlist">
@@ -17,36 +17,38 @@
             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像" style="width: 400px;">
         </div>
 
-        <div class="item-right">
-            <h2 class="name"><?php echo $row['shohin_name'] ?></h2>
-            <h5 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h5>
-            <h4><b><?php echo $row['price'] ?>円</b></h4>
-            <p>
-                <ul>
-                    <?php echo $row['shohin_setu'] ?>
+        <div class="item-right" >
+            <h1 class="name"><?php echo $row['shohin_name'] ?></h1>
+            <h3 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h3>
+            <h1><b><?php echo $row['price'] ?>円</b></h1>
+            <ul><h3 class="setu">
+                    <?php echo $row['shohin_setu'] ?></h3>
                 </ul>
-            </p>
             
             <form action="../G4-1/cart-insert.php" method="post">
                 <div class="d-flex align-items-center mb-3">
                     <?php
-                        echo '個数：<select name="count">';
+                        echo '<h3>個数：</h3><select class="btn-warning dropdown-toggle" name="count">';
                         for($i=1;$i<=10;$i++){
                             echo '<option value="',$i,'">',$i,'</option>';
                         }
                         echo '</select>';
                     ?>
+                    
                     <?php
                         echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
                         echo '<input type="hidden" name="shohin_name" value="',$row['shohin_name'],'">';
                         echo '<input type="hidden" name="gazou_id" value="',$row['gazou_id'],'">';
                         echo '<input type="hidden" name="price" value="',$row['price'],'">';
                     ?>
-                    <button type="submit" class="btn btn-success me-2">カートに入れる</button>
+                    <br>
+                    </div>
+                    <div>
+                    <button type="submit" class="btn btn-success me-2" style='font-family: fantasy;'>カートに入れる</button>
                 </div>
             </form>
             <button type="submit" onclick="location.href='../G5-1/purchace-single.php?shohin_id=<?php echo $row['shohin_id']; ?>'" class="btn btn-primary">購入に進む</button>
-            <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
+            <br><button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>
 <?php }?>

@@ -35,6 +35,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
+.category{
+  color:rgb(114, 11, 101);
+}
+
 
     .card {
         border: 2px solid #ddd; /* 枠線の色を設定 */
