@@ -101,7 +101,7 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
         $id=$row['shohin_id']; ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <h1 class="card-txt"><?php echo $row['shohin_catch'] ?></h1>
+                    <h1 class="card-text"><?php echo $row['shohin_catch'] ?></h1>
                     <div class="example">
                         <a href="../G3-2/Shohin.php?shohin_id= <?php echo $row['shohin_id'] ?>">
                             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像">
@@ -117,9 +117,9 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="card-body">
                         <h4 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h4>
-                        <h3 class="card-title"><?php echo $row['shohin_name'] ?></h3>
-                        <p class="card-text"><?php echo $row['shohin_setu'] ?></p>
-                        <h3 class="card-text font-weight-bold"><?php echo $row['price'] ?>円</h3>
+                        <h1 class="card-title"><?php echo $row['shohin_name'] ?></h1>
+                        <p class="lead"><?php echo $row['shohin_setu'] ?></p>
+                        <h1><?php echo $row['price'] ?>円</h1>
                     </div>
                 </div>
             </div>
