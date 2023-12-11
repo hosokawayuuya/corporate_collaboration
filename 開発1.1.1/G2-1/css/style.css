@@ -1,12 +1,6 @@
+
 .guest{
-	font-size:3em;
-	text-align:center;
-	line-height:0.75em;
-	font-weight:bold;
-	color: #03A9F4;
-	text-shadow: 
-		0.04em 0.02em 0 #B0BEC5, 
-		0.07em 0.05em 0 rgba(0, 0, 0, 0.6);
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', sans-serif;
 }
 .my-4{
     position: relative;
