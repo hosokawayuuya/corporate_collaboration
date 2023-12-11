@@ -1,4 +1,7 @@
 <?php session_start();?>
+
+
+
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
@@ -24,10 +27,10 @@
         var $favorite = $('.hart'), //お気に入りボタンセレクタ
         productId;
 
-        var userID = <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0; ?>;
+        var userID = <?php echo isset($_SESSION['User']['user_id']) ? $_SESSION['User']['user_id'] : 0; ?>;
 
         $favorite.on('click',function(e){
-            userID = $favorite.data('user_id'); 
+            // userID = $favorite.data('user_id'); 
             console.log("userID=" + userID);
             if( userID == 0 ){
                 alert("ログインしてください");
@@ -46,7 +49,7 @@
             $.ajax({
                     type: "POST",
                     url: "../G6-4/favorite-insert.php",
-                    data: {product_id: productId, user_id: userID},
+                    data: {shohin_id: productId, user_id: userID},
                     success: function(response) {
                         // レスポンスを処理する（必要に応じて）
                         console.log(response);
