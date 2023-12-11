@@ -15,15 +15,15 @@
                 echo '<td><a href="../G3-2/Shohin.php?shohin_id=' . $shohin_id . '"><img src="../image/' . $Shohin['gazou_id'] . '" width="300"></a></td>';
                 echo '<td>&nbsp;</td>';
                 echo '<td>';
-                echo '<p class="card-text font-weight-bold">商品名:' . $Shohin['shohin_name'] . '</p><br><br>';
-                echo '<p class="card-text font-weight-bold">個数:' . $Shohin['count'] . '</p><br><br>';
+                echo '<h3 class="card-text font-weight-bold">商品名:' . $Shohin['shohin_name'] . '</h3><br><br>';
+                echo '<h3 class="card-text font-weight-bold">個数:' . $Shohin['count'] . '</h3><br><br>';
         ?>
             <?php
                 $subtotal = $Shohin['price'] * $Shohin['count'];
-                echo '<p class="card-text font-weight-bold">金額:￥' . $Shohin['price'] . '円</p><br><br>';
+                echo '<h3 class="card-text font-weight-bold">金額:￥' . $Shohin['price'] . '円</h3><br><br>';
                 echo '</td>';
                 echo '<td>&nbsp;&nbsp;</td>';
-                echo '<td><a href="cart-delete.php?shohin_id=' . $shohin_id . '" class="btn btn-light btn-rounded btn-fw">削除</a></td>';
+                echo '<td><a href="cart-delete.php?shohin_id=' . $shohin_id . '" class="btn btn-outline-info btn-fw">削除</a></td>';
                 echo '<td>&nbsp;&nbsp;</td>';
                 echo '</tr>';
                 $total += $subtotal;
@@ -32,14 +32,14 @@
             ?>
             <div class="text-center">
                 <br>
-                <p class="card-text1 font-weight-bold">合計:￥<?php echo $total ?>円</p><br>
+                <h3 class="card-text1 font-weight-bold">合計:￥<?php echo $total ?>円</h3><br>
                 <div class="define">
                 <button type="submit" onclick="location.href='../G5-1/purchace-cart.php'"  class="btn btn-primary">購入に進む</button>
                 </div>
             </div>
         <?php
         } else {
-            echo '<p>カートに商品がありません。</p>';
+            echo '<p class="lead">カートに商品がありません。</p>';
         }
         ?>
     </div>

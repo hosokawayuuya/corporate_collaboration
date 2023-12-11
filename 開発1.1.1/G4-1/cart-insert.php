@@ -17,7 +17,7 @@ $_SESSION['Shohin'][$id] = [
     'count' => $count + $_POST['count'],
     'gazou_id' => $_POST['gazou_id'],
 ];
-echo '<p>カートに商品を追加しました。</p>';
+echo '<p class="lead">カートに商品を追加しました。</p>';
 echo '<hr>';
 require 'cart.php';
 ?>
