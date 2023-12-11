@@ -1,17 +1,57 @@
 <?php session_start();?>
-<?php require 'header.php';?>
-<?php require 'menu.php';?>
-<?php require 'db-connect.php'; ?>
+<?php require '../others/head.php';?>
+<?php require '../others/header.php';?>
+<?php require '../others/db-connect.php'; ?>
 <?php
 if(isset($_SESSION['User'])){
-    echo 'お名前：', $_SESSION['User']['private_name'];
-    echo '住所：', $_SESSION['User']['address1'];
-    echo '支払方法：', $_SESSION['User']['settlement'];
-    require '../G4-1/cart.php';
+    echo '<p>','お名前：', $_SESSION['User']['private_name'],'</p>';
+    echo '<p>','住所：', $_SESSION['User']['address1'],'</p>';
+    echo '<p>','支払方法：', $_SESSION['User']['settlement'],'</p>';
     echo '内容をご確認いただき、購入を確定してください。';
-    echo '<a href="../G5-2/confilm.php">購入を確定する</a>';
+    echo '<a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a>';
+    echo '<form action="../G5-2/confirm-cart.php" method="post">
+        <button type="submit" class="btn btn-primary">購入を確定する</button>
+    </form>';
+    if (!empty($_SESSION['Shohin'])) {
+        $total = 0;
+        echo '<table width="600">';
+        $isFirstItem = true;
+        foreach ($_SESSION['Shohin'] as $shohin_id => $Shohin) {
+            if (!$isFirstItem) {
+                echo '<tr><td colspan="5">&nbsp;</td></tr>'; // 商品の間に余白を入れる
+            } else {
+                $isFirstItem = false; // 最初の商品フラグをfalseに設定する
+            }
+            echo '<tr>';
+            echo '<td><a href="../G3-2/Shohin.php?shohin_id=' . $shohin_id . '"><img src="../image/' . $Shohin['gazou_id'] . '" width="300"></a></td>';
+            echo '<td>&nbsp;</td>';
+            echo '<td>';
+            echo '<h3 class="card-text font-weight-bold">商品名:' . $Shohin['shohin_name'] . '</h3><br><br>';
+            echo '<h3 class="card-text font-weight-bold">個数:' . $Shohin['count'] . '</h3><br><br>';
+            $subtotal = $Shohin['price'] * $Shohin['count'];
+            echo '<h3 class="card-text font-weight-bold">金額:￥' . $Shohin['price'] . '円</h3><br><br>';
+            echo '</td>';
+            echo '<td>&nbsp;&nbsp;</td>';
+            echo '<td>&nbsp;&nbsp;</td>';
+            echo '</tr>';
+            $total += $subtotal;
+        }
+        echo '</table>';
+        ?>
+        <div class="text-center">
+            <br>
+            <h3 class="card-text1 font-weight-bold">合計:￥<?php echo $total ?>円</h3><br>
+        </div>
+    <?php
+    } else {
+        echo '<p class="lead">カートに商品がありません。</p>';
+    }
+
+    
 }else{
     echo '商品を購入するには、ログインしてください。';
+    echo '<a href="../G1-1/login-input.php">ログインする</a>';
 }
+
 ?>
-<?php require 'footer.php';?>
+<?php require '../others/footer.php';?>

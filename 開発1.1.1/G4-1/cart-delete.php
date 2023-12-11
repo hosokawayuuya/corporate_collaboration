@@ -3,7 +3,7 @@
 <?php require '../others/header.php';?>
 <?php
 unset($_SESSION['Shohin'][$_GET['shohin_id']]);
-echo 'カートから商品を削除しました';
+echo '<p class="lead">カートから商品を削除しました</p>';
 echo '<hr>';
 require 'cart.php';
 ?>

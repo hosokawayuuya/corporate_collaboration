@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $_SESSION['Shohin'] = array(); 
+    ?>
 <!DOCTYPE html>
   <html lang="ja">
     <head>
