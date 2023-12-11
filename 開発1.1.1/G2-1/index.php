@@ -1,7 +1,4 @@
 <?php session_start();?>
-
-
-
 <?php require '../others/head.php'; ?>
 <?php require '../others/header.php'; ?>
 <?php require '../others/db-connect.php'; ?>
@@ -30,7 +27,7 @@
         var userID = <?php echo isset($_SESSION['User']['user_id']) ? $_SESSION['User']['user_id'] : 0; ?>;
 
         $favorite.on('click',function(e){
-            // userID = $favorite.data('user_id'); 
+            //userID = $favorite.data('user'); 
             console.log("userID=" + userID);
             if( userID == 0 ){
                 alert("ログインしてください");
@@ -106,11 +103,13 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="../G3-2/Shohin.php?shohin_id= <?php echo $row['shohin_id'] ?>">
                             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像">
                         </a>
-                        <?php $user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:0 ?>             
-                        <?php  echo '<button data-postid="', $id, '" data-user="', $user_id, '" id="hart" class="hart';
-                        if( isset($_SESSION['user_id']) && check_favolite_duplicate($user_id,$id) ){
+                        <?php $user_id = isset($_SESSION['User']['user_id']) ? $_SESSION['User']['user_id'] : 0; ?>             
+                        <?php  echo '<button data-postid="', $id, '" class="hart';
+                        
+                        if( isset($_SESSION['User']['user_id']) && check_favolite_duplicate($id)>0 ){
                             echo ' is-checked';
                         }
+                        
                         echo '">&#10084;</button>';
                         ?>
 
@@ -131,8 +130,10 @@ $products = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 //ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
-function check_favolite_duplicate($user_id,$shohin_id){
+function check_favolite_duplicate($shohin_id){
     global $pdo;
+    $user_id = isset($_SESSION['User']['user_id']) ? $_SESSION['User']['user_id'] : 0; 
+    if( $user_id == 0 ) return false;
     $sql = "SELECT *
             FROM favorite
             WHERE user_id = :user_id AND shohin_id = :shohin_id";
@@ -140,6 +141,8 @@ function check_favolite_duplicate($user_id,$shohin_id){
     $stmt->execute(array(':user_id' => $user_id ,
                          ':shohin_id' => $shohin_id));
     $favorite = $stmt->fetch();
-    return $favorite;
+    if( $favorite == null ) return false;
+    else return true;
+    //return $favorite;
 }
 ?>
