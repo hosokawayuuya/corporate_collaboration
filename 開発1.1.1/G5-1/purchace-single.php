@@ -8,6 +8,7 @@ if(isset($_SESSION['User'])){
     echo '<p>','住所：', $_SESSION['User']['address1'],'</p>';
     echo '<p>','支払方法：', $_SESSION['User']['settlement'],'</p>';
     echo '内容をご確認いただき、購入を確定してください。';
+    echo '<a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a>';
     if(isset($_GET['shohin_id'])){
         $pdo = new PDO($connect, USER, PASS);
         $sql=$pdo->prepare('select * from Shohin where shohin_id=?');
