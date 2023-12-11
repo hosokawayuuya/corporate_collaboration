@@ -70,9 +70,9 @@
         $pdo = new PDO($connect, USER, PASS);
 
         if(isset($_SESSION['User']['user_name'])){
-            echo '<div style="margin-left: 50px;" class="guest">' . $_SESSION['User']['user_name'] . 'さん、ようこそ！</div>';
+            echo '<div style="margin-left: 75px;" class="guest">' . $_SESSION['User']['user_name'] . 'さん、ようこそ！</div>';
         } else {
-            echo '<div style="margin-left: 50px;" class="guest">ゲストさん、ようこそ！</div>';
+            echo '<div style="margin-left: 75px;" class="guest">ゲストさん、ようこそ！</div>';
         }
         ?>
     </form>
