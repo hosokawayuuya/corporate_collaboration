@@ -25,23 +25,27 @@
     align-items: center; /* 縦方向（上下）の中央揃え */
     position: relative; /* positionをrelativeに設定 */
     }
+  .setu{
+    margin:15px;
+  }
+    /*
     .hart {
-      border-radius: 50%; /* 半径50%で円形にする */
+      border-radius: 50%; /* 半径50%で円形にする *//*
       font-size: 25px;
       padding: 7px 15px;
       cursor: pointer;
       background-color: white;
       border: 1px solid #000000;
       transition: color 0.3s, background-color 0.3s,transform 0.3s;
-      position: absolute; /* positionをabsoluteに設定 */
-      bottom: 0; /* 下端に対して配置 */
-      right: 20px; /* 右端に対して配置 */
+      position: absolute; /* positionをabsoluteに設定 *//*
+      bottom: 0; /* 下端に対して配置 *//*
+      right: 20px; /* 右端に対して配置 *//*
     }
     .hart-hover {
       color: white;
       background-color: red;
       transform: scale(1.2);
-    }
+    }*/
   .category{
     color:rgb(114, 11, 101);
   }
@@ -50,25 +54,25 @@
     width:150px;
     height: 30px;
     display: inline-block;
-    margin: 5px;
+    margin: 10px;
     text-align:center;
-    line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+    line-height: 10px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
 .btn.btn-primary {
     width:150px;
     height: 30px;
     display: inline-block;
-    margin: 5px;
+    margin: 10px;
     text-align:center;
-    line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+    line-height: 10px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
 .btn.btn-info {
   width:150px;
   height: 30px;
   display: inline-block;
-  margin: 5px;
+  margin: 10px;
   text-align:center;
-  line-height: 5px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+  line-height: 10px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
 }
 /*
 .review{
