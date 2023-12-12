@@ -20,20 +20,20 @@ if(isset($_SESSION['User'])){
             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像" style="width: 400px;">
         </div>
         <div class="item-right">
-        <h3 class="card-text font-weight-bold">商品名：<?php echo $row['shohin_name'] ?></h3><br><br>
-        <h3 class="card-text font-weight-bold">個数：<?php echo $row['count']?></h3><br><br>;
-        <h3 class="card-text font-weight-bold">金額：<?php echo $row['price'] ?>円</h3><br><br>
+            <h3><?php echo $row['shohin_name'] ?></h3><br>
+            <h3><b><?php echo $row['price'] ?>円</b></h3><br>
         </div>
     </div>
+
     <form action="../G5-2/confirm-single.php" method="post">
         <input type="hidden" name="shohin_id" value="<?php echo $row['shohin_id']; ?>">
         <input type="hidden" name="shohin_name" value="<?php echo $row['shohin_name']; ?>">
         <input type="hidden" name="gazou_id" value="<?php echo $row['gazou_id']; ?>">
         <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-        <a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a>
-        <button type="submit" class="btn btn-primary">購入を確定する</button>
+        <a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a><br>
+        <button type="submit" class="btn  btn-primary">購入を確定する</button>
     </form>
-    </div>
+</div>
     <?php }
     }
 }else{

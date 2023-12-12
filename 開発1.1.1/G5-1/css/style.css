@@ -1,1 +1,16 @@
-
+.btn.btn-primary {
+    width:150px;
+    height: 30px;
+    display: inline-block;
+    margin: 10px;
+    text-align:center;
+    line-height: 10px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+}
+.btn.btn-info {
+  width:150px;
+  height: 30px;
+  display: inline-block;
+  margin: 10px;
+  text-align:center;
+  line-height: 10px; /* 高さと同じにすることで垂直方向にも中央揃えにする */
+}
