@@ -1,6 +1,7 @@
 <?php
 session_start();
 require '../others/db-connect.php';
+require 'common.php';
 
 if(!isset($_POST['change'])){
     $_ref=$_SERVER['HTTP_REFERER'];
@@ -56,11 +57,13 @@ if (isset($_POST['user_id'])) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>情報変更</title>
+    <link rel="stylesheet" href="../path/to/<?php echo $cssFile; ?>">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
     <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
