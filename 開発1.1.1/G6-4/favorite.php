@@ -15,48 +15,6 @@
   color: red;
 }
 </style>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(function() {
-        var $favorite = $('.hart'), //お気に入りボタンセレクタ
-        productId;
-
-        var userID = <?php echo isset($_SESSION['User']['user_id']) ? $_SESSION['User']['user_id'] : 0; ?>;
-
-        $favorite.on('click',function(e){
-            // userID = $favorite.data('user_id'); 
-            console.log("userID=" + userID);
-            if( userID == 0 ){
-                alert("ログインしてください");
-                exit();
-            }
-            //カスタム属性（postid）に格納された投稿ID取得
-            productId =  $favorite.data('postid'); 
-            console.log("ID=" + productId);
-            if (!$(this).hasClass("is-checked")) {
-                console.log("クリック前の処理");
-                }
-            $(this).toggleClass("is-checked");
-            if ($(this).hasClass("is-checked")) {
-                console.log("クリック後の処理");
-            }
-            $.ajax({
-                    type: "POST",
-                    url: "../G6-4/favorite-insert.php",
-                    data: {shohin_id: productId, user_id: userID},
-                    success: function(response) {
-                        // レスポンスを処理する（必要に応じて）
-                        console.log(response);
-                    },
-                    error: function(error) {
-                        console.error(error);
-                    }
-                });
-                
-                
-        });
-    });
-</script>
 <?php
 if(isset($_SESSION['User'])){
     $pdo = new PDO($connect, USER, PASS);
@@ -77,14 +35,6 @@ if(isset($_SESSION['User'])){
                         <a href="../G3-2/Shohin.php?shohin_id= <?php echo $row['shohin_id'] ?>">
                             <img src="../image/<?php echo $row['gazou_id'] ?>" class="card-img-top" alt="商品の画像">
                         </a>
-                        <?php $user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:0 ?>             
-                        <?php  echo '<button data-postid="', $id, '" data-user="', $user_id, '" id="hart" class="hart';
-                        if( isset($_SESSION['user_id']) && check_favolite_duplicate($user_id,$id) ){
-                            echo ' is-checked';
-                        }
-                        echo '">&#10084;</button>';
-                        ?>
-
                     </div>
                     <div class="card-body">
                         <h4 class="category"><i>#<?php echo $row['cate1'] ?> #<?php echo $row['cate2'] ?>#<?php echo $row['cate3'] ?></i></h4>
@@ -103,19 +53,3 @@ if(isset($_SESSION['User'])){
     </div>
 </div>
 <?php require '../others/footer.php'; ?>
-
-
-<?php
-//ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
-function check_favolite_duplicate($user_id,$shohin_id){
-    global $pdo;
-    $sql = "SELECT *
-            FROM favorite
-            WHERE user_id = :user_id AND shohin_id = :shohin_id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id ,
-                         ':shohin_id' => $shohin_id));
-    $favorite = $stmt->fetch();
-    return $favorite;
-}
-?>
