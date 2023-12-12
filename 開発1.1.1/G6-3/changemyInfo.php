@@ -2,39 +2,58 @@
 session_start();
 require '../others/db-connect.php';
 
+if(!isset($_POST['change'])){
+    $_ref=$_SERVER['HTTP_REFERER'];
+    $_SESSION['change']=$_ref;
+}else{
+    $_ref=$_SESSION['change'];
+}
 $pdo = new PDO($connect, USER, PASS);
+$errors = array(); // エラーメッセージを格納するための配列
 
 if (isset($_POST['user_id'])) {
-    // ユーザー情報更新
-    $sql = $pdo->prepare('UPDATE User SET user_name=?, tell=?, mail_address=?, settlement=? , post_code=? , address1=? , credit_id=? , credit_data=? , security_code=? WHERE user_id=?');
-    $sql->execute([
-        $_POST['user_name'],
-        $_POST['tell'],
-        $_POST['mail_address'],
-        $_POST['settlement'],
-        $_POST['post_code'],
-        $_POST['address1'],
-        $_POST['credit_id'],
-        $_POST['credit_data'],
-        $_POST['security_code'],
-        $_POST['user_id']
-    ]);
-    // ユーザー更新後セッション詰めなおし
-    $_SESSION['User'] = [
-        'user_id' => $_POST['user_id'],
-        'user_name' => $_POST['user_name'],
-        'tell' => $_POST['tell'],
-        'mail_address' => $_POST['mail_address'],
-        'settlement' => $_POST['settlement'],
-        'post_code' => $_POST['post_code'],
-        'address1' => $_POST['address1'],
-        'credit_id' => $_POST['credit_id'],
-        'credit_data' => $_POST['credit_data'],
-        'security_code' => $_POST['security_code'],
-    ];
+    // 各フィールドが空でないかを確認
+    if (empty($_POST['user_name'])) {
+        $errors[] = 'ユーザー名を入力してください。';
+    }
+
+    // 他のフィールドに対しても同様にチェック
+
+    // エラーがなければ更新処理を行う
+    if (empty($errors)) {
+        // ユーザー情報更新
+        $sql = $pdo->prepare('UPDATE User SET user_name=?, tell=?, mail_address=?, settlement=?, post_code=?, address1=?, credit_id=?, credit_data=?, security_code=? WHERE user_id=?');
+        $sql->execute([
+            $_POST['user_name'],
+            $_POST['tell'],
+            $_POST['mail_address'],
+            $_POST['settlement'],
+            $_POST['post_code'],
+            $_POST['address1'],
+            $_POST['credit_id'],
+            $_POST['credit_data'],
+            $_POST['security_code'],
+            $_POST['user_id']
+        ]);
+
+        // ユーザー更新後セッション詰めなおし
+        $_SESSION['User'] = [
+            'user_id' => $_POST['user_id'],
+            'user_name' => $_POST['user_name'],
+            'tell' => $_POST['tell'],
+            'mail_address' => $_POST['mail_address'],
+            'settlement' => $_POST['settlement'],
+            'post_code' => $_POST['post_code'],
+            'address1' => $_POST['address1'],
+            'credit_id' => $_POST['credit_id'],
+            'credit_data' => $_POST['credit_data'],
+            'security_code' => $_POST['security_code'],
+        ];
+    }
 } else {
     // 何かしらの処理
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +62,7 @@ if (isset($_POST['user_id'])) {
     <meta charset="UTF-8">
     <title>情報変更</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-       <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
+    <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
     <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="../Sample/template/images/favicon.png" />
@@ -70,7 +89,15 @@ if (isset($_POST['user_id'])) {
                         </div>
                         <h2>情報変更</h2>
                         <form action="changemyInfo.php" method="post">
-                        
+                            <?php
+                            if (!empty($errors)) {
+                                foreach ($errors as $error) {
+                                    echo '<p class="error">' . $error . '</p>';
+                                }
+                            }
+                            ?>
+
+                            
                             <label for="user_name">ユーザー名</label><br>
                             <?php
                             echo '<input type="text" id="user_name" class="form-control form-control-lg" name="user_name" value="', $_SESSION['User']['user_name'], '" required>';
@@ -115,30 +142,54 @@ if (isset($_POST['user_id'])) {
                             echo '<input type="text" id="address1" class="form-control form-control-lg" name="address1" value="', $_SESSION['User']['address1'], '" required><br>';
                             ?>
                             <input type="hidden" name="user_id" value="<?php echo $_SESSION['User']['user_id'] ?>">
-                            <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+                            <input type="submit" name="change" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                                 value="情報を変更"><br>
-                            <button type="button"
-                                class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                onclick="history.back()" class="btn btn-info">戻る</button>
+                                <button type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="window.location='<?php echo $_ref ?>'" class="btn btn-info">戻る</button>
+
                         </form>
-                        <script>
-                            // セレクトボックスが変更されたときに呼び出される関数
-                            function handlePaymentMethodChange() {
-                                var paymentMethod = document.getElementById("settlement").value;
-                                var creditCardFields = document.getElementById("credit_card_fields");
+                        <!-- 選択された支払い方法がクレジットカードの場合にのみクレジットカード情報を表示 -->
+<script>
+    // セレクトボックスが変更されたときに呼び出される関数
+    function handlePaymentMethodChange() {
+        var paymentMethod = document.getElementById("settlement").value;
+        var creditCardFields = document.getElementById("credit_card_fields");
 
-                                // クレジットカード情報のフィールドを表示または非表示にする
-                                creditCardFields.style.display = (paymentMethod == 4) ? "block" : "none";
-                            }
+        // クレジットカード情報のフィールドを表示または非表示にする
+        creditCardFields.style.display = (paymentMethod == 4) ? "block" : "none";
+    }
 
-                            // セレクトボックスが変更されたときに関数を実行
-                            document.getElementById("settlement").addEventListener("change", handlePaymentMethodChange);
+    // セレクトボックスが変更されたときに関数を実行
+    document.getElementById("settlement").addEventListener("change", handlePaymentMethodChange);
 
-                            // 初期状態でクレジットカード情報を非表示にする
-                            document.addEventListener("DOMContentLoaded", function () {
-                                handlePaymentMethodChange();
-                            });
-                        </script>
+    // 初期状態でクレジットカード情報を非表示にする
+    document.addEventListener("DOMContentLoaded", function() {
+        handlePaymentMethodChange();
+    });
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function getAddress(postalCode) {
+        if (postalCode.length === 7) {
+            $.getJSON('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + postalCode, function(data) {
+                if (data.status === 200) {
+                    $('#add1').val(data.results[0].address1);
+                    $('#add2').val(data.results[0].address2);
+                    $('#add3').val(data.results[0].address3); // 町域の情報も追加
+                } else {
+                    $('#add1').val('');
+                    $('#add2').val('');
+                    $('#add3').val('');
+                }
+            });
+        } else {
+            $('#add1').val('');
+            $('#add2').val('');
+            $('#add3').val('');
+        }
+    }
+</script>
                     </div>
                 </div>
             </div>
@@ -147,4 +198,5 @@ if (isset($_POST['user_id'])) {
 </div>
 </body>
 </html>
+
 
