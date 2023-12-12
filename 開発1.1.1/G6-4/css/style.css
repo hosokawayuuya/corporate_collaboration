@@ -1,0 +1,52 @@
+
+.guest{
+  font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+.my-4{
+    position: relative;
+    display: inline-block;
+    padding: 0 65px;
+    text-align: center;
+    font-family: serif;
+  }
+  
+  .my-4:before,
+  .my-4:after {
+    position: absolute;
+    top: calc(50% - 3px);
+    width: 50px;
+    height: 6px;
+    content: '';
+    border-top: solid 2px #000;
+    border-bottom: solid 2px #000;
+  }
+  
+  .my-4:before {
+    left: 0;
+  }
+  
+  .my-4:after {
+    right: 0;
+  }
+
+.card-text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+.category{
+  color:rgb(114, 11, 101);
+}
+
+
+    .card {
+        border: 2px solid #ddd; /* 枠線の色を設定 */
+        border-radius: 10px; /* オプション: 角を丸める */
+        overflow: hidden; /* オプション: オーバーフローコンテンツを非表示にする */
+        transition: border 0.3s ease; /* オプション: スムーズな遷移効果を追加 */
+    }
+
+    .card:hover {
+        border: 2px solid #007bff; /* ホバー時に枠線の色を変更 */
+    }
