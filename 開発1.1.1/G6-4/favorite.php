@@ -96,8 +96,9 @@ if(isset($_SESSION['User'])){
             </div>
         <?php }
     }else{
-        echo 'お気に入りを表示するには、ログインしてください。';
-    }
+        echo '<span class="lead">商品を購入するには、ログインしてください。</span>';
+        echo '<a href="../G1-1/login-input.php" class="lead">ログインする</a>';
+        }
         ?>
     </div>
 </div>
