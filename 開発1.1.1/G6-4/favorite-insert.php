@@ -34,12 +34,12 @@ if(isset($_POST)){
             VALUES(:user_id,:shohin_id)";
   }
 echo $action;
-  try{
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id , ':shohin_id' => $shohin_id));
+try{
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(array(':user_id' => $user_id , ':shohin_id' => $shohin_id));
 
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    echo json_encode("error");
-  }
+} catch (\Exception $e) {
+  error_log('エラー発生:' . $e->getMessage());
+  echo json_encode("error");
+}
 }

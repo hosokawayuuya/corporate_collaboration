@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>管理者画面</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/administrater.css">
         <style>

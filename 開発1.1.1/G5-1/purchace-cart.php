@@ -2,15 +2,13 @@
 <?php require '../others/head.php';?>
 <?php require '../others/header.php';?>
 <?php require '../others/db-connect.php'; ?>
+<div class="text-center">
 <?php
 if(isset($_SESSION['User'])){
-    echo '<p>','お名前：', $_SESSION['User']['private_name'],'</p>';
-    echo '<p>','住所：', $_SESSION['User']['address1'],'</p>';
-    echo '<p>','支払方法：', $_SESSION['User']['settlement'],'</p>';
-    echo '内容をご確認いただき、購入を確定してください。';
-    echo '<form action="../G5-2/confirm-cart.php" method="post">
-        <button type="submit" class="btn btn-primary">購入を確定する</button>
-    </form>';
+    echo '<p class="lead">','お名前：', $_SESSION['User']['private_name'],'</p>';
+    echo '<p class="lead">','住所：', $_SESSION['User']['address1'],'</p>';
+    echo '<p class="lead">','支払方法：', $_SESSION['User']['settlement'],'</p>';
+    echo '<p class="lead">内容をご確認いただき、購入を確定してください。</p>';
     if (!empty($_SESSION['Shohin'])) {
         $total = 0;
         echo '<table width="600">';
@@ -37,9 +35,12 @@ if(isset($_SESSION['User'])){
         }
         echo '</table>';
         ?>
-        <div class="text-center">
             <br>
             <h3 class="card-text1 font-weight-bold">合計:￥<?php echo $total ?>円</h3><br>
+        <br><a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a>
+        <form action="../G5-2/confirm-cart.php" method="post">
+            <button type="submit" class="btn btn-primary">購入を確定する</button>
+        </form>
         </div>
     <?php
     } else {
@@ -48,8 +49,8 @@ if(isset($_SESSION['User'])){
 
     
 }else{
-    echo '商品を購入するには、ログインしてください。';
-    echo '<a href="../G1-1/login-input.php">ログインする</a>';
+    echo '<span class="lead">商品を購入するには、ログインしてください。</span>';
+    echo '<a href="../G1-1/login-input.php" class="lead">ログインする</a>';
 }
 
 ?>

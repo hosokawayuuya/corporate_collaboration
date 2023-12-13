@@ -18,7 +18,8 @@
       </a>
     </div>
     <div class="example">
-    <button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
+    <button type="button" onclick="window.location.href='../G2-1/index.php'" class="btn btn-info">ホームに戻る</button>
+
 </div>
 <style>
       .example {
