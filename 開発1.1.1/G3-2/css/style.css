@@ -2,8 +2,9 @@
     display: flex;
     align-items: center; /* 縦方向の中央揃え */
 }
-.catchpharase {
+.item-head.catchpharase {
   margin: 10px 50px; 
+  padding-left: 100px;
   font-family: "Nico Moji";
   text-align: left;
 }
