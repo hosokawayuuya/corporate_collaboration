@@ -11,11 +11,19 @@ try {
     exit("データベースに接続できませんでした。エラー: " . $e->getMessage());
 }
 
+if(!isset($_POST['change'])){
+    $_ref=$_SERVER['HTTP_REFERER'];
+    $_SESSION['change']=$_ref;
+}else{
+    $_ref=$_SESSION['change'];
+}
 // 初期化
 $error = '';
 
+
 // フォームの送信処理
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     // フォームデータの取得
     $last_name = $_POST["last_name"];
     $first_name = $_POST["first_name"];
@@ -105,7 +113,7 @@ $pdo = null;
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
+    <title>新規登録画面</title>
     <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
   <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
@@ -120,6 +128,9 @@ $pdo = null;
         .error {
             color: red;
         }
+        .red-text {
+    color: red;
+}
     </style>
     <title>新規登録</title>
     <!-- CSS や JavaScript のリンクなども追加 -->
@@ -138,36 +149,36 @@ $pdo = null;
 
 <form action="customer-input.php" method="post">
 <p>ログインの時に必要</p>
-<label for="user_name">ユーザーネーム</label>
-    <input type="text" id="user_name" name="user_name" class="form-control form-control-lg"><br>
+<label for="user_name">ユーザーネーム</label><span class="red-text">※半角英数字のみ（必須）</span>
+    <input type="text" id="user_name" name="user_name" class="form-control form-control-lg" required><br>
     
-    <label for="password">パスワード:</label>
-    <input type="password" id="password" name="password" class="form-control form-control-lg"><br>
+    <label for="password">パスワード:</label><span class="red-text">（必須）</span>
+    <input type="password" id="password" name="password" class="form-control form-control-lg" required><br>
 
 <p>本人情報登録</p>
     <!-- ...（フォームの入力部分はそのまま） -->
-    <label for="last_name">苗字</label>
-    <input type="text" id="last_name" name="last_name" class="form-control form-control-lg" ><br>
+    <label for="last_name">苗字</label><span class="red-text">（必須）</span>
+    <input type="text" id="last_name" name="last_name" class="form-control form-control-lg" required><br>
 
-    <label for="first_name">名前</label>
-    <input type="text" id="first_name" name="first_name" class="form-control form-control-lg"><br>
+    <label for="first_name">名前</label><span class="red-text">（必須）</span>
+    <input type="text" id="first_name" name="first_name" class="form-control form-control-lg" required><br>
 
-    <label for="katakana_sei">カタカナ苗字</label>
-    <input type="text" id="katakana_sei" name="katakana_sei" class="form-control form-control-lg"><br>
+    <label for="katakana_sei">カタカナ苗字</label><span class="red-text">（必須）</span>
+    <input type="text" id="katakana_sei" name="katakana_sei" class="form-control form-control-lg" required><br>
 
-    <label for="katakana_mei">カタカナ名前</label>
-    <input type="text" id="katakana_mei" name="katakana_mei"class="form-control form-control-lg" ><br>
+    <label for="katakana_mei">カタカナ名前</label><span class="red-text">（必須）</span>
+    <input type="text" id="katakana_mei" name="katakana_mei"class="form-control form-control-lg" required><br>
 
 
-    <label for="tell">電話番号</label>
-    <input type="tel" id="tell" name="tell" class="form-control form-control-lg"><br>
+    <label for="tell">電話番号</label><span class="red-text">（必須）</span>
+    <input type="tel" id="tell" name="tell" class="form-control form-control-lg" required><br>
 
-    <label for="mail_address">メールアドレス</label>
-    <input type="email" id="mail_address" name="mail_address"class="form-control form-control-lg" ><br>
+    <label for="mail_address">メールアドレス</label><span class="red-text">（必須）</span>
+    <input type="email" id="mail_address" name="mail_address"class="form-control form-control-lg" required><br>
 
     <!-- 郵便番号の入力にoninputを使用して住所を取得 -->
-    <label for="post_code">郵便番号</label>
-    <input type="text" id="post_code" name="post_code" oninput="getAddress(this.value)" class="form-control form-control-lg"><br>
+    <label for="post_code">郵便番号</label><span class="red-text">（必須）</span>
+    <input type="text" id="post_code" name="post_code" oninput="getAddress(this.value)" class="form-control form-control-lg" required><br>
     
     <label for="add1">都道府県</label>
     <input type="text" id="add1" name="add1" readonly required class="form-control form-control-lg"><br>
@@ -175,7 +186,7 @@ $pdo = null;
     <label for="add2">市区町村</label>
     <input type="text" id="add2" name="add2" readonly required class="form-control form-control-lg"><br>
 
-    <label for="add3">町域</label>
+    <label for="add3">町域</label><span class="red-text">（必須）</span>
     <input type="text" id="add3" name="add3"class="form-control form-control-lg"><br>
 
     <!-- 住所の入力にbuilding_nameも含める場合 -->
@@ -183,7 +194,7 @@ $pdo = null;
     <input type="text" id="building_name" name="building_name"class="form-control form-control-lg"><br>
 
     <!-- ...（他の住所の入力項目も同様に追加） -->
-    <label for="settlement">支払い情報:</label>
+    <label for="settlement">支払い情報:</label><span class="red-text">（必須）</span>
     <select id="settlement" name="settlement">
         <option value="1">コンビニ支払い</option>
         <option value="2">代金引換</option>
@@ -210,7 +221,7 @@ $pdo = null;
 
     <input type="submit" value="登録する"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" ><br>
 </form>
-<button type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="history.back()" class="btn btn-info">ログイン画面へ</button>
+<button type="button" name="change" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="history.back()" class="btn btn-info">ログイン画面へ</button>
 
 
 
@@ -256,6 +267,23 @@ $pdo = null;
             $('#add2').val('');
             $('#add3').val('');
         }
+    }
+</script>
+<script>
+    function validateForm() {
+        var phoneNumber = document.getElementById("tell").value;
+
+        // 正規表現を使用して電話番号が期待される形式と一致するか確認
+        var phoneRegex = /^\d{10,11}$/;
+
+        if (!phoneRegex.test(phoneNumber)) {
+            alert("電話番号を正しく入力してください。");
+            return false; // フォームの送信を防止
+        }
+
+        // 他にも必要な検証やアクションがあれば追加できます
+
+        return true; // フォームの送信を許可
     }
 </script>
 </body>

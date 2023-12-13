@@ -27,7 +27,7 @@ foreach ($sql as $row){
         header("Location: ../G2-1/index.php");
         exit();
     }else{
-        $error = "パスワードが一致しません";
+        $error = "ログインネームorパスワードが間違っています";
     }
 }
     ?>
@@ -39,7 +39,7 @@ foreach ($sql as $row){
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
+    <title>ログイン画面</title>
     <link rel="stylesheet" href="../Sample/template/vendors/typicons.font/font/typicons.css">
   <link rel="stylesheet" href="../Sample/template/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../Sample/template/css/vertical-layout-light/style.css">
