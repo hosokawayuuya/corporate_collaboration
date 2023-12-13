@@ -33,13 +33,17 @@
         echo '<td>';
         echo '<form action="register.php" method="post">';
         echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
+        echo '<input type="hidden" name="color" value="',$row['color'],'">';
+        echo '<input type="hidden" name="size" value="',$row['size'],'">';
         echo '<button type="submit">更新</button>';
         echo '</form>';
 
         echo '</td>';
         echo '<td>';
         echo '<form action="delete.php" method="post">';
-        echo '<input type="hidden" name="id" value="',$row['shohin_id'],'">';
+        echo '<input type="hidden" name="shohin_id" value="',$row['shohin_id'],'">';
+        echo '<input type="hidden" name="color" value="',$row['color'],'">';
+        echo '<input type="hidden" name="size" value="',$row['size'],'">';
         echo '<button type="submit">削除</button>';
         echo '</form>';
         echo '</td>';

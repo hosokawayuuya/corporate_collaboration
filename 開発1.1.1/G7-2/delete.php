@@ -15,11 +15,15 @@
 </head>
 <body>
 <h1>削除確認</h1>
+<form action="../G7-2/stock.php" method="post">
+    <button type="submit">戻る</button>
+    </form>
+
     <hr>
     <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('delete from Shohins where shohin_id=?');
-    if($sql->execute([$_POST['shohin_id']])){
+    $sql=$pdo->prepare('delete from Shohins where shohin_id=? and color=? and size=?');
+    if($sql->execute([$_POST['shohin_id'], $_POST['color'], $_POST['size']])){
         echo '削除に成功しました。';
     }
     else{
