@@ -11,7 +11,7 @@ if(isset($_SESSION['User'])){
     echo '<p class="lead">内容をご確認いただき、購入を確定してください。</p>';
     if (!empty($_SESSION['Shohin'])) {
         $total = 0;
-        echo '<table width="600">';
+        echo '<table width="600" style="margin:0 auto">';
         $isFirstItem = true;
         foreach ($_SESSION['Shohin'] as $shohin_id => $Shohin) {
             if (!$isFirstItem) {
