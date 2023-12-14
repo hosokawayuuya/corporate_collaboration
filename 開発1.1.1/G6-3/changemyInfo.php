@@ -13,19 +13,15 @@ $pdo = new PDO($connect, USER, PASS);
 $errors = array(); // エラーメッセージを格納するための配列
 
 if (isset($_POST['user_id'])) {
-    // 各フィールドが空でないかを確認
-    if (empty($_POST['user_name'])) {
-        $errors[] = 'ユーザー名を入力してください。';
-    }
-
     // 他のフィールドに対しても同様にチェック
 
     // エラーがなければ更新処理を行う
     if (empty($errors)) {
         // ユーザー情報更新
-        $sql = $pdo->prepare('UPDATE User SET user_name=?, tell=?, mail_address=?, settlement=?, post_code=?, address1=?, credit_id=?, credit_data=?, security_code=? WHERE user_id=?');
+        $sql = $pdo->prepare('UPDATE User SET  tell=?,private_name=?,katakana_name=?, mail_address=?, settlement=?, post_code=?, address1=?, credit_id=?, credit_data=?, security_code=? WHERE user_id=?');
         $sql->execute([
-            $_POST['user_name'],
+            $_POST['private_name'],
+            $_POST['katakana_name'],
             $_POST['tell'],
             $_POST['mail_address'],
             $_POST['settlement'],
@@ -39,8 +35,9 @@ if (isset($_POST['user_id'])) {
 
         // ユーザー更新後セッション詰めなおし
         $_SESSION['User'] = [
+            'private_name' => $_POST['private_name'],
+            'katakana_name' => $_POST['katakana_name'],
             'user_id' => $_POST['user_id'],
-            'user_name' => $_POST['user_name'],
             'tell' => $_POST['tell'],
             'mail_address' => $_POST['mail_address'],
             'settlement' => $_POST['settlement'],
@@ -101,10 +98,13 @@ if (isset($_POST['user_id'])) {
                             ?>
 
                             
-                            <label for="user_name">ユーザー名</label><br>
+                            <label for="private_name">本人名前</label><br>
                             <?php
-                            echo '<input type="text" id="user_name" class="form-control form-control-lg" name="user_name" value="', $_SESSION['User']['user_name'], '" required>';
-                            ?><br>
+                            echo '<input type="private_name" id="private_name" class="form-control form-control-lg" name="private_name" value="', $_SESSION['User']['private_name'], '" required><br>';
+                            ?><label for="katakana_name">カタカナ名前</label><br>
+                            <?php
+                            echo '<input type="text" id="katakana_name" class="form-control form-control-lg" name="katakana_name" value="', $_SESSION['User']['katakana_name'], '" required><br>';
+                            ?>
                             <label for="tell">電話番号</label><br>
                             <?php
                             echo '<input type="text" id="tell" class="form-control form-control-lg" name="tell" value="', $_SESSION['User']['tell'], '" required><br>';

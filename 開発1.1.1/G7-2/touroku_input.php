@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>商品登録</h1>
+    <form action="../G7-2/stock.php" method="post">
+    <button type="submit">戻る</button>
+    </form>
     <hr>
     <form action="touroku_output.php" method="post">
         商品id:<input type="text" name="shohin_id"><br>
@@ -18,4 +21,3 @@
 </form>
 </body>
 </html>
-    
