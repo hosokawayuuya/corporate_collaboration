@@ -28,7 +28,7 @@
             <form action="../G4-1/cart-insert.php" method="post">
                 <div class="d-flex align-items-center mb-3">
                     <?php
-                        echo '<h3>個数：</h3><select class="btn-warning dropdown-toggle" name="count">';
+                        echo '<h3>個数：</h3><select class="btn btn-outline-info dropdown-toggle" name="count">';
                         for($i=1;$i<=10;$i++){
                             echo '<option value="',$i,'">',$i,'</option>';
                         }
@@ -46,7 +46,7 @@
                     <div>
                     <button type="submit" class="btn btn-success me-2" style='font-family: fantasy;'>カートに入れる</button>
                     </form>              
-                    <button type="button" onclick="location.href='../G5-1/purchace-single.php?shohin_id=<?php echo $row['shohin_id']; ?>'" class="btn btn-primary">購入に進む</button>
+                    <br><button type="button" onclick="location.href='../G5-1/purchace-single.php?shohin_id=<?php echo $row['shohin_id']; ?>'" class="btn btn-primary">購入に進む</button>
                 </div>
             <br><button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
