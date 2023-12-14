@@ -12,7 +12,7 @@
                     $isFirstItem = false; // 最初の商品フラグをfalseに設定する
                 }
                 echo '<tr>';
-                echo '<td><a href="../G3-2/Shohin.php?shohin_id=' . $shohin_id . '"><img src="../image/' . $Shohin['gazou_id'] . '" width="300"></a></td>';
+                echo '<td><img src="../image/' . $Shohin['gazou_id'] . '" width="300"></td>';
                 echo '<td>&nbsp;</td>';
                 echo '<td>';
                 echo '<h3 class="card-text font-weight-bold">商品名:' . $Shohin['shohin_name'] . '</h3><br><br>';

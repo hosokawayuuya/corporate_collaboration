@@ -11,12 +11,6 @@ try {
     exit("データベースに接続できませんでした。エラー: " . $e->getMessage());
 }
 
-if(!isset($_POST['change'])){
-    $_ref=$_SERVER['HTTP_REFERER'];
-    $_SESSION['change']=$_ref;
-}else{
-    $_ref=$_SESSION['change'];
-}
 // 初期化
 $error = '';
 
@@ -53,9 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // エラーがない場合にのみデータベースに挿入
     if (empty($error)) {
         // パスワードとユーザーIDの組み合わせが重複していないか確認
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM User WHERE user_name = :user_name AND password = :password");
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM User WHERE user_name = :user_name ");
         $stmt->bindParam(':user_name', $user_name);
-        $stmt->bindParam(':password', $password);
+        
         $stmt->execute();
 
         if ($stmt->fetchColumn() == 0) {
@@ -63,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // データベースへの挿入処理
-            $stmt = $pdo->prepare("INSERT INTO User (private_name, user_name, katakana_name, tell, mail_address, post_code, address1, settlement,  password) VALUES (:private_name, :user_name, :katakana_name, :tell, :mail_address, :post_code, :address1, :settlement,:hashed_password)");
+            $stmt = $pdo->prepare("INSERT INTO User (private_name, user_name, katakana_name, tell, mail_address, post_code, address1, settlement, password, credit_id, credit_data, security_code) VALUES (:private_name, :user_name, :katakana_name, :tell, :mail_address, :post_code, :address1, :settlement, :hashed_password, :credit_id, :credit_data, :security_code)");
             $stmt->bindParam(':private_name', $private_name);
             $stmt->bindParam(':user_name', $user_name);
             $stmt->bindParam(':katakana_name', $katakana_name);
@@ -73,6 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':address1', $address1);
             $stmt->bindParam(':settlement', $settlement);
             $stmt->bindParam(':hashed_password', $hashed_password);
+           
+
 
             // クレジットカード情報の取得
             $credit_id = $_POST["credit_id"] ?? '';
@@ -80,13 +76,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $security_code = $_POST["security_code"] ?? '';
 
             // クレジットカードの詳細を検証
-            if ($settlement == 4 && (empty($credit_id) || empty($credit_data) || empty($security_code))) {
+            if ($settlement == 4 && (empty($credit_id) && empty($credit_data) && empty($security_code))) {
                 $error = "エラー: クレジットカード情報を正しく入力してください！";
             }
 
+            
             // エラーがない場合、クレジットカードの詳細をデータベースに保存
             if (empty($error)) {
                 // データベースへの挿入処理を実装してくださ
+                $stmt->bindParam(':credit_id', $credit_id);
+$stmt->bindParam(':credit_data', $credit_data);
+$stmt->bindParam(':security_code', $security_code);
+            }
                 // プリペアドステートメントを実行
                 if ($stmt->execute()) {
                     header("Location: ../G2-1/index.php");
@@ -94,7 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     $error = "エラー: データベースへの挿入に失敗しました。";
                 }
-            }
         } else {
             $error = "エラー: 同じユーザーIDとパスワードの組み合わせが既に存在します。";
         }
@@ -177,7 +177,7 @@ $pdo = null;
     <input type="email" id="mail_address" name="mail_address"class="form-control form-control-lg" required><br>
 
     <!-- 郵便番号の入力にoninputを使用して住所を取得 -->
-    <label for="post_code">郵便番号</label><span class="red-text">（必須）</span>
+    <label for="post_code">郵便番号</label><span class="red-text" required>（必須）</span>
     <input type="text" id="post_code" name="post_code" oninput="getAddress(this.value)" class="form-control form-control-lg" required><br>
     
     <label for="add1">都道府県</label>
@@ -187,14 +187,14 @@ $pdo = null;
     <input type="text" id="add2" name="add2" readonly required class="form-control form-control-lg"><br>
 
     <label for="add3">町域</label><span class="red-text">（必須）</span>
-    <input type="text" id="add3" name="add3"class="form-control form-control-lg"><br>
+    <input type="text" id="add3" name="add3"class="form-control form-control-lg" required><br>
 
     <!-- 住所の入力にbuilding_nameも含める場合 -->
     <label for="building_name">建物名:</label>
     <input type="text" id="building_name" name="building_name"class="form-control form-control-lg"><br>
 
     <!-- ...（他の住所の入力項目も同様に追加） -->
-    <label for="settlement">支払い情報:</label><span class="red-text">（必須）</span>
+    <label for="settlement">支払い情報:</label><span class="red-text" required>（必須）</span>
     <select id="settlement" name="settlement">
         <option value="1">コンビニ支払い</option>
         <option value="2">代金引換</option>
@@ -221,7 +221,7 @@ $pdo = null;
 
     <input type="submit" value="登録する"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" ><br>
 </form>
-<button type="button" name="change" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="history.back()" class="btn btn-info">ログイン画面へ</button>
+<button type="button"  class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="window.location.href='../G1-1/login-input.php'" class="btn btn-info">ログイン画面へ</button>
 
 
 

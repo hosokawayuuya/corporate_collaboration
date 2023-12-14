@@ -44,10 +44,10 @@
                     <br>
                     </div>
                     <div>
-                    <button type="submit" class="btn btn-success me-2" style='font-family: fantasy;'>カートに入れる</button>              
-                    <button type="submit" onclick="location.href='../G5-1/purchace-single.php?shohin_id=<?php echo $row['shohin_id']; ?>'" class="btn btn-primary">購入に進む</button>
+                    <button type="submit" class="btn btn-success me-2" style='font-family: fantasy;'>カートに入れる</button>
+                    </form>              
+                    <button type="button" onclick="location.href='../G5-1/purchace-single.php?shohin_id=<?php echo $row['shohin_id']; ?>'" class="btn btn-primary">購入に進む</button>
                 </div>
-            </form>
             <br><button type="button" onclick="history.back()" class="btn btn-info">戻る</button>
         </div>
     </div>

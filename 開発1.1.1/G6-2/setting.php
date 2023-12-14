@@ -130,8 +130,6 @@ p2{
 		<h1>設定</h1>
     <a href="henpin.php" class="display-4">返品ポリシーについて</a>
     <br>
-    <a href="point.php" class="display-4">ポイントについて</a>
-    <br>
     <a href="privacy.php" class="display-4">利用規約とプライバシーポリシー</a>
     <br>
     <a href="campain.php" class="display-4">今だけの闇特別キャンペーン実施中！！</a>
