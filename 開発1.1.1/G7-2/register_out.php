@@ -20,21 +20,14 @@
     <hr>
     <?php
     $pdo=new PDO($connect, USER,PASS);
-    $todays=date("Y-m-d");
-    $sql=$pdo->prepare('update Shohins set color=?, size=?, stock_id=?, gazou_id=? where shohin_id=?');
-    if(empty($_POST['color'])){
-        echo 'カラーを入力して下さい';
-    }
-    else if(empty($_POST['size'])){
-        echo 'サイズを入力してください';
-    }
-    else if(!preg_match('/^[0-9]+$/',$_POST['stock_id'])){
-        echo '在庫を整数で入力してください';
+    $sql=$pdo->prepare('update Shohins set stock_id=?, gazou_id=? where shohin_id=? and color=? and size=?');
+    if(!preg_match('/^[0-9]+$/',$_POST['stock_id'])){
+        echo '在庫を入力して下さい';
     }
     else if(empty($_POST['gazou_id'])){
-        echo '商品画像ファイル名を入力してください';
+        echo '画像idを入力してください';
     }
-    else if ($sql->execute([$_POST['color'],$_POST['size'],$_POST['stock_id'],$_POST['gazou_id'],$_POST['shohin_id']])){
+    else if ($sql->execute([$_POST['stock_id'],$_POST['gazou_id'],$_POST['shohin_id'],$_POST['color'],$_POST['size']])){
         echo '更新に成功しました。';
     }
     else{
@@ -61,3 +54,4 @@
          
     </body>
 </html>
+
