@@ -9,7 +9,7 @@ if(isset($_SESSION['User'])){
     echo '<p class="lead">','住所：', $_SESSION['User']['address1'],'</p>';
     echo '<p class="lead">','支払方法：', $_SESSION['User']['settlement'],'</p>';
     echo '<p class="lead">内容をご確認いただき、購入を確定してください。</p>';
-    echo '<br><a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a>';
+    echo '<br><a href="../G6-3/changemyInfo.php" class="btn btn-info">個人情報変更</a>';
     echo '<form action="../G5-2/confirm-cart.php" method="post">
         <button type="submit" class="btn btn-primary">購入を確定する</button>
     </form>';
