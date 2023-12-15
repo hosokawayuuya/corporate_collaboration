@@ -30,7 +30,7 @@ if(isset($_SESSION['User'])){
         <input type="hidden" name="shohin_name" value="<?php echo $row['shohin_name']; ?>">
         <input type="hidden" name="gazou_id" value="<?php echo $row['gazou_id']; ?>">
         <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-        <a href="../G6-3/changemyInfo.php" class="btn btn-info">変更する</a><br>
+        <a href="../G6-3/changemyInfo.php" class="btn btn-info">個人情報変更</a><br>
         <button type="submit" class="btn  btn-primary">購入を確定する</button>
     </form>
 </div>
